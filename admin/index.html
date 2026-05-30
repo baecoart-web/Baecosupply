@@ -269,26 +269,40 @@ function doLogin() {
   if (!email || !pass) { err.textContent = 'Completează email și parola.'; return; }
   btn.disabled = true; btn.textContent = 'Se verifică...';
 
-  // Verificare credentiale admin
-  var ADMIN_EMAIL = 'admin@baecosupply.ro';
-  var ADMIN_PASS  = 'Myvida.';
-  setTimeout(function() {
-    if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
-      _token = SKEY;
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-      document.getElementById('hdrUser').style.display = 'flex';
-      document.getElementById('userEmail').textContent = email;
-      loadAll();
-    } else {
-      err.textContent = 'Email sau parolă incorectă.';
+  fetch(SURL + '/auth/v1/token?grant_type=password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'apikey': SKEY },
+    body: JSON.stringify({ email: email, password: pass })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (!data.access_token) {
+      err.textContent = data.error_description || data.msg || 'Email sau parolă incorectă.';
       btn.disabled = false;
       btn.textContent = 'Intră în admin';
+      return;
     }
-  }, 500);
+    _token = data.access_token;
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('hdrUser').style.display = 'flex';
+    document.getElementById('userEmail').textContent = email;
+    loadAll();
+  })
+  .catch(function() {
+    err.textContent = 'Eroare de conexiune. Încearcă din nou.';
+    btn.disabled = false;
+    btn.textContent = 'Intră în admin';
+  });
 }
 
 function doLogout() {
+  if (_token) {
+    fetch(SURL + '/auth/v1/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SKEY, 'Authorization': 'Bearer ' + _token }
+    }).catch(function(){});
+  }
   _token = null;
   document.getElementById('dashboard').style.display = 'none';
   document.getElementById('hdrUser').style.display = 'none';
