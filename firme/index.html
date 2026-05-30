@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Toate Firmele de Construcții | BaecoSupply</title>
+<meta name="description" content="3440 de firme locale de construcții din Moldova și România. Depozite, constructori, excavații, transport, instalații. Găsește rapid firma potrivită din zona ta.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://baecosupply.ro/firme/">
+<meta name="theme-color" content="#f05a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0e0f11;--g2:#13141a;--g3:#1a1c22;--g4:#21232b;--o:#f05a1a;--ol:#ff6d2e;--od:rgba(240,90,26,.10);--w:#fff;--w7:rgba(255,255,255,.7);--w5:rgba(255,255,255,.5);--w1:rgba(255,255,255,.055);--m:#7e8494;--ml:#a0a6b8;--br:rgba(255,255,255,.07);--bo:rgba(240,90,26,.3);--green:#3ecf6e;--r:6px;--rl:10px;--rx:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{background:var(--g);color:var(--w);font-family:'Barlow',sans-serif;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--g2)}::-webkit-scrollbar-thumb{background:var(--o);border-radius:2px}
+a{text-decoration:none;color:inherit}
+.hdr{background:rgba(14,15,17,.96);border-bottom:1px solid var(--br);padding:0 1.2rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.hdr-i{max-width:1200px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em}.logo span{color:var(--o)}
+.hn{display:flex;gap:.2rem;align-items:center}
+.ni{font-size:.7rem;color:var(--w5);font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .6rem;border-radius:var(--r);transition:all .2s}.ni:hover{color:var(--w);background:var(--w1)}
+.np{background:var(--o);color:var(--w)!important;padding:.35rem .8rem;border-radius:var(--r)}.np:hover{background:var(--ol)}
+.ni-ins{background:#D4AF37!important;color:#111827!important;border:1px solid #B8860B!important;font-weight:700;border-radius:var(--r);padding:.35rem .9rem!important}.ni-ins:hover{background:#B8860B!important;color:#fff!important}
+
+.page-hero{background:linear-gradient(135deg,rgba(14,22,32,.98),rgba(14,15,17,.98));border-bottom:1px solid var(--br);padding:2.5rem 1.2rem 2rem;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-40%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(240,90,26,.07) 0%,transparent 70%);pointer-events:none}
+.ph-i{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.ph-label{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.ph-label::before{content:'';width:16px;height:2px;background:var(--o)}
+.ph-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);letter-spacing:.03em;line-height:.95;margin-bottom:.6rem}
+.ph-sub{font-size:.85rem;color:var(--m);max-width:480px}
+
+.search-bar{background:var(--g2);border-bottom:1px solid var(--br);padding:1rem 1.2rem;position:sticky;top:56px;z-index:90}
+.sb-i{max-width:1200px;margin:0 auto;display:flex;gap:.5rem;flex-wrap:wrap}
+.sb-wrap{flex:1;min-width:200px;display:flex;align-items:center;gap:.5rem;background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:0 .9rem;height:40px;transition:border .2s}
+.sb-wrap:focus-within{border-color:rgba(240,90,26,.4)}
+.sb-wrap svg{flex-shrink:0;color:var(--m)}
+.sb-wrap input{flex:1;background:transparent;border:none;outline:none;color:var(--w);font-size:.85rem;font-family:'Barlow',sans-serif}
+.sb-wrap input::placeholder{color:var(--m)}
+.sb-sel{background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:0 .8rem;height:40px;color:var(--w);font-size:.82rem;outline:none;cursor:pointer;font-family:'Barlow',sans-serif;min-width:130px}
+.sb-sel option{background:var(--g3)}
+.sb-sel:focus{border-color:rgba(240,90,26,.4)}
+.sb-cnt{font-size:.72rem;color:var(--m);display:flex;align-items:center;white-space:nowrap;padding:0 .3rem}
+
+.main{max-width:1200px;margin:0 auto;padding:1.5rem 1.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.9rem}
+
+.fc{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);padding:1.1rem;transition:all .25s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:.75rem}
+.fc:hover{border-color:rgba(240,90,26,.25);transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.fc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--o);transition:width .3s}
+.fc:hover::after{width:100%}
+.fc-hd{display:flex;align-items:flex-start;gap:.75rem}
+.fc-av{width:44px;height:44px;flex-shrink:0;background:linear-gradient(135deg,rgba(240,90,26,.18),rgba(240,90,26,.06));border:1px solid rgba(240,90,26,.25);border-radius:var(--rl);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.05em;color:var(--o)}
+.fc-info{flex:1;min-width:0}
+.fc-name{font-weight:700;font-size:.9rem;margin-bottom:.18rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fc-sub{font-size:.68rem;color:var(--m);display:flex;align-items:center;gap:.25rem}
+.fc-badges{display:flex;gap:.28rem;flex-wrap:wrap}
+.fcb{font-size:.57rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.12rem .42rem;border-radius:2px}
+.fcb-a{background:rgba(62,207,110,.1);border:1px solid rgba(62,207,110,.22);color:#3ecf6e}
+.fcb-m{background:rgba(30,107,158,.12);border:1px solid rgba(30,107,158,.25);color:#4db8e8}
+.fcb-s{background:var(--od);border:1px solid var(--bo);color:var(--o)}
+.fcb-l{background:var(--w1);border:1px solid var(--br);color:var(--ml)}
+.fc-meta{font-size:.72rem;color:var(--m);display:flex;gap:.6rem;flex-wrap:wrap}
+.fc-meta span{display:flex;align-items:center;gap:.22rem}
+.fc-acts{display:flex;gap:.4rem;margin-top:.1rem}
+.fa{flex:1;padding:.45rem .5rem;border-radius:var(--r);font-size:.7rem;font-weight:700;letter-spacing:.03em;text-align:center;cursor:pointer;transition:all .2s;border:none;display:flex;align-items:center;justify-content:center;gap:.25rem}
+.fa-wa{background:#25d366;border:1px solid #1ebe5c;color:#fff}.fa-wa:hover{background:#1ebe5c;transform:translateY(-1px)}
+.fa-tel{background:var(--w1);border:1px solid var(--br);color:var(--w7)}.fa-tel:hover{background:rgba(255,255,255,.1)}
+.fa-more{background:var(--od);border:1px solid var(--bo);color:var(--o)}.fa-more:hover{background:rgba(240,90,26,.18)}
+
+/* UI polish firm cards - spacing fix */
+.fc{
+  border:1px solid rgba(255,122,24,.22);
+  box-shadow:0 0 0 1px rgba(255,122,24,.02);
+}
+.fc:hover{
+  border-color:rgba(255,122,24,.55);
+  box-shadow:0 0 22px rgba(255,122,24,.08),0 12px 32px rgba(0,0,0,.34);
+}
+.fn{
+  color:var(--w);
+  text-decoration:none;
+  font-weight:700;
+  font-size:.98rem;
+  line-height:1.35;
+}
+.fn:hover{color:var(--o)}
+.fs{
+  color:var(--w7);
+  font-size:.82rem;
+  margin-top:.25rem;
+  line-height:1.45;
+}
+.fbadges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+  align-items:center;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.25rem;
+  font-size:.68rem;
+  color:var(--m);
+  line-height:1.2;
+}
+.badge:not(:last-child)::after{
+  content:'·';
+  color:rgba(255,122,24,.75);
+  margin-left:.4rem;
+}
+.frow{
+  display:flex;
+  gap:.45rem;
+  align-items:flex-start;
+  color:var(--w7);
+  font-size:.76rem;
+  line-height:1.45;
+}
+.frow a{color:var(--w7);text-decoration:none}
+.frow a:hover{color:var(--o)}
+.factions{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:auto;
+  padding-top:.35rem;
+}
+.fbtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  flex:0 0 auto;
+  white-space:nowrap;
+  color:var(--w);
+  text-decoration:none;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  border:1px solid rgba(255,122,24,.22);
+  border-radius:var(--r);
+  padding:.5rem .72rem;
+  background:rgba(255,255,255,.035);
+  transition:all .2s ease;
+}
+.fbtn:hover{
+  color:var(--o);
+  border-color:rgba(255,122,24,.5);
+  background:rgba(255,122,24,.10);
+  transform:translateY(-1px);
+}
+.fbtn.primary{
+  background:rgba(255,122,24,.12);
+  border-color:rgba(255,122,24,.34);
+  color:var(--o);
+}
+@media(max-width:520px){
+  .factions{gap:10px}
+  .fbtn{font-size:.72rem;padding:.48rem .62rem}
+}
+
+
+.no-results{text-align:center;padding:4rem 1rem;color:var(--m)}
+.no-results svg{margin:0 auto 1rem;display:block;color:rgba(255,255,255,.12)}
+.no-results h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--w5);margin-bottom:.5rem}
+
+footer{background:var(--g2);border-top:1px solid var(--br);padding:1.5rem 1.2rem}
+.fi{max-width:1200px;margin:0 auto}
+.fc2{font-size:.68rem;color:var(--m);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem}
+.fc2 b{color:var(--o)}
+.fbd{margin-top:.5rem;font-size:.6rem;color:rgba(255,255,255,.15)}
+.fbd a{color:rgba(240,90,26,.38);transition:color .2s}.fbd a:hover{color:var(--o)}
+
+@media only screen and (max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .sb-i{flex-direction:column}
+  .sb-wrap{min-width:100%}
+  .sb-sel{min-width:100%}
+  .hn .ni:not(.np):not(.ni-ins){display:none}
+}
+.baeco-link{color:#f15a24!important;font-weight:800}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Toate Firmele de Construcții", "url": "https://baecosupply.ro/firme/", "isPartOf": {"@type": "WebSite", "name": "BaecoSupply", "url": "https://baecosupply.ro"}}</script>
+
+<meta property="og:title" content="Toate Firmele de Construcții | BaecoSupply">
+<meta property="og:url" content="https://baecosupply.ro/firme/">
+<meta property="og:site_name" content="BaecoSupply">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-i">
+    <a href="/index.html" class="logo">Baeco<span>Supply</span></a>
+    <nav class="hn">
+      <a href="/materiale/index.html" class="ni">Materiale</a>
+      <a href="/servicii/index.html" class="ni">Servicii</a>
+      <a href="/cereri/index.html" class="ni">Cereri</a>
+      <a href="/inscrie/index.html" class="ni ni-ins">Înscrie firmă</a>
+      <a href="/cereri/index.html" class="ni np">Cere ofertă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="ph-i">
+    <div class="ph-label">Platformă construcții</div>
+    <h1 class="ph-title">Toate firmele</h1>
+    <p class="ph-sub">3440 firme locale din Moldova — depozite, constructori, servicii și utilaje.</p>
+  </div>
+</div>
+
+<div class="search-bar">
+  <div class="sb-i">
+    <div class="sb-wrap">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchQ" placeholder="Caută firmă, serviciu, material..." oninput="filterFirme()">
+    </div>
+    <select class="sb-sel" id="filterCat" onchange="filterFirme()">
+      <option value="">Toate categoriile</option>
+      <option value="Materiale">Materiale</option>
+      <option value="Servicii">Servicii</option>
+    </select>
+    <select class="sb-sel" id="filterJudet" onchange="filterFirme()">
+      <option value="">Toate județele</option>
+      <option>Iași</option>
+      <option>Neamț</option>
+      <option>Bacău</option>
+      <option>Suceava</option>
+      <option>Vaslui</option>
+      <option>Botoșani</option>
+      <option>Vrancea</option><option>Galați</option>
+    </select>
+    <select class="sb-sel" id="filterTip" onchange="filterFirme()">
+      <option value="">Toate tipurile</option>
+                <option value="Furnizor materiale">Furnizor materiale</option>
+                <option value="Servicii construcții">Servicii construcții</option>
+                <option value="Utilaje și transport">Utilaje și transport</option>
+                <option value="Producător">Producător</option>
+    </select>
+    <div class="sb-cnt" id="cntLabel">3440 firme</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="grid" id="firmeGrid"></div>
+  <div id="noResults" style="display:none" class="no-results">
+    <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <h3>Nicio firmă găsită</h3>
+    <p>Încearcă alte cuvinte sau schimbă filtrele.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <div class="fc2"><span>© 2026 <b>BaecoSupply</b> · Conectăm construcțiile României</span><a href="/index.html" style="color:var(--m)">Acasă</a></div>
+    <div class="fbd">Platformă realizată de <a href="https://baecodigital.ro" target="_blank" rel="noopener noreferrer">BaecoDigital</a> · Soluții digitale pentru construcții</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   BaecoSupply – firme/index.html
+   Supabase live data (firme_publice, status_activ = true)
+   Replaces static FIRME array – no data in this file.
+   ============================================================ */
+
+const SUPABASE_URL  = 'https://mgusrlvkdxozvpseafbx.supabase.co';
+const SUPABASE_KEY  = 'sb_publishable_xmQtT4L2ybxKXJL0XGwElA_wIrLpo2I';
+
+/* Map Supabase row → shape expected by card() / filterFirme() */
+function mapRow(r) {
+  return {
+    slug   : r.slug      || '',
+    nume   : r.nume      || '',
+    cat    : mapCat(r.categorie, r.categorie_site),
+    sub    : r.subcategorie || r.categorie || '',
+    judet  : r.judet     || '',
+    loc    : r.localitate|| '',
+    tel    : r.telefon   || '',
+    web    : r.website   || '',
+    adr    : r.adresa    || '',
+    tip    : mapTip(r.categorie, r.categorie_site),
+  };
+}
+
+/* Map categorie / categorie_site → one of the 2 filter values */
+function mapCat(cat, catSite) {
+  var src = (catSite || cat || '').toLowerCase();
+  if (src.includes('material') || src.includes('furnizor') || src.includes('depozit') ||
+      src.includes('produc') || src.includes('lemn') || src.includes('beton') ||
+      src.includes('instalat') && src.includes('sanitare') ) return 'Materiale';
+  if (src.includes('servicii') || src.includes('constru') || src.includes('utilaj') ||
+      src.includes('transport') || src.includes('instalat') || src.includes('tamplarie') ||
+      src.includes('fereastr') || src.includes('acoperis') || src.includes('energia')) return 'Servicii';
+  /* fallback: try raw categorie */
+  var c = (cat || '').toLowerCase();
+  if (c.includes('material') || c.includes('furnizor')) return 'Materiale';
+  return 'Servicii';
+}
+
+/* Map to one of the 4 tip filter values */
+function mapTip(cat, catSite) {
+  var src = (catSite || cat || '').toLowerCase();
+  if (src.includes('utilaj') || src.includes('transport') || src.includes('excavat') ||
+      src.includes('drum') || src.includes('macara')) return 'Utilaje și transport';
+  if (src.includes('furnizor') || src.includes('material') || src.includes('depozit') ||
+      src.includes('beton') || src.includes('lemn') || src.includes('tamplarie') ||
+      src.includes('fereastr') || src.includes('acoperis') && !src.includes('servicii')) return 'Furnizor materiale';
+  if (src.includes('produc')) return 'Producător';
+  /* raw cat check */
+  var c = (cat || '').toLowerCase();
+  if (c === 'furnizor materiale' || c === 'materiale') return 'Furnizor materiale';
+  if (c === 'producător' || c === 'producator') return 'Producător';
+  if (c === 'utilaje și transport' || c === 'servicii' && src.includes('transport')) return 'Utilaje și transport';
+  return 'Servicii construcții';
+}
+
+/* ---- utility functions (unchanged from original) ---- */
+function normText(s){
+  return (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+}
+function esc(s){
+  return (s||'').toString().replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});
+}
+function cleanWeb(url){
+  url=(url||'').toString().trim();
+  if(!url || url.toLowerCase()==='nan' || url.toLowerCase()==='null' || url.toLowerCase()==='undefined') return '';
+  if(!/^https?:\/\//i.test(url)) url='https://'+url;
+  return url;
+}
+
+/* ---- card renderer (identical markup to original) ---- */
+function card(f){
+  var name=f.nume||f.name||'Firmă';
+  var slug=f.slug||'#';
+  var cat=f.cat||'';
+  var sub=f.sub||f.srv||'';
+  var jud=f.judet||f.county||'';
+  var loc=f.loc||f.city||'';
+  var tel=(f.tel||f.phone||'').toString();
+  var web=cleanWeb(f.web||f.website||'');
+  var adr=f.adr||f.address||'';
+  var href='/firme/'+slug+'.html';
+  var telHref=tel.replace(/[^0-9+]/g,'');
+  return '<article class="fc">'
+    +'<div class="fc-hd"><div><a class="fn" href="'+href+'">'+esc(name)+'</a><div class="fs">'+esc(sub||cat||'Construcții')+'</div></div></div>'
+    +'<div class="fbadges">'
+      +(cat?'<span class="badge">'+esc(cat)+'</span>':'')
+      +(jud?'<span class="badge">'+esc(jud)+'</span>':'')
+      +(loc?'<span class="badge">'+esc(loc)+'</span>':'')
+    +'</div>'
+    +(adr?'<div class="frow">📍 <span>'+esc(adr)+'</span></div>':'')
+    +(tel && tel.toLowerCase()!=='nan'?'<div class="frow">☎ <a href="tel:'+esc(telHref)+'">'+esc(tel)+'</a></div>':'')
+    +'<div class="factions"><a class="fbtn primary" href="'+href+'">Vezi firmă</a>'
+      +(web && web.toLowerCase()!=='nan'?'<a class="fbtn" target="_blank" rel="noopener" href="'+esc(web)+'">Website</a>':'')
+    +'</div>'
+  +'</article>';
+}
+
+/* ---- global state ---- */
+var FIRME = [];
+var dataLoaded = false;
+
+/* ---- filter + render (identical logic to original) ---- */
+function filterFirme(){
+  var qEl=document.getElementById('searchQ');
+  var catEl=document.getElementById('filterCat');
+  var judEl=document.getElementById('filterJudet');
+  var tipEl=document.getElementById('filterTip');
+  var grid=document.getElementById('firmeGrid');
+  var no=document.getElementById('noResults');
+  var cnt=document.getElementById('cntLabel');
+  if(!grid) return;
+  var q=normText(qEl?qEl.value:'').trim();
+  var cat=catEl?catEl.value:'';
+  var jud=judEl?judEl.value:'';
+  var tip=tipEl?tipEl.value:'';
+  var res=FIRME.filter(function(f){
+    if(cat && f.cat!==cat) return false;
+    if(jud && f.judet!==jud) return false;
+    if(tip && f.tip!==tip) return false;
+    if(q){
+      var hay=normText([f.nume,f.name,f.cat,f.sub,f.tip,f.judet,f.loc,f.srv,f.adr,f.address].join(' '));
+      if(hay.indexOf(q)===-1) return false;
+    }
+    return true;
+  });
+  if(cnt) cnt.textContent = res.length===FIRME.length ? FIRME.length+' firme' : res.length+' din '+FIRME.length+' firme';
+  grid.innerHTML=res.map(card).join('');
+  if(no) no.style.display=res.length?'none':'block';
+}
+
+/* ---- show loading state ---- */
+function showLoading(){
+  var grid=document.getElementById('firmeGrid');
+  if(grid) grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--m)">Se încarcă firmele...</div>';
+  var cnt=document.getElementById('cntLabel');
+  if(cnt) cnt.textContent='Se încarcă...';
+}
+
+/* ---- load static JSON + Supabase, then merge safely ---- */
+function normalizeRow(r){
+  if(!r) return null;
+  if(r.nume || r.name) {
+    var f = {
+      slug : r.slug || '',
+      nume : r.nume || r.name || '',
+      cat  : r.cat || r.category || mapCat(r.categorie, r.categorie_site),
+      sub  : r.sub || r.subcategorie || r.category || r.categorie || '',
+      judet: r.judet || r.county || '',
+      loc  : r.loc || r.city || r.localitate || '',
+      tel  : r.tel || r.phone || r.telefon || '',
+      web  : r.web || r.website || '',
+      adr  : r.adr || r.address || r.adresa || '',
+      tip  : r.tip || mapTip(r.categorie, r.categorie_site)
+    };
+    return f.slug || f.nume ? f : null;
+  }
+  return mapRow(r);
+}
+
+function mergeFirme(lists){
+  var byKey = {};
+  lists.forEach(function(list){
+    (list || []).forEach(function(raw){
+      var f = normalizeRow(raw);
+      if(!f) return;
+      var key = (f.slug || (f.nume+'|'+f.tel+'|'+f.judet)).toString().toLowerCase();
+      if(!key) return;
+      byKey[key] = Object.assign({}, byKey[key] || {}, f); // ultimele surse pot completa datele
+    });
+  });
+  return Object.values(byKey).sort(function(a,b){
+    return (a.nume || '').localeCompare((b.nume || ''), 'ro');
+  });
+}
+
+async function fetchJson(url, opts){
+  try{
+    var r = await fetch(url, opts || {});
+    if(!r.ok) return [];
+    var data = await r.json();
+    return Array.isArray(data) ? data : [];
+  }catch(e){
+    console.warn('BaecoSupply: sursa indisponibila', url, e);
+    return [];
+  }
+}
+
+async function fetchSupabaseTable(table){
+  var all = [], pageSize = 1000, from = 0;
+  while(true){
+    var url = SUPABASE_URL + '/rest/v1/' + table
+      + '?select=*'
+      + (table === 'firme_publice' ? '&status_activ=eq.true' : '&active=eq.true&status=eq.approved')
+      + '&order=nume.asc'
+      + '&offset=' + from
+      + '&limit=' + pageSize;
+    var rows = await fetchJson(url, {
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Range-Unit': 'items',
+        'Prefer': 'count=none'
+      }
+    });
+    if(!rows.length) break;
+    all = all.concat(rows);
+    from += rows.length;
+    if(rows.length < pageSize) break;
+  }
+  return all;
+}
+
+async function loadFirme(){
+  showLoading();
+
+  // 1) ZIP/static: baza completă, ca site-ul să nu rămână gol dacă Supabase/RLS/tabelul greșește.
+  var staticRows = await fetchJson('/assets/firme.json', {cache:'no-store'});
+  FIRME = mergeFirme([staticRows]);
+  if(FIRME.length) filterFirme();
+
+  // 2) Supabase: adaugă/actualizează firme aprobate manual, fără să șteargă baza statică.
+  var results = await Promise.all([
+    fetchSupabaseTable('firme_publice'),
+    fetchSupabaseTable('firme')
+  ]);
+
+  FIRME = mergeFirme([staticRows, results[0], results[1]]);
+  dataLoaded = true;
+
+  var params=new URLSearchParams(window.location.search);
+  var q=params.get('q');
+  if(q && document.getElementById('searchQ')) document.getElementById('searchQ').value=q;
+  var jud=params.get('judet');
+  if(jud && document.getElementById('filterJudet')) document.getElementById('filterJudet').value=jud;
+
+  filterFirme();
+}
+
+/* ---- boot ---- */
+document.addEventListener('DOMContentLoaded', loadFirme);
+</script>
+
+<script src="/assets/stats-auto.js"></script>
+</body>
+</html>

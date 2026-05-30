@@ -1,0 +1,31 @@
+# ═══════════════════════════════════════════════════════
+# BaecoSupply — Redirects SEO
+# ═══════════════════════════════════════════════════════
+
+# ── JUDETE: .html → clean canonical URL (301) ──
+/judete/iasi.html          /judete/iasi/    301!
+/judete/bacau.html         /judete/bacau/   301!
+/judete/suceava.html             /judete/suceava/           301!
+/judete/neamt.html         /judete/neamt/   301!
+/judete/vaslui.html              /judete/vaslui/            301!
+/judete/botosani.html            /judete/botosani/          301!
+/judete/vrancea.html             /judete/vrancea/           301!
+/judete/galati.html              /judete/galati/            301!
+
+# ── CLEAN URL ALIASES: index.html → clean ──
+/index.html                /               301!
+/judete/index.html         /judete/        301!
+/servicii/index.html       /servicii/      301!
+/materiale/index.html      /materiale/     301!
+/firme/index.html          /firme/         301!
+/cereri/index.html         /cereri/        301!
+/inscrie/index.html        /inscrie/       301!
+
+# ── SEO ALIAS: /judete/[judet]/[serviciu] → /servicii/[serviciu]/[judet]/ ──
+/judete/iasi/acoperisuri      /judete/iasi/acoperisuri/   301
+/judete/bacau/termopane       /judete/bacau/termopane/    301
+/judete/suceava/beton         /judete/suceava/beton/      301
+/judete/neamt/excavatii       /judete/neamt/excavatii/    301
+
+# ── 404 ──
+/*   /404.html   404

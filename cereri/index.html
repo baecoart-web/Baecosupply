@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cereri • Oferte Construcții | BaecoSupply</title>
+<meta name="description" content="Postează o cerere de materiale sau servicii de construcții și firmele locale te contactează direct. Gratuit, rapid, fără intermediari.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://baecosupply.ro/cereri/">
+<meta name="theme-color" content="#f05a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0e0f11;--g2:#13141a;--g3:#1a1c22;--g4:#21232b;--o:#f05a1a;--ol:#ff6d2e;--od:rgba(240,90,26,.10);--w:#fff;--w7:rgba(255,255,255,.7);--w5:rgba(255,255,255,.5);--w1:rgba(255,255,255,.055);--m:#7e8494;--ml:#a0a6b8;--br:rgba(255,255,255,.07);--bo:rgba(240,90,26,.3);--green:#3ecf6e;--r:6px;--rl:10px;--rx:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{background:var(--g);color:var(--w);font-family:'Barlow',sans-serif;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--g2)}::-webkit-scrollbar-thumb{background:var(--o);border-radius:2px}
+a{text-decoration:none;color:inherit}button{font-family:'Barlow',sans-serif;cursor:pointer}
+.hdr{background:rgba(14,15,17,.96);border-bottom:1px solid var(--br);padding:0 1.2rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.hdr-i{max-width:1200px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em}.logo span{color:var(--o)}
+.hn{display:flex;gap:.2rem}.ni{font-size:.7rem;color:var(--w5);font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .6rem;border-radius:var(--r);transition:all .2s}.ni:hover{color:var(--w);background:var(--w1)}.ni.on{color:var(--o)}
+.np{background:var(--o);color:var(--w)!important}.np:hover{background:var(--ol)}.ni-ins{background:#D4AF37!important;color:#111827!important;border:1px solid #B8860B!important;font-weight:700;border-radius:var(--r);padding:.35rem .9rem!important}.ni-ins:hover{background:#B8860B!important;color:#fff!important}
+
+.hero{background:linear-gradient(135deg,rgba(20,12,8,.98),rgba(14,15,17,.98));border-bottom:1px solid var(--br);padding:2.5rem 1.2rem 2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(240,90,26,.08) 0%,transparent 70%);pointer-events:none}
+.hi{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.hlbl{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.hlbl::before{content:'';width:16px;height:2px;background:var(--o)}
+.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);letter-spacing:.03em;line-height:.95;margin-bottom:.6rem}
+.hsub{font-size:.88rem;color:var(--m);max-width:500px}
+
+.main{max-width:1200px;margin:0 auto;padding:2rem 1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+
+/* FORMULAR */
+.form-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;position:relative}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--o),transparent)}
+.fc-hd{padding:1.2rem 1.4rem;border-bottom:1px solid var(--br)}
+.fc-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;margin-bottom:.2rem}
+.fc-sub{font-size:.78rem;color:var(--m)}
+.fc-body{padding:1.4rem}
+.tabs2{display:flex;gap:.25rem;background:var(--g3);border-radius:var(--r);padding:.2rem;margin-bottom:1.1rem}
+.tab2{flex:1;padding:.38rem .6rem;border-radius:4px;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--m);transition:all .2s;text-align:center}
+.tab2.on{background:var(--o);color:var(--w)}
+.fg{margin-bottom:.85rem}
+.fl{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ml);margin-bottom:.3rem;display:block}
+.fi,.fs,.fta{width:100%;background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.62rem .85rem;color:var(--w);font-size:.86rem;outline:none;transition:border .2s;font-family:'Barlow',sans-serif}
+.fi:focus,.fs:focus,.fta:focus{border-color:rgba(240,90,26,.4);box-shadow:0 0 0 3px rgba(240,90,26,.08)}
+.fi::placeholder,.fta::placeholder{color:var(--m)}.fs option{background:var(--g3)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.fta{resize:vertical;min-height:75px}
+.fsub{width:100%;background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.8rem;font-size:.86rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.2rem}
+.fsub:hover{background:var(--ol);transform:translateY(-1px)}
+.fnote{font-size:.68rem;color:var(--m);text-align:center;margin-top:.65rem;line-height:1.6}
+
+/* FEED CERERI */
+.feed-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden}
+.feed-hd{padding:1.2rem 1.4rem;border-bottom:1px solid var(--br);display:flex;align-items:center;justify-content:space-between}
+.feed-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;display:flex;align-items:center;gap:.6rem}
+.live-dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 8px rgba(62,207,110,.5);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+.feed-sub{font-size:.72rem;color:var(--m)}
+.feed-items{padding:.5rem}
+.fi2{background:var(--g3);border:1px solid var(--br);border-radius:var(--rl);padding:.85rem 1rem;margin-bottom:.5rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .22s;cursor:pointer}
+.fi2:last-child{margin-bottom:0}
+.fi2:hover{border-color:rgba(240,90,26,.25);background:var(--g4)}
+.fi-cat{width:34px;height:34px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem}
+.fi-cat.mat{background:rgba(30,107,158,.15);border:1px solid rgba(30,107,158,.25)}
+.fi-cat.srv{background:var(--od);border:1px solid var(--bo)}
+.fi-body{flex:1;min-width:0}
+.fi-name{font-weight:700;font-size:.86rem;margin-bottom:.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fi-meta{font-size:.7rem;color:var(--m);display:flex;gap:.5rem;flex-wrap:wrap}
+.fi-badge{display:inline-flex;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .42rem;border-radius:2px;margin-top:.3rem}
+.fi-badge.urgent{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.28);color:#f87171}
+.fi-badge.nou{background:rgba(62,207,110,.1);border:1px solid rgba(62,207,110,.22);color:#3ecf6e}
+.fi-time{font-size:.63rem;color:var(--m);flex-shrink:0;margin-left:auto}
+
+.qmodal{position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:999;display:none;align-items:center;justify-content:center;padding:1rem}
+.qmodal.on{display:flex}
+.qbox{width:min(520px,100%);background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.qhd{padding:1rem 1.2rem;border-bottom:1px solid var(--br);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.qt{font-weight:700;font-size:1rem}.qx{background:transparent;border:0;color:var(--m);font-size:1.4rem;line-height:1}
+.qbd{padding:1rem 1.2rem}.qrow{font-size:.8rem;color:var(--m);margin-bottom:.45rem}.qrow b{color:var(--w)}
+.qphone{display:flex;align-items:center;justify-content:center;margin-top:.8rem;background:var(--o);color:var(--w);border-radius:var(--r);padding:.7rem;font-weight:700}
+
+.cum-sect{background:var(--g2);border-top:1px solid var(--br);padding:2.5rem 1.2rem}
+.cs-i{max-width:1200px;margin:0 auto}
+.cs-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:1.5rem}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--br);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden}
+.cs-step{background:var(--g2);padding:1.5rem;transition:background .25s}
+.cs-step:hover{background:var(--g3)}
+.cs-n{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(240,90,26,.12);line-height:1;margin-bottom:.6rem}
+.cs-icon{width:38px;height:38px;background:var(--od);border:1px solid var(--bo);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:var(--o)}
+.cs-t{font-weight:700;font-size:.9rem;margin-bottom:.3rem}
+.cs-d{font-size:.8rem;color:var(--m);line-height:1.7}
+
+footer{background:var(--g2);border-top:1px solid var(--br);padding:1.5rem 1.2rem}
+.fi3{max-width:1200px;margin:0 auto}
+.fc3{font-size:.68rem;color:var(--m);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem}
+.fc3 b{color:var(--o)}.fbd{margin-top:.5rem;font-size:.6rem;color:rgba(255,255,255,.15)}.fbd a{color:rgba(240,90,26,.38)}.fbd a:hover{color:var(--o)}
+
+@media only screen and (max-width:700px){
+  .main{grid-template-columns:1fr!important}
+  .frow{grid-template-columns:1fr!important}
+  .cs-grid{grid-template-columns:1fr!important}
+  .hn .ni:not(.np):not(.ni-ins){display:none}
+}
+</style>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cere Oferta Constructii - Comparati Preturi | BaecoSupply">
+<meta property="og:description" content="Posteaza o cerere si primeste oferte de la firme locale de constructii din Moldova. Gratuit, rapid, fara intermediari.">
+<meta property="og:url" content="https://baecosupply.ro/cereri/">
+<meta property="og:image" content="https://baecosupply.ro/assets/icon-512.svg">
+<meta property="og:site_name" content="BaecoSupply">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Cere Ofertă", "url": "https://baecosupply.ro/cereri/", "isPartOf": {"@type": "WebSite", "name": "BaecoSupply", "url": "https://baecosupply.ro"}}</script>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-i">
+    <a href="/index.html" class="logo">Baeco<span>Supply</span></a>
+    <nav class="hn">
+      <a href="/materiale/index.html" class="ni">Materiale</a>
+      <a href="/servicii/index.html" class="ni">Servicii</a>
+      <a href="/firme/index.html" class="ni">Firme</a>
+      <a href="/inscrie/index.html" class="ni ni-ins">Înscrie firmă</a><a href="/cereri/index.html" class="ni on np">Cere ofertă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hi">
+    <div class="hlbl">Cereri • Oferte</div>
+    <h1 class="htitle">Cere ofertă.<br>Firmele vin la tine.</h1>
+    <p class="hsub">Descrie ce cauți și firmele verificate din zona ta primesc notificare și te contactează direct pe WhatsApp sau telefon.</p>
+  </div>
+</div>
+
+<div class="main">
+  <div class="form-card">
+    <div class="fc-hd">
+      <div class="fc-title">Cerere nouă</div>
+      <div class="fc-sub">Completează rapid — firmele te contactează în câteva ore</div>
+    </div>
+    <div class="fc-body">
+      <div class="tabs2">
+        <button class="tab2 on" onclick="setTab2(this,'mat')">Caut material</button>
+        <button class="tab2" onclick="setTab2(this,'srv')">Caut serviciu</button>
+      </div>
+      <div class="fg">
+        <label class="fl">Ce cauți?</label>
+        <input type="text" class="fi" id="cWhat" required placeholder="Ex: 200m³ cherestea brad / electrician autorizat...">
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label class="fl">Județ <span style="color:var(--o)">*</span></label>
+          <select class="fs" id="cJudet" required>
+            <option value="">Selectează județul</option>
+            <option>Iași</option><option>Bacău</option><option>Suceava</option>
+            <option>Neamț</option><option>Vaslui</option><option>Botoșani</option><option>Vrancea</option><option>Galați</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Localitate <span style="color:var(--o)">*</span></label>
+          <input type="text" class="fi" id="cLoc" required placeholder="Oraș sau comună">
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">Telefon <span style="color:var(--o)">*</span></label>
+        <input type="tel" class="fi" id="cTel" required placeholder="+40 7xx xxx xxx">
+      </div>
+      <div class="fg">
+        <label class="fl">Descrie lucrarea sau materialele necesare</label>
+        <textarea class="fta" id="cDesc" rows="4" placeholder="Ex: am nevoie de 50m³ beton C20/25 pentru fundație, livrare în 2 săptămâni. Sau: caut echipă pentru montaj acoperiș tablă, suprafață ~120mp..." style="min-height:100px"></textarea>
+      </div>
+      <button class="fsub" onclick="submitCerere()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Trimite cererea
+      </button>
+      <p id="cerere-err" style="color:#f87171;font-size:.73rem;text-align:center;min-height:1.2em;margin-top:.4rem"></p>
+      <p class="fnote">Cererea ta ajunge la firmele relevante din județul selectat. Gratuit și fără cont.</p>
+    </div>
+  </div>
+
+  <div class="feed-card">
+    <div class="feed-hd">
+      <div>
+        <div class="feed-title"><span class="live-dot"></span>Cereri recente</div>
+        <div class="feed-sub">Cereri active din ultimele 24h</div>
+      </div>
+    </div>
+    <div class="feed-items" id="recentRequests">
+      <div class="fi2">
+        <div class="fi-cat mat">📦</div>
+        <div class="fi-body">
+          <div class="fi-name">Caut 200m³ cherestea brad</div>
+          <div class="fi-meta"><span>📍 Iași</span><span>🪵 Cherestea</span></div>
+          <span class="fi-badge urgent">Urgent</span>
+        </div>
+        <div class="fi-time">12 min</div>
+      </div>
+      <div class="fi2">
+        <div class="fi-cat srv">🔧</div>
+        <div class="fi-body">
+          <div class="fi-name">Caut electrician autorizat</div>
+          <div class="fi-meta"><span>📍 Bacău</span><span>⚡ Electricieni</span></div>
+          <span class="fi-badge nou">Nou</span>
+        </div>
+        <div class="fi-time">34 min</div>
+      </div>
+      <div class="fi2">
+        <div class="fi-cat mat">📦</div>
+        <div class="fi-body">
+          <div class="fi-name">Fier beton 12mm — 5 tone</div>
+          <div class="fi-meta"><span>📍 Suceava</span><span>🔩 Fier beton</span></div>
+        </div>
+        <div class="fi-time">1h</div>
+      </div>
+      <div class="fi2">
+        <div class="fi-cat srv">🔧</div>
+        <div class="fi-body">
+          <div class="fi-name">Excavator pe șenile — 3 zile</div>
+          <div class="fi-meta"><span>📍 Neamț</span><span>🚜 Utilaje</span></div>
+          <span class="fi-badge nou">Nou</span>
+        </div>
+        <div class="fi-time">2h</div>
+      </div>
+      <div class="fi2">
+        <div class="fi-cat mat">📦</div>
+        <div class="fi-body">
+          <div class="fi-name">Betoane C25/30 — fundație casă</div>
+          <div class="fi-meta"><span>📍 Iași</span><span>🏗️ Betoane</span></div>
+        </div>
+        <div class="fi-time">3h</div>
+      </div>
+      <div class="fi2">
+        <div class="fi-cat srv">🔧</div>
+        <div class="fi-body">
+          <div class="fi-name">Constructor casă lemn 120mp</div>
+          <div class="fi-meta"><span>📍 Vrancea</span><span>🏠 Construcții</span></div>
+          <span class="fi-badge nou">Nou</span>
+        </div>
+        <div class="fi-time">4h</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cum-sect">
+  <div class="cs-i">
+    <h2 class="cs-title">Cum funcționează</h2>
+    <div class="cs-grid">
+      <div class="cs-step">
+        <div class="cs-n">01</div>
+        <div class="cs-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="cs-t">Postezi cererea</div>
+        <p class="cs-d">Descrii ce cauți — material, serviciu sau utilaj — și selectezi județul.</p>
+      </div>
+      <div class="cs-step">
+        <div class="cs-n">02</div>
+        <div class="cs-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg></div>
+        <div class="cs-t">Firmele primesc notificare</div>
+        <p class="cs-d">Firmele relevante din zona ta primesc email cu cererea ta și pot răspunde direct.</p>
+      </div>
+      <div class="cs-step">
+        <div class="cs-n">03</div>
+        <div class="cs-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="cs-t">Contactezi direct</div>
+        <p class="cs-d">Firma te sună sau îți scrie pe WhatsApp. Negociezi direct, fără intermediari.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="qmodal" id="quoteModal" onclick="closeQuoteModal(event)">
+  <div class="qbox" onclick="event.stopPropagation()">
+    <div class="qhd">
+      <div class="qt" id="qmTitle">Detalii cerere</div>
+      <button class="qx" onclick="hideQuoteModal()" aria-label="Închide">×</button>
+    </div>
+    <div class="qbd" id="qmBody"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="fi3">
+    <div class="fc3"><span>© 2026 <b>BaecoSupply</b> · Cereri • Oferte</span><a href="/index.html" style="color:var(--m)">Acasă</a></div>
+    <div class="fbd">Platformă realizată de <a href="https://baecodigital.ro" target="_blank" rel="noopener noreferrer">BaecoDigital</a> · Soluții digitale pentru construcții</div>
+  </div>
+</footer>
+
+<script>
+var SUPABASE_URL = 'https://mgusrlvkdxozvpseafbx.supabase.co';
+var SUPABASE_ANON_KEY = 'sb_publishable_xmQtT4L2ybxKXJL0XGwElA_wIrLpo2I';
+var fallbackRequests = [
+  {tip:'Caut material',titlul:'Caut 200m³ cherestea brad',judet:'Iași',localitate:'Iași',telefon:'',descriere:'Cerere exemplu. Datele de contact apar pentru cererile trimise în Supabase.',created_at:new Date(Date.now()-12*60000).toISOString()},
+  {tip:'Caut serviciu',titlul:'Caut electrician autorizat',judet:'Bacău',localitate:'Bacău',telefon:'',descriere:'Cerere exemplu. Datele de contact apar pentru cererile trimise în Supabase.',created_at:new Date(Date.now()-34*60000).toISOString()},
+  {tip:'Caut material',titlul:'Fier beton 12mm — 5 tone',judet:'Suceava',localitate:'Suceava',telefon:'',descriere:'Cerere exemplu.',created_at:new Date(Date.now()-60*60000).toISOString()},
+  {tip:'Caut serviciu',titlul:'Excavator pe șenile — 3 zile',judet:'Neamț',localitate:'Neamț',telefon:'',descriere:'Cerere exemplu.',created_at:new Date(Date.now()-120*60000).toISOString()},
+  {tip:'Caut material',titlul:'Betoane C25/30 — fundație casă',judet:'Iași',localitate:'Iași',telefon:'',descriere:'Cerere exemplu.',created_at:new Date(Date.now()-180*60000).toISOString()},
+  {tip:'Caut serviciu',titlul:'Constructor casă lemn 120mp',judet:'Vrancea',localitate:'Vrancea',telefon:'',descriere:'Cerere exemplu.',created_at:new Date(Date.now()-240*60000).toISOString()}
+];
+var loadedRequests = fallbackRequests.slice();
+function esc(v){return String(v == null ? '' : v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function relTime(v){var d=v?new Date(v):new Date();var m=Math.max(1,Math.round((Date.now()-d.getTime())/60000));if(m<60)return m+' min';var h=Math.round(m/60);return h+'h';}
+function catLabel(r){var txt=(r.categorie||r.tip||'').toLowerCase();return txt.indexOf('servici')>-1?'🔧 Servicii':'📦 Materiale';}
+function renderRecentRequests(items){loadedRequests=items&&items.length?items:fallbackRequests;var box=document.getElementById('recentRequests');if(!box)return;box.innerHTML=loadedRequests.map(function(r,i){var isSrv=String(r.tip||'').toLowerCase().indexOf('servici')>-1;return '<div class="fi2" onclick="showQuoteDetails('+i+')">'+
+'<div class="fi-cat '+(isSrv?'srv':'mat')+'">'+(isSrv?'🔧':'📦')+'</div>'+
+'<div class="fi-body"><div class="fi-name">'+esc(r.titlul||r.titlu||r.ce_cauta||'Cerere ofertă')+'</div>'+
+'<div class="fi-meta"><span>📍 '+esc(r.localitate||r.judet||'')+'</span><span>'+catLabel(r)+'</span></div>'+
+(i<2?'<span class="fi-badge '+(i==0?'urgent':'nou')+'">'+(i==0?'Urgent':'Nou')+'</span>':'')+'</div>'+
+'<div class="fi-time">'+relTime(r.created_at)+'</div></div>';}).join('');}
+function loadRecentRequests(){fetch(SUPABASE_URL+'/rest/v1/quote_requests?select=id,tip,titlul,titlu,ce_cauta,judet,localitate,telefon,descriere,status,created_at&status=eq.approved&order=created_at.desc&limit=10',{headers:{apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY}}).then(function(r){if(!r.ok)throw new Error('Nu se pot încărca cererile.');return r.json();}).then(function(rows){renderRecentRequests(rows);}).catch(function(){renderRecentRequests(fallbackRequests);});}
+function showQuoteDetails(i){var r=loadedRequests[i];if(!r)return;var tel=(r.telefon||'').trim();document.getElementById('qmTitle').textContent=r.titlul||r.titlu||r.ce_cauta||'Detalii cerere';document.getElementById('qmBody').innerHTML='<div class="qrow"><b>Tip:</b> '+esc(r.tip||'Cerere ofertă')+'</div>'+
+'<div class="qrow"><b>Județ:</b> '+esc(r.judet||'-')+'</div>'+
+'<div class="qrow"><b>Localitate:</b> '+esc(r.localitate||'-')+'</div>'+
+'<div class="qrow"><b>Descriere:</b><br>'+esc(r.descriere||'Fără descriere suplimentară.')+'</div>'+
+(tel?'<a class="qphone" href="tel:'+esc(tel.replace(/\s+/g,''))+'">☎ Sună: '+esc(tel)+'</a>':'<div class="qrow" style="margin-top:.8rem">Telefonul apare pentru cererile reale salvate în Supabase.</div>');document.getElementById('quoteModal').classList.add('on');}
+function hideQuoteModal(){document.getElementById('quoteModal').classList.remove('on');}
+function closeQuoteModal(e){if(e.target&&e.target.id==='quoteModal')hideQuoteModal();}
+document.addEventListener('DOMContentLoaded',loadRecentRequests);
+function setTab2(el, type) {
+  document.querySelectorAll('.tab2').forEach(function(t){ t.classList.remove('on'); });
+  el.classList.add('on');
+  _activeTab = type;
+  var inp = document.getElementById('cWhat');
+  inp.placeholder = type === 'mat'
+    ? 'Ex: 200m³ cherestea brad / 5 tone fier beton 12mm...'
+    : 'Ex: electrician autorizat / constructor fundație...';
+}
+
+var _activeTab = 'mat';
+
+function submitCerere() {
+  var w = document.getElementById('cWhat').value.trim();
+  var j = document.getElementById('cJudet').value;
+  var t = document.getElementById('cTel').value.trim();
+  var d = document.getElementById('cDesc').value.trim();
+  var btn = document.querySelector('.fsub');
+  var errEl = document.getElementById('cerere-err');
+
+  errEl.textContent = '';
+
+  if (!w) {
+    document.getElementById('cWhat').focus();
+    errEl.textContent = 'Te rugăm să descrii ce cauți.';
+    return;
+  }
+  if (!j) {
+    document.getElementById('cJudet').focus();
+    errEl.textContent = 'Selectează județul — este necesar pentru a găsi furnizori din zona ta.';
+    return;
+  }
+  var loc = document.getElementById('cLoc').value.trim();
+  if (!loc) {
+    document.getElementById('cLoc').focus();
+    errEl.textContent = 'Scrie localitatea — ajută firmele să calculeze transportul și disponibilitatea.';
+    return;
+  }
+  if (!t) {
+    document.getElementById('cTel').focus();
+    errEl.textContent = 'Numărul de telefon este obligatoriu — firmele te contactează direct.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Se trimite...';
+
+  fetch('https://mgusrlvkdxozvpseafbx.supabase.co/functions/v1/submit-public?table=quote_requests', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      tip: _activeTab === 'mat' ? 'Caut material' : 'Caut serviciu',
+      titlul: w,
+      judet: j,
+      localitate: loc,
+      telefon: t,
+      descriere: d,
+      status: 'pending'
+    })
+  })
+  .then(function(r){
+    if (!r.ok) return r.text().then(function(t){ throw new Error(t); });
+    return r.text();
+  })
+  .then(function() {
+    btn.innerHTML = '✓ Cerere trimisă! Firmele te vor contacta în curând.';
+    btn.style.background = '#3ecf6e';
+    document.getElementById('cWhat').value = '';
+    document.getElementById('cDesc').value = '';
+    document.getElementById('cLoc').value = '';
+    document.getElementById('cTel').value = '';
+    document.getElementById('cJudet').value = '';
+    loadRecentRequests();
+  })
+  .catch(function(err) {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Trimite cererea';
+    errEl.textContent = 'Eroare la trimitere. Verifică conexiunea și încearcă din nou.';
+  });
+}
+</script>
+</body>
+</html>

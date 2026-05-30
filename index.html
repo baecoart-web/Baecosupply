@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BaecoSupply — Conectăm construcțiile României</title>
+<meta name="description" content="Platformă digitală pentru firme, materiale și servicii de construcții. 1866+ firme locale din Moldova. Cere ofertă direct, fără intermediari.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://baecosupply.ro/">
+<meta name="theme-color" content="#f05a1a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BaecoSupply — Conectăm construcțiile României">
+<meta property="og:description" content="Platforma digitala pentru firme, materiale si servicii de constructii. 1866+ firme locale din Moldova. Cere oferta direct, fara intermediari.">
+<meta property="og:image" content="https://baecosupply.ro/assets/icon-512.svg">
+<meta property="og:url" content="https://baecosupply.ro/">
+<meta property="og:site_name" content="BaecoSupply">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BaecoSupply","url":"https://baecosupply.ro","potentialAction":{"@type":"SearchAction","target":"https://baecosupply.ro/firme/index.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="manifest" href="/manifest.json">
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/global.css">
+<style>
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-top:90px}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#080a10 0%,#0b0c0f 45%,#0f0c09 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(240,90,26,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(240,90,26,.022) 1px,transparent 1px);background-size:55px 55px;pointer-events:none}
+.hero-glow1{position:absolute;top:-15%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(240,90,26,.07) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-20%;left:-8%;width:450px;height:450px;background:radial-gradient(circle,rgba(30,107,158,.06) 0%,transparent 65%);pointer-events:none}
+.hero-ov{position:absolute;bottom:0;left:0;right:0;height:280px;background:linear-gradient(to top,var(--g),transparent);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:3rem 1.4rem 6.5rem;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(240,90,26,.1);border:1px solid rgba(240,90,26,.22);border-radius:3px;padding:.3rem .85rem;font-size:.63rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--o);margin-bottom:1.4rem;animation:fu .6s both}
+.hero-pulse{width:6px;height:6px;background:var(--o);border-radius:50%;animation:pulse 1.8s infinite}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.8rem);line-height:.9;letter-spacing:.02em;margin-bottom:1.2rem;animation:fu .6s .08s both}
+.hero-title .lo{color:var(--o)}
+.hero-title .ld{color:var(--m)}
+.hero-sub{font-size:clamp(.88rem,1.4vw,1rem);color:var(--w5);max-width:500px;margin-bottom:2.5rem;line-height:1.85;animation:fu .6s .16s both}
+/* Search */
+.sbox{background:rgba(17,19,24,.9);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,.08);border-radius:var(--rx);padding:1.4rem;max-width:800px;margin-bottom:2rem;animation:fu .6s .24s both;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.stabs{display:flex;gap:.2rem;background:rgba(255,255,255,.04);border-radius:var(--r);padding:.18rem;margin-bottom:1.1rem}
+.st{flex:1;padding:.38rem .55rem;border-radius:4px;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--m);transition:all .2s;text-align:center}
+.st.on{background:var(--o);color:var(--w)}
+.st:not(.on):hover{color:var(--w);background:rgba(255,255,255,.05)}
+.srow{display:flex;gap:.5rem}
+.sinw{flex:1;display:flex;align-items:center;gap:.6rem;background:var(--g3);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:0 1rem;height:52px;transition:all .2s}
+.sinw:focus-within{border-color:var(--ob);box-shadow:0 0 0 4px var(--os)}
+.sinw svg{flex-shrink:0;color:var(--m)}
+.sinw input{flex:1;background:transparent;border:none;outline:none;color:var(--w);font-size:.95rem;font-weight:500;font-family:'Barlow',sans-serif}
+.sinw input::placeholder{color:var(--m)}
+.sdv{width:1px;height:22px;background:var(--br);flex-shrink:0}
+.sj{background:transparent;border:none;outline:none;color:var(--m);font-size:.8rem;cursor:pointer;padding:0 .3rem;min-width:108px;font-family:'Barlow',sans-serif}
+.sj option{background:var(--g3);color:var(--w)}
+.sbtn{background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:0 1.8rem;height:52px;font-size:.88rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.4rem;white-space:nowrap;flex-shrink:0}
+.sbtn:hover{background:var(--ol);transform:translateY(-1px);box-shadow:var(--sho)}
+.schips{margin-top:.8rem;display:flex;gap:.32rem;flex-wrap:wrap;align-items:center}
+.scl{font-size:.62rem;color:var(--m);font-weight:700;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0}
+.chip{background:var(--w1);border:1px solid var(--br);border-radius:3px;padding:.16rem .55rem;font-size:.66rem;color:var(--ml);cursor:pointer;transition:all .2s;white-space:nowrap}
+.chip:hover{background:var(--od);border-color:var(--ob);color:var(--o)}
+.hbtns{display:flex;gap:.85rem;flex-wrap:wrap;animation:fu .6s .32s both}
+/* Stats */
+.sbar{position:absolute;bottom:0;left:0;right:0;z-index:3;border-top:1px solid var(--br);background:rgba(11,12,15,.9);backdrop-filter:blur(20px);padding:1.1rem 1.4rem}
+.sbar-i{max-width:1400px;margin:0 auto;display:flex;gap:1.5rem 2.5rem;align-items:center;flex-wrap:wrap}
+.si2{display:flex;flex-direction:column;gap:.04rem}
+.sn2{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--o);line-height:1}
+.sl2{font-size:.6rem;color:var(--m);text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.sdv2{width:1px;height:30px;background:var(--br);flex-shrink:0;display:none}
+@media(min-width:600px){.sdv2{display:block}}
+.jpills{margin-left:auto;display:none;gap:.3rem;flex-wrap:wrap}
+@media(min-width:1000px){.jpills{display:flex}}
+.jp{background:var(--w1);border:1px solid var(--br);border-radius:3px;padding:.16rem .48rem;font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ml);cursor:pointer;transition:all .2s;text-decoration:none}
+.jp:hover{background:var(--od);border-color:var(--ob);color:var(--o)}
+/* Cat2 */
+#catmain{background:var(--g2);padding:4rem 1.4rem}
+.c2w{max-width:1400px;margin:2.5rem auto 0}
+.c2g{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--br);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden}
+@media(max-width:600px){.c2g{grid-template-columns:1fr}}
+.c2c{position:relative;padding:2.8rem 2.4rem;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:300px;text-decoration:none;color:inherit;transition:all .3s}
+@media(max-width:600px){.c2c{min-height:190px;padding:1.8rem 1.4rem}}
+.c2gl{position:absolute;top:-25%;right:-10%;width:300px;height:300px;border-radius:50%;pointer-events:none}
+.c2mat{background:linear-gradient(135deg,rgba(14,30,45,.98),rgba(10,18,28,.98))}
+.c2mat .c2gl{background:radial-gradient(circle,rgba(30,107,158,.12) 0%,transparent 70%)}
+.c2mat:hover{background:linear-gradient(135deg,rgba(18,38,58,.98),rgba(12,22,35,.98))}
+.c2srv{background:linear-gradient(135deg,rgba(26,15,9,.98),rgba(18,12,8,.98))}
+.c2srv .c2gl{background:radial-gradient(circle,rgba(240,90,26,.09) 0%,transparent 70%)}
+.c2srv:hover{background:linear-gradient(135deg,rgba(32,18,10,.98),rgba(22,15,9,.98))}
+.c2ac{display:inline-flex;align-items:center;gap:.4rem;font-size:.61rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.26rem .72rem;border-radius:3px;margin-bottom:1.1rem}
+.c2mat .c2ac{background:rgba(30,107,158,.15);border:1px solid rgba(30,107,158,.3);color:#4db8e8}
+.c2srv .c2ac{background:var(--od);border:1px solid var(--ob);color:var(--o)}
+.c2ic{width:48px;height:48px;border-radius:var(--rl);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0}
+.c2mat .c2ic{background:rgba(30,107,158,.15);border:1px solid rgba(30,107,158,.25)}
+.c2srv .c2ic{background:var(--od);border:1px solid var(--ob)}
+.c2nm{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:.04em;line-height:.95;margin-bottom:.6rem}
+.c2ds{font-size:.84rem;color:var(--w5);line-height:1.75;max-width:295px}
+.c2sb{display:flex;flex-wrap:wrap;gap:.28rem;margin:1.3rem 0 1.1rem}
+.c2s{font-size:.65rem;font-weight:600;padding:.18rem .55rem;border-radius:3px;letter-spacing:.03em;transition:all .2s}
+.c2mat .c2s{background:rgba(30,107,158,.1);border:1px solid rgba(30,107,158,.2);color:rgba(77,184,232,.7)}
+.c2srv .c2s{background:var(--os);border:1px solid rgba(240,90,26,.15);color:rgba(240,90,26,.7)}
+.c2bt{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;padding:.58rem 1.2rem;border-radius:var(--r);transition:all .25s;border:none;cursor:pointer}
+.c2mat .c2bt{background:rgba(30,107,158,.2);border:1px solid rgba(30,107,158,.35);color:#4db8e8}
+.c2mat .c2bt:hover{background:rgba(30,107,158,.35)}
+.c2srv .c2bt{background:var(--od);border:1px solid var(--ob);color:var(--o)}
+.c2srv .c2bt:hover{background:rgba(240,90,26,.18)}
+/* Subcats */
+#subcats{background:var(--g);padding:4rem 1.4rem}
+.scgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:.55rem;margin-top:2.2rem}
+.scc{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);padding:.85rem .95rem;display:flex;align-items:center;gap:.6rem;cursor:pointer;transition:all .25s;text-decoration:none;color:inherit}
+.scc:hover{border-color:var(--ob);background:var(--g3);transform:translateY(-1px)}
+.sci{width:30px;height:30px;background:var(--od);border:1px solid var(--ob);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--o)}
+.scn{font-weight:700;font-size:.76rem;line-height:1.25}
+.scct{font-size:.61rem;color:var(--m);margin-top:.06rem}
+/* Cereri */
+#cereri{background:var(--g2);padding:4.5rem 1.4rem}
+.clayout{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.4rem}
+@media(max-width:720px){.clayout{grid-template-columns:1fr}}
+.fcard{background:var(--g3);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;position:relative}
+.fcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--o),transparent)}
+.fchd{padding:1.2rem 1.4rem;border-bottom:1px solid var(--br)}
+.fcti{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;margin-bottom:.18rem}
+.fcsb{font-size:.76rem;color:var(--m)}
+.fcbd{padding:1.3rem}
+.ftabs{display:flex;gap:.22rem;background:var(--g4);border-radius:var(--r);padding:.17rem;margin-bottom:1rem}
+.ft2{flex:1;padding:.36rem .5rem;border-radius:4px;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--m);transition:all .2s;text-align:center}
+.ft2.on{background:var(--o);color:var(--w)}
+.fsub{width:100%;background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.8rem;font-size:.86rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.25rem}
+.fsub:hover{background:var(--ol);transform:translateY(-1px);box-shadow:var(--sho)}
+.fnote{font-size:.67rem;color:var(--m);text-align:center;margin-top:.55rem;line-height:1.6}
+.fecard{background:var(--g3);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;display:flex;flex-direction:column}
+.fechd{padding:1.2rem 1.4rem;border-bottom:1px solid var(--br)}
+.fetl{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;display:flex;align-items:center;gap:.6rem}
+.ldot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 8px rgba(62,207,110,.5);animation:pulse 2s infinite;flex-shrink:0}
+.fesb{font-size:.7rem;color:var(--m)}
+.felist{padding:.55rem;flex:1;display:flex;flex-direction:column;gap:.42rem}
+.fei{background:var(--g4);border:1px solid var(--br);border-radius:var(--rl);padding:.78rem .95rem;display:flex;align-items:flex-start;gap:.7rem;cursor:pointer;transition:all .22s}
+.fei:hover{border-color:var(--ob);background:var(--g5)}
+.feic{width:32px;height:32px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.78rem}
+.feic.mat{background:rgba(30,107,158,.15);border:1px solid rgba(30,107,158,.25)}
+.feic.srv{background:var(--od);border:1px solid var(--ob)}
+.feb{flex:1;min-width:0}
+.fen{font-weight:700;font-size:.84rem;margin-bottom:.13rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fem{font-size:.68rem;color:var(--m);display:flex;gap:.45rem;flex-wrap:wrap}
+.fet{font-size:.6rem;color:var(--m);flex-shrink:0;margin-left:auto}
+.femore{margin:.55rem;display:flex;align-items:center;justify-content:center;gap:.38rem;color:var(--o);font-size:.71rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.6rem;border:1px solid var(--ob);border-radius:var(--r);transition:all .2s;text-decoration:none}
+.femore:hover{background:var(--od)}
+/* Firme HP */
+#firme-hp{background:var(--g);padding:4.5rem 1.4rem}
+.fhpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin-top:2.4rem}
+.fhpc{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);padding:1.1rem;transition:all .28s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:.7rem}
+.fhpc:hover{border-color:var(--ob);transform:translateY(-2px);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.fhpc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--o);transition:width .3s}
+.fhpc:hover::after{width:100%}
+.fht{display:flex;align-items:flex-start;gap:.7rem}
+.fhav{width:42px;height:42px;flex-shrink:0;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.05em}
+.fhn{font-weight:700;font-size:.88rem;margin-bottom:.16rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fhs{font-size:.67rem;color:var(--m)}
+.fhm{font-size:.7rem;color:var(--m)}
+.fha{display:flex;gap:.38rem}
+.fhb{flex:1;padding:.42rem .5rem;border-radius:var(--r);font-size:.68rem;font-weight:700;letter-spacing:.03em;text-align:center;cursor:pointer;transition:all .2s;border:none;display:flex;align-items:center;justify-content:center;gap:.22rem;text-decoration:none}
+.fhb-wa{background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);color:#25d366}.fhb-wa:hover{background:rgba(37,211,102,.22)}
+.fhb-tel{background:var(--w1);border:1px solid var(--br);color:var(--w7)}.fhb-tel:hover{background:rgba(255,255,255,.1)}
+.fhb-more{background:var(--od);border:1px solid var(--ob);color:var(--o)}.fhb-more:hover{background:rgba(240,90,26,.18)}
+/* Judete */
+#judete-hp{background:var(--g2);padding:4rem 1.4rem}
+.jhg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem;margin-top:2.2rem}
+.jhc{background:var(--g3);border:1px solid var(--br);border-radius:var(--rl);padding:1rem;cursor:pointer;transition:all .25s;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.jhc:hover{border-color:var(--ob);background:var(--g4)}
+.jhc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--o);transition:width .3s}
+.jhc:hover::after{width:100%}
+.jhn{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:.06em;line-height:1;margin-bottom:.35rem}
+.jhct{font-size:.68rem;color:var(--m);display:flex;gap:.45rem;flex-wrap:wrap}
+/* Cum */
+#cum{background:var(--g);padding:4.5rem 1.4rem}
+.cumg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--br);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;margin-top:2.4rem}
+.cumc{background:var(--g);padding:1.9rem 1.7rem;transition:background .25s}
+.cumc:hover{background:var(--g2)}
+.cumn{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:rgba(240,90,26,.1);line-height:1;margin-bottom:.65rem}
+.cumi{width:40px;height:40px;background:var(--od);border:1px solid var(--ob);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:.85rem;color:var(--o)}
+.cumt{font-weight:700;font-size:.92rem;margin-bottom:.35rem}
+.cumd{font-size:.8rem;color:var(--m);line-height:1.72}
+/* Inscriere */
+#ins{background:linear-gradient(135deg,rgba(18,12,7,1),rgba(11,12,15,1));padding:5.5rem 1.4rem;position:relative;overflow:hidden}
+#ins::before{content:'';position:absolute;top:-40%;right:-15%;width:550px;height:550px;background:radial-gradient(circle,rgba(240,90,26,.07) 0%,transparent 65%);pointer-events:none}
+.insi{max-width:660px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.insbg{display:inline-flex;align-items:center;gap:.42rem;background:var(--od);border:1px solid var(--ob);border-radius:2px;padding:.26rem .78rem;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--o);margin-bottom:1.2rem}
+.inst{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:.03em;line-height:.95;margin-bottom:.95rem}
+.inss{font-size:.9rem;color:var(--w5);line-height:1.8;margin-bottom:2.1rem;max-width:480px;margin-left:auto;margin-right:auto}
+.insb{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.insf{display:flex;justify-content:center;gap:1.6rem;margin-top:1.7rem;flex-wrap:wrap}
+.insfi{display:flex;align-items:center;gap:.38rem;font-size:.76rem;color:var(--m)}
+.insfi svg{color:var(--green);flex-shrink:0}
+
+/* Mobile */
+@media only screen and (max-width:768px){
+  #hero{padding-top:56px}
+  .hero-inner{padding:2.5rem 1.2rem 7rem}
+  .sbox{padding:1.1rem}
+  .srow{flex-direction:column}
+  .sbtn{width:100%;justify-content:center;height:46px}
+  .sinw{height:46px}
+  .sdv,.sj{display:none}
+  .hbtns{flex-direction:column;max-width:300px;gap:.45rem}
+  .hbtns .btn{width:100%;justify-content:center}
+  .c2g{grid-template-columns:1fr}
+  .c2c{min-height:185px;padding:1.7rem 1.3rem}
+  .scgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+  .clayout{grid-template-columns:1fr}
+  .fhpg{grid-template-columns:1fr}
+  .jhg{grid-template-columns:1fr 1fr}
+  .cumg{grid-template-columns:1fr 1fr}
+  .insb{flex-direction:column;align-items:stretch}
+  .insb .btn{justify-content:center}
+}
+@media only screen and (max-width:480px){
+  .hero-title{font-size:2.8rem}
+  .jhg{grid-template-columns:1fr 1fr}
+  .cumg{grid-template-columns:1fr}
+  .insf{flex-direction:column;align-items:center;gap:.7rem}
+  .scgrid{grid-template-columns:1fr 1fr}
+}
+
+/* ── Hero layout cu carduri ── */
+/* ── Hero layout + card-uri firme ── */
+.hero-layout{display:flex;align-items:flex-start;gap:2.4rem;width:100%}
+.hero-left{flex:1;min-width:0}
+.hero-right{
+  flex-shrink:0;
+  width:420px;
+  padding-top:.4rem;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+.fcc-label{
+  font-size:.57rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);margin-bottom:.5rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.fcc-label::before{content:'';flex:1;height:1px;background:rgba(255,255,255,0.06)}
+.fcc-outer{
+  position:relative;
+  width:100%;
+  min-height:190px;
+}
+.fcc{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  box-sizing:border-box;
+  min-height:190px;
+  background:rgba(15,15,20,0.88);
+  border:1px solid rgba(255,140,0,0.22);
+  border-radius:20px;
+  padding:28px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px) scale(.99);
+  transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1),visibility 0s linear .45s,border-color .2s,box-shadow .2s;
+  pointer-events:none;
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+}
+.fcc.fcc-active{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+  pointer-events:all;
+  transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1),visibility 0s linear 0s,border-color .2s,box-shadow .2s;
+}
+.fcc:hover{border-color:rgba(255,140,0,0.5);box-shadow:0 0 28px rgba(255,140,0,0.09)}
+.fcc-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:.85rem;border-radius:3px;padding:.2rem .6rem;border:1px solid;
+}
+.badge-recommended{color:#f05a1a;border-color:rgba(240,90,26,.35);background:rgba(240,90,26,.1)}
+.badge-partner{color:#4db8e8;border-color:rgba(77,184,232,.35);background:rgba(77,184,232,.08)}
+.badge-selected{color:#3ecf6e;border-color:rgba(62,207,110,.35);background:rgba(62,207,110,.08)}
+.badge-local{color:rgba(255,200,100,.85);border-color:rgba(255,200,100,.3);background:rgba(255,200,100,.07)}
+.fcc-bdot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;animation:pulse 2s infinite}
+.fcc-name{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.04em;color:#fff;line-height:1;margin-bottom:.4rem}
+.fcc-sub{font-size:.88rem;color:rgba(255,255,255,0.45);margin-bottom:1.4rem;letter-spacing:.01em;line-height:1.4}
+.fcc-foot{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.fcc-btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(255,140,0,0.12);
+  border:1px solid rgba(255,140,0,0.3);
+  border-radius:8px;
+  padding:.48rem 1.1rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,140,0,0.9);text-decoration:none;
+  transition:background .2s,border-color .2s;
+  flex-shrink:0;
+}
+.fcc-btn:hover{background:rgba(255,140,0,0.22);border-color:rgba(255,140,0,0.55)}
+.fcc-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2}
+.fcc-web{font-size:.7rem;color:rgba(255,255,255,0.28);text-decoration:none;letter-spacing:.01em;transition:color .2s;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px}
+.fcc-web:hover{color:rgba(255,140,0,0.65)}
+.fcc-dots{display:flex;gap:.35rem;margin-top:.85rem;justify-content:flex-start;align-items:center}
+.fcc-dot{height:3px;width:6px;border-radius:2px;background:rgba(255,255,255,0.13);transition:all .35s cubic-bezier(.4,0,.2,1);cursor:pointer;flex-shrink:0}
+.fcc-dot:hover{background:rgba(255,140,0,0.35)}
+.fcc-dot-active{background:rgba(255,140,0,0.7)!important;width:20px!important}
+@media only screen and (max-width:1100px){.hero-right{width:360px}}
+@media only screen and (max-width:900px){
+  .hero-layout{flex-direction:column;gap:0}
+  .hero-right{display:block;width:100%;margin-top:24px}
+  .fcc-outer{min-height:180px}
+  .fcc{padding:22px 20px;min-height:180px}
+  .fcc-name{font-size:1.5rem}
+  .fcc-sub{font-size:.82rem;margin-bottom:1.1rem}
+}
+@media only screen and (max-width:480px){
+  .hero-right{margin-top:20px}
+  .fcc-outer{min-height:170px}
+  .fcc{padding:18px 16px;min-height:170px}
+  .fcc-name{font-size:1.35rem}
+  .fcc-sub{font-size:.78rem}
+  .fcc-btn{font-size:.68rem;padding:.42rem .9rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-i">
+    <a href="/" class="logo">
+      <div class="logo-text">Baeco<span>Supply</span></div>
+    </a>
+    <div class="hdr-search">
+      <div class="hdr-search-wrap">
+        <svg class="hdr-search-ic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Caută firmă, material, serviciu...">
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="/materiale/" class="nav-link">Materiale</a>
+      <a href="/servicii/" class="nav-link">Servicii</a>
+      <a href="/firme/" class="nav-link">Firme</a>
+      <a href="/judete/" class="nav-link">Județe</a>
+      <a href="/cereri/" class="nav-link">Cereri</a>
+      <a href="/inscrie/" class="nav-link nav-ins">Înscrie firmă</a>
+      <a href="/cereri/" class="nav-link nav-cta">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Cere ofertă
+      </a>
+    </nav>
+    <button class="nav-mob-btn" aria-label="Meniu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav">
+  <div class="mob-nav-hd">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+    <button class="mob-close"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mob-nav-body">
+    <a href="/materiale/" class="mob-nav-link">Materiale <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/servicii/" class="mob-nav-link">Servicii <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/firme/" class="mob-nav-link">Firme <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/judete/" class="mob-nav-link">Județe <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/cereri/" class="mob-nav-link">Cereri</a>
+  </div>
+  <div class="mob-nav-foot">
+    <a href="/cereri/" class="mob-cta mob-cta-primary">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Cere ofertă
+    </a>
+    <a href="/inscrie/" class="mob-cta mob-cta-secondary">Înscrie firma ta</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" aria-hidden="true">
+    <span class="ticker-item"><span class="ticker-dot"></span>1866+ firme locale</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Iași · Bacău · Suceava · Neamț · Vaslui · Botoșani · Vrancea · Galați</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Materiale construcții</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Servicii locale</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Utilaje si transport</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>BaecoSupply — Conectăm construcțiile României</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>1866+ firme locale</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Iași · Bacău · Suceava · Neamț · Vaslui · Botoșani · Vrancea · Galați</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Materiale construcții</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Servicii locale</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Utilaje si transport</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>BaecoSupply — Conectăm construcțiile României</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-inner">
+    <div class="hero-layout">
+      <!-- LEFT: conținut hero existent -->
+      <div class="hero-left">
+        <div class="hero-badge"><span class="hero-pulse"></span>Platformă digitală construcții · România</div>
+        <h1 class="hero-title">Conectăm<br><span class="lo">Construcțiile</span><br><span class="ld">României</span></h1>
+        <p class="hero-sub">Găsești rapid firme, materiale și servicii de construcții din orice județ. Postezi o cerere și firmele locale te contactează direct.</p>
+        <div class="sbox">
+          <div class="stabs">
+            <button class="st on" onclick="setST(this,'mat')">Materiale</button>
+            <button class="st" onclick="setST(this,'srv')">Servicii</button>
+            <button class="st" onclick="setST(this,'firme')">Firme</button>
+            <button class="st" onclick="setST(this,'utilaje')">Utilaje</button>
+          </div>
+          <div class="srow">
+            <div class="sinw">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <input type="text" id="hs" placeholder="Caută fier beton, cherestea, excavatii...">
+              <div class="sdv"></div>
+              <select class="sj" id="hj">
+                <option value="">Toate județele</option>
+                <option>Iași</option><option>Bacău</option><option>Suceava</option>
+                <option>Neamț</option><option>Vaslui</option><option>Botoșani</option><option>Vrancea</option><option>Galați</option>
+              </select>
+            </div>
+            <button class="sbtn" onclick="doS()">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Caută
+            </button>
+          </div>
+          <div class="schips">
+            <span class="scl">Popular:</span>
+            <span class="chip" onclick="qs('Fier beton')">Fier beton</span>
+            <span class="chip" onclick="qs('Cherestea')">Cherestea</span>
+            <span class="chip" onclick="qs('Termopane')">Termopane</span>
+            <span class="chip" onclick="qs('Excavatii')">Excavații</span>
+            <span class="chip" onclick="qs('Beton')">Beton</span>
+            <span class="chip" onclick="qs('Acoperisuri')">Acoperișuri</span>
+            <span class="chip" onclick="qs('Transport')">Transport</span>
+          </div>
+        </div>
+        <div class="hbtns">
+          <a href="/cereri/" class="btn btn-primary">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Cere ofertă
+          </a>
+          <a href="/inscrie/" class="btn btn-secondary">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Înscrie firma ta
+          </a>
+        </div>
+      </div>
+      <!-- RIGHT: card-uri firme animate -->
+      <div class="hero-right">
+        <div class="fcc-label">Firme recomandate</div>
+        <div class="fcc-outer" id="fccOuter"></div>
+        <div class="fcc-dots" id="fccDots"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sbar">
+    <div class="sbar-i">
+      <div class="si2"><span class="sn2">1866</span><span class="sl2">Firme active</span></div>
+      <div class="sdv2"></div>
+      <div class="si2"><span class="sn2">8</span><span class="sl2">Județe</span></div>
+      <div class="sdv2"></div>
+      <div class="si2"><span class="sn2">300+</span><span class="sl2">Categorii</span></div>
+      <div class="sdv2"></div>
+      <div class="si2"><span class="sn2">Gratuit</span><span class="sl2">Înregistrare</span></div>
+      <div class="jpills">
+        <a href="/judete/iasi/" class="jp">Iași</a>
+        <a href="/judete/bacau/" class="jp">Bacău</a>
+        <a href="/judete/suceava/" class="jp">Suceava</a>
+        <a href="/judete/neamt/" class="jp">Neamț</a>
+        <a href="/judete/vaslui/" class="jp">Vaslui</a>
+        <a href="/judete/botosani/" class="jp">Botoșani</a>
+        <a href="/judete/vrancea/" class="jp">Vrancea</a><a href="/judete/galati/" class="jp">Galați</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORII -->
+<section id="catmain">
+  <div class="si">
+    <div class="label">Platformă construcții</div>
+    <div class="section-hd" style="margin-top:.5rem">
+      <div><h2 class="section-title">Două categorii.<br><span class="dim">Tot ce ai nevoie.</span></h2></div>
+    </div>
+  </div>
+  <div class="c2w">
+    <div class="c2g">
+      <a href="/materiale/" class="c2c c2mat">
+        <div class="c2gl"></div>
+        <div>
+          <div class="c2ac"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>Cumperi</div>
+          <div class="c2ic"><svg width="22" height="22" fill="none" stroke="#4db8e8" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <h2 class="c2nm">Materiale</h2>
+          <p class="c2ds">Depozite, producători și furnizori locali de materiale de construcții.</p>
+        </div>
+        <div>
+          <div class="c2sb"><span class="c2s">Fier beton</span><span class="c2s">Cherestea</span><span class="c2s">Beton</span><span class="c2s">Termopane</span><span class="c2s">Agregate</span><span class="c2s">Acoperișuri</span><span class="c2s">Profile metalice</span><span class="c2s">Pavele</span><span class="c2s">Electrice</span></div>
+          <button class="c2bt">Explorează <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </a>
+      <a href="/servicii/" class="c2c c2srv">
+        <div class="c2gl"></div>
+        <div>
+          <div class="c2ac"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Angajezi</div>
+          <div class="c2ic"><svg width="22" height="22" fill="none" stroke="var(--o)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <h2 class="c2nm">Servicii</h2>
+          <p class="c2ds">Constructori, meșteri și firme de servicii verificate din zona ta.</p>
+        </div>
+        <div>
+          <div class="c2sb"><span class="c2s">Construcții</span><span class="c2s">Excavații</span><span class="c2s">Finisaje</span><span class="c2s">Instalații</span><span class="c2s">Transport</span><span class="c2s">Utilaje</span><span class="c2s">Demolare</span><span class="c2s">Hale metalice</span><span class="c2s">Pompe beton</span></div>
+          <button class="c2bt">Explorează <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SUBCATEGORII -->
+<section id="subcats">
+  <div class="si">
+    <div class="label">Caută după specialitate</div>
+    <div class="section-hd" style="margin-top:.5rem">
+      <h2 class="section-title">Categorii detaliate</h2>
+      <a href="/firme/" class="see-all">Toate firmele <svg width="13" height="13" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+    <div class="scgrid">
+      <a href="/firme/index.html?sub=Beton" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/></svg></div><div><div class="scn">Beton</div><div class="scct">Stații betoane</div></div></a>
+      <a href="/firme/index.html?sub=Agregate" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M3 20h18"/></svg></div><div><div class="scn">Agregate</div><div class="scct">Balast, nisip</div></div></a>
+      <a href="/firme/index.html?sub=Cherestea" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h11v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/></svg></div><div><div class="scn">Cherestea</div><div class="scct">Lemn construcții</div></div></a>
+      <a href="/firme/index.html?sub=Termopane" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div><div><div class="scn">Termopane</div><div class="scct">PVC, aluminiu</div></div></a>
+      <a href="/firme/index.html?sub=Acoperisuri" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div><div class="scn">Acoperișuri</div><div class="scct">Tablă, țiglă</div></div></a>
+      <a href="/firme/index.html?sub=Fier+beton" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="scn">Fier beton</div><div class="scct">Profile metalice</div></div></a>
+      <a href="/firme/index.html?sub=Pavele" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div><div class="scn">Pavele</div><div class="scct">Borduri, dale</div></div></a>
+      <a href="/firme/index.html?sub=Constructii" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="scn">Construcții</div><div class="scct">Case, renovări</div></div></a>
+      <a href="/firme/index.html?sub=Excavatii" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20h20M6 16l4-8 4 8"/></svg></div><div><div class="scn">Excavații</div><div class="scct">Terasamente</div></div></a>
+      <a href="/firme/index.html?sub=Instalatii" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0z"/></svg></div><div><div class="scn">Instalații</div><div class="scct">Sanitare, termice</div></div></a>
+      <a href="/firme/index.html?sub=Transport" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v4h-7V8z"/></svg></div><div><div class="scn">Transport</div><div class="scct">Materiale, agregate</div></div></a>
+      <a href="/firme/index.html?sub=Utilaje" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4"/></svg></div><div><div class="scn">Utilaje</div><div class="scct">Inchirieri</div></div></a>
+      <a href="/firme/index.html?sub=Prefabricate" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/></svg></div><div><div class="scn">Prefabricate</div><div class="scct">Elemente beton</div></div></a>
+      <a href="/firme/index.html?sub=Vopsele" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><div><div class="scn">Vopsele</div><div class="scct">Finisaje</div></div></a>
+      <a href="/firme/index.html?sub=Depozit" class="scc"><div class="sci"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><div><div class="scn">Depozite</div><div class="scct">Materiale generale</div></div></a>
+      <a href="/firme/" class="scc"><div class="sci" style="background:var(--w1);border-color:var(--br);color:var(--ml)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><div class="scn">Toate</div><div class="scct">30+ categorii</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CERERI -->
+<section id="cereri">
+  <div class="si">
+    <div class="label">Cereri si Oferte</div>
+    <div class="section-hd" style="margin-top:.5rem">
+      <div><h2 class="section-title">Cere ofertă.<br><span class="dim">Firmele vin la tine.</span></h2></div>
+      <a href="/cereri/" class="see-all">Toate cererile <svg width="13" height="13" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+  </div>
+  <div class="clayout" style="max-width:1400px;margin:0 auto">
+    <div class="fcard">
+      <div class="fchd"><div class="fcti">Cerere nouă</div><div class="fcsb">Completează rapid — firmele te contactează în câteva ore</div></div>
+      <div class="fcbd">
+        <div class="ftabs">
+          <button class="ft2 on" onclick="setFT(this,'mat')">Caut material</button>
+          <button class="ft2" onclick="setFT(this,'srv')">Caut serviciu</button>
+          <button class="ft2" onclick="setFT(this,'ut')">Caut utilaje</button>
+        </div>
+        <div class="form-group"><label class="form-label">Ce cauți?</label><input type="text" class="form-input" id="cw" placeholder="Ex: 200m³ cherestea / electrician..."></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Județ</label><select class="form-select"><option>Selectează județ</option><option>Iași</option><option>Bacău</option><option>Suceava</option><option>Neamț</option><option>Vaslui</option><option>Botoșani</option><option>Vrancea</option><option>Galați</option></select></div>
+          <div class="form-group"><label class="form-label">Telefon</label><input type="tel" class="form-input" placeholder="+40 7xx xxx xxx"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Detalii</label><textarea class="form-textarea" placeholder="Cantitate, termen, alte detalii..."></textarea></div>
+        <button class="fsub" onclick="subC()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Trimite cererea
+        </button>
+        <p class="fnote">Cererea ajunge la firmele relevante din județ. Gratuit, fără cont.</p>
+      </div>
+    </div>
+    <div class="fecard">
+      <div class="fechd"><div class="fetl"><span class="ldot"></span>Cereri recente</div><div class="fesb">Active în ultimele 24h</div></div>
+      <div class="felist">
+        <div class="fei"><div class="feic mat">📦</div><div class="feb"><div class="fen">Caut 200m³ cherestea brad</div><div class="fem"><span>📍 Iași</span><span>Cherestea</span></div><span class="badge badge-urgent" style="margin-top:.28rem">Urgent</span></div><div class="fet">12 min</div></div>
+        <div class="fei"><div class="feic srv">🔧</div><div class="feb"><div class="fen">Caut electrician autorizat</div><div class="fem"><span>📍 Bacău</span><span>Electricieni</span></div><span class="badge badge-nou" style="margin-top:.28rem">Nou</span></div><div class="fet">34 min</div></div>
+        <div class="fei"><div class="feic mat">📦</div><div class="feb"><div class="fen">Fier beton 12mm — 5 tone</div><div class="fem"><span>📍 Suceava</span><span>Fier beton</span></div></div><div class="fet">1h</div></div>
+        <div class="fei"><div class="feic srv">🚜</div><div class="feb"><div class="fen">Excavator pe șenile — 3 zile</div><div class="fem"><span>📍 Neamț</span><span>Utilaje</span></div><span class="badge badge-nou" style="margin-top:.28rem">Nou</span></div><div class="fet">2h</div></div>
+        <div class="fei"><div class="feic mat">📦</div><div class="feb"><div class="fen">Betoane C25/30 — fundație casă</div><div class="fem"><span>📍 Iași</span><span>Beton</span></div></div><div class="fet">3h</div></div>
+        <div class="fei"><div class="feic srv">🔧</div><div class="feb"><div class="fen">Constructor casă lemn 120mp</div><div class="fem"><span>📍 Vrancea</span><span>Construcții</span></div></div><div class="fet">4h</div></div>
+      </div>
+      <a href="/cereri/" class="femore">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        Toate cererile active
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FIRME -->
+<section id="firme-hp">
+  <div class="si">
+    <div class="label">Firme locale verificate</div>
+    <div class="section-hd" style="margin-top:.5rem">
+      <div><h2 class="section-title">Firme recomandate</h2><p style="font-size:.84rem;color:var(--m);margin-top:.4rem">Depozite, constructori și servicii locale. Fără corporații, fără intermediari.</p></div>
+      <a href="/firme/" class="see-all">Toate firmele <svg width="13" height="13" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+    <div class="fhpg" id="fhpg"></div>
+  </div>
+</section>
+
+<!-- JUDETE -->
+<section id="judete-hp">
+  <div class="si">
+    <div class="label">Acoperire regională</div>
+    <div class="section-hd" style="margin-top:.5rem">
+      <h2 class="section-title">Caută după județ</h2>
+      <a href="/judete/" class="see-all">Toate județele <svg width="13" height="13" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+    <div class="jhg" id="jhg"></div>
+  </div>
+</section>
+
+<!-- CUM FUNCTIONEAZA -->
+<section id="cum">
+  <div class="si">
+    <div class="label">Simplu si rapid</div>
+    <div class="section-hd" style="margin-top:.5rem"><h2 class="section-title">Cum funcționează</h2></div>
+    <div class="cumg">
+      <div class="cumc"><div class="cumn">01</div><div class="cumi"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="cumt">Cauți ce ai nevoie</div><p class="cumd">Selectezi categoria și județul. Găsești instant firmele relevante din zona ta.</p></div>
+      <div class="cumc"><div class="cumn">02</div><div class="cumi"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="cumt">Postezi o cerere</div><p class="cumd">Descrii ce cauți. Firmele din zona ta primesc notificare și te contactează direct.</p></div>
+      <div class="cumc"><div class="cumn">03</div><div class="cumi"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="cumt">Contactezi direct</div><p class="cumd">Fără intermediari. Negociezi direct pe WhatsApp sau telefon.</p></div>
+      <div class="cumc"><div class="cumn">04</div><div class="cumi"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="cumt">Ești firmă? Înscrie-te</div><p class="cumd">Profil gratuit, primești cereri din zona ta și câștigi clienți noi.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIERE -->
+<section id="ins">
+  <div class="insi">
+    <div class="insbg"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Pentru firme</div>
+    <h2 class="inst">Firma ta apare<br>unde contează</h2>
+    <p class="inss">Înscrie-te gratuit pe BaecoSupply și fii găsit de clienții care caută exact ce oferi tu, în zona ta.</p>
+    <div class="insb">
+      <a href="/inscrie/" class="btn btn-primary"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Înscrie firma gratuit</a>
+      <a href="/firme/" class="btn btn-secondary">Firme active</a>
+    </div>
+    <div class="insf">
+      <span class="insfi"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Profil gratuit</span>
+      <span class="insfi"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Cereri din zona ta</span>
+      <span class="insfi"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Contact direct WhatsApp</span>
+      <span class="insfi"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>SEO local inclus</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+        <p>Conectăm construcțiile României. Platformă digitală pentru firme, materiale și servicii de construcții.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Materiale</div>
+        <a href="/firme/index.html?sub=Fier+beton">Fier beton</a>
+        <a href="/firme/index.html?sub=Cherestea">Cherestea</a>
+        <a href="/firme/index.html?sub=Beton">Beton</a>
+        <a href="/firme/index.html?sub=Termopane">Termopane</a>
+        <a href="/firme/index.html?sub=Acoperisuri">Acoperișuri</a>
+        <a href="/materiale/">Toate materialele</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Servicii</div>
+        <a href="/firme/index.html?sub=Constructii">Construcții</a>
+        <a href="/firme/index.html?sub=Excavatii">Excavații</a>
+        <a href="/firme/index.html?sub=Instalatii">Instalații</a>
+        <a href="/firme/index.html?sub=Transport">Transport</a>
+        <a href="/firme/index.html?sub=Utilaje">Utilaje</a>
+        <a href="/servicii/">Toate serviciile</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platformă</div>
+        <a href="/cereri/">Cereri active</a>
+        <a href="/cereri/">Cere ofertă</a>
+        <a href="/inscrie/">Înscrie firma</a>
+        <a href="/firme/">Toate firmele</a>
+        <a href="/judete/">Județe</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://baecodigital.ro" target="_blank" rel="noopener noreferrer" style="color:#D4AF37;margin-top:.3rem">Website firme →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <b>BaecoSupply</b> · Conectăm construcțiile României</div>
+      <div class="footer-links">
+        <a href="/termeni.html">Termeni</a>
+        <a href="/confidentialitate.html">Confidențialitate</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-baeco">Platformă realizată de <a href="https://baecodigital.ro" target="_blank" rel="noopener noreferrer">BaecoDigital</a> · Soluții digitale pentru construcții</div>
+  </div>
+</footer>
+
+<script src="/assets/global.js"></script>
+<script>
+// Firme HP
+var FD=[{slug:'ponea-transcarpatin-vaslui',n:'Ponea-Transcarpatin',sub:'Depozit materiale',loc:'Vaslui',jud:'Vaslui',tel:'+40235318693',cat:'Materiale'},{slug:'macrina-com-dumbrava-rosie',n:'Macrina Com',sub:'Depozit materiale',loc:'Dumbrava Roșie',jud:'Neamț',tel:'+40735867624',cat:'Materiale'},{slug:'vasion-bacau',n:'Vasion',sub:'Depozit materiale',loc:'Bacău',jud:'Bacău',tel:'+40234586902',cat:'Materiale'},{slug:'gamar-construct-suceava',n:'Gamar Construct',sub:'Materiale construcții',loc:'Suceava',jud:'Suceava',tel:'+40755134009',cat:'Materiale'},{slug:'expert-meseriasul-botosani',n:'Expert Meseriașul',sub:'Servicii construcții',loc:'Botoșani',jud:'Botoșani',tel:'+40757570746',cat:'Servicii'},{slug:'balast-nisip-barlad-barlad',n:'Balast Nisip Bârlad',sub:'Agregate, balast',loc:'Bârlad',jud:'Vaslui',tel:'+40760093756',cat:'Materiale'}];
+function ini(n){var w=n.replace(/[-\.]/g,' ').split(/\s+/).filter(function(x){return x.length>1});return w.slice(0,2).map(function(x){return x[0].toUpperCase()}).join('')||n.slice(0,2).toUpperCase()}
+var fg=document.getElementById('fhpg');
+if(fg)fg.innerHTML=FD.map(function(f){var tc=f.tel.replace(/[^0-9+]/g,'');return'<div class="fhpc"><div class="fht"><div class="fhav firm-avatar">'+ini(f.n)+'</div><div><div class="fhn">'+f.n+'</div><div class="fhs">'+f.sub+'</div></div></div><div style="display:flex;gap:.28rem;flex-wrap:wrap"><span class="badge badge-active">● Profil activ</span><span class="badge '+(f.cat==='Materiale'?'badge-mat':'badge-srv')+'">'+f.cat+'</span></div><div class="fhm">📍 '+f.loc+', '+f.jud+'</div><div class="fha"><a href="tel:'+tc+'" class="fhb fhb-tel">📞 Sună</a><a href="https://wa.me/'+tc.replace('+','')+'" target="_blank" rel="noopener noreferrer" class="fhb fhb-wa"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> WhatsApp</a><a href="/firme/'+f.slug+'.html" class="fhb fhb-more">Profil →</a></div></div>';}).join('');
+
+// ── Firma Card Carousel ──
+try{(function(){
+  var FCC = [
+    {badge:'FIRMĂ RECOMANDATĂ',bc:'badge-recommended',name:'Nilvas Star',
+     sub:'Construcții & materiale · Țibănești, Iași',
+     slug:'nilvas-star-srl-tibanesti',web:'https://www.nilvasstar.ro'},
+    {badge:'PARTENER BAECO',bc:'badge-partner',name:'BaecoDigital',
+     sub:'Digitalizare & web pentru construcții · România',
+     slug:null,web:'https://baecodigital.ro'},
+    {badge:'SELECTAT BAECO',bc:'badge-selected',name:'BaecoFarm',
+     sub:'Adăposturi & microferme agricole · Moldova',
+     slug:null,web:'https://baecofarm.ro'},
+    {badge:'PARTENER LOCAL · BACĂU',bc:'badge-local',name:'Melinda Steel',
+     sub:'Construcții metalice, hale · Bacău',
+     slug:'melinda-steel-bacau',web:'https://melindasteel.ro'},
+    {badge:'PARTENER LOCAL · SUCEAVA',bc:'badge-local',name:'Gamar Construct',
+     sub:'Materiale construcții, depozit · Suceava',
+     slug:'gamar-construct-suceava',web:'https://gamar.ro'},
+    {badge:'PARTENER LOCAL · NEAMȚ',bc:'badge-local',name:'Pier Prod',
+     sub:'Materiale construcții · Borlești, Neamț',
+     slug:'pier-prod-borlesti-borlesti',web:'https://pierprod.ro'},
+    {badge:'PARTENER LOCAL · VASLUI',bc:'badge-local',name:'CrisMih',
+     sub:'Materiale construcții · Huși, Vaslui',
+     slug:'crismih-husi-vaslui',web:'https://crismih.ro'},
+    {badge:'PARTENER LOCAL · BOTOȘANI',bc:'badge-local',name:'Combustibilul',
+     sub:'Materiale & combustibil · Botoșani',
+     slug:'combustibilul-srl-botosani',web:'https://combustibilul.ro'},
+    {badge:"PARTENER LOCAL · VRANCEA",bc:'badge-local',name:"Combrat '94",
+     sub:'Materiale & finisaje · Focșani, Vrancea',
+     slug:'combrat-94-srl-focsani',web:'https://combrat.ro'},
+    {badge:'PARTENER LOCAL · GALAȚI',bc:'badge-local',name:'Fabrica de Acoperișuri',
+     sub:'Acoperișuri, tablă, țiglă · Galați',
+     slug:'fabrica-de-acoperisuri-galati',web:'http://www.fabricadeacoperisuri.ro'}
+  ];
+
+  var outer  = document.getElementById('fccOuter');
+  var dotsEl = document.getElementById('fccDots');
+  if (!outer || !dotsEl || !FCC.length) return;
+
+  var cur = 0, timer = null, paused = false;
+
+  function arrow(){
+    return '<svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  }
+  function domain(url){
+    try{return new URL(url).hostname.replace('www.','');}catch(e){return url;}
+  }
+
+  // Build cards
+  FCC.forEach(function(d,i){
+    var el = document.createElement('div');
+    el.className = 'fcc' + (i===0 ? ' fcc-active' : '');
+    el.innerHTML =
+      '<div class="fcc-badge '+(d.bc||'badge-local')+'">'
+        +'<span class="fcc-bdot"></span>'+d.badge
+      +'</div>'
+      +'<div class="fcc-name">'+d.name+'</div>'
+      +'<div class="fcc-sub">'+d.sub+'</div>'
+      +'<div class="fcc-foot">'
+        +'<a href="'+d.web+'" class="fcc-btn" target="_blank" rel="noopener noreferrer">'
+          +'Vezi firmă '+arrow()
+        +'</a>'
+        +'<a href="'+d.web+'" class="fcc-web" target="_blank" rel="noopener noreferrer">'+domain(d.web)+'</a>'
+      +'</div>';
+    outer.appendChild(el);
+
+    // dot
+    var dot = document.createElement('div');
+    dot.className = 'fcc-dot' + (i===0 ? ' fcc-dot-active' : '');
+    if(i===0) dot.style.width='20px';
+    (function(idx){dot.addEventListener('click',function(){goTo(idx);resetTimer();});})(i);
+    dotsEl.appendChild(dot);
+  });
+
+  var cards = outer.querySelectorAll('.fcc');
+  var dots  = dotsEl.querySelectorAll('.fcc-dot');
+
+  function goTo(n){
+    cards[cur].classList.remove('fcc-active');
+    dots[cur].classList.remove('fcc-dot-active');
+    dots[cur].style.width='6px';
+    cur = (n + FCC.length) % FCC.length;
+    cards[cur].classList.add('fcc-active');
+    dots[cur].classList.add('fcc-dot-active');
+    dots[cur].style.width='20px';
+  }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(function(){ if(!paused) goTo(cur+1); }, 4800);
+  }
+
+  outer.addEventListener('mouseenter',function(){paused=true;});
+  outer.addEventListener('mouseleave',function(){paused=false;});
+  outer.addEventListener('touchstart',function(){paused=true;},{passive:true});
+  outer.addEventListener('touchend',function(){
+    setTimeout(function(){paused=false;},3000);
+  },{passive:true});
+
+  resetTimer();
+})();}catch(e){console.error("[FCC] Eroare carousel firme:",e);}
+
+// Judete
+var JD=[{slug:'iasi',n:'Iași',f:461,c:165},{slug:'bacau',n:'Bacău',f:29,c:22},{slug:'suceava',n:'Suceava',f:563,c:210},{slug:'neamt',n:'Neamț',f:434,c:155},{slug:'vaslui',n:'Vaslui',f:75,c:38},{slug:'botosani',n:'Botoșani',f:123,c:48},{slug:'vrancea',n:'Vrancea',f:95,c:53},{slug:'galati',n:'Galați',f:86,c:33}];
+var jg=document.getElementById('jhg');
+if(jg)jg.innerHTML=JD.map(function(j){return'<a href="/judete/'+j.slug+'/" class="jhc"><div class="jhn">'+j.n+'</div><div class="jhct"><span>'+j.f+' firme</span><span>'+j.c+' categorii</span></div></a>';}).join('');
+
+// Search
+function setST(el,t){document.querySelectorAll('.st').forEach(function(x){x.classList.remove('on')});el.classList.add('on');var p={mat:'Caută fier beton, cherestea, termopane...',srv:'Caută electrician, constructor, excavatii...',firme:'Caută firmă după nume...',utilaje:'Caută excavator, macara, pompa beton...'};document.getElementById('hs').placeholder=p[t]||p.mat}
+function qs(t){document.getElementById('hs').value=t;document.getElementById('hs').focus()}
+function doS(){var q=document.getElementById('hs').value.trim();var j=document.getElementById('hj').value;if(q){var u='/firme/index.html?q='+encodeURIComponent(q);if(j)u+='&judet='+encodeURIComponent(j);window.location=u}}
+document.getElementById('hs').addEventListener('keydown',function(e){if(e.key==='Enter')doS()});
+
+// Cereri
+function setFT(el,t){document.querySelectorAll('.ft2').forEach(function(x){x.classList.remove('on')});el.classList.add('on');var p={mat:'Ex: 200m³ cherestea / 5 tone fier beton...',srv:'Ex: electrician autorizat / constructor...',ut:'Ex: excavator pe șenile / macara...'};document.getElementById('cw').placeholder=p[t]||p.mat}
+function subC(){var w=document.getElementById('cw').value.trim();if(!w){document.getElementById('cw').focus();return}var b=document.querySelector('.fsub');b.innerHTML='✓ Trimis! Firmele te vor contacta.';b.style.background='#3ecf6e';b.disabled=true;document.getElementById('cw').value='';document.querySelector('.form-textarea').value=''}
+</script>
+
+<script src="/assets/stats-auto.js"></script>
+</body>
+</html>

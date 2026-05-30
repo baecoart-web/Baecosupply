@@ -1,0 +1,59 @@
+{
+  "name": "BaecoSupply — Conectăm construcțiile României",
+  "short_name": "BaecoSupply",
+  "description": "Platformă digitală pentru firme, materiale și servicii de construcții din România.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0c0f",
+  "theme_color": "#f05a1a",
+  "orientation": "any",
+  "categories": [
+    "business",
+    "shopping"
+  ],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Cere ofertă",
+      "url": "/cereri/",
+      "description": "Postează o cerere nouă"
+    },
+    {
+      "name": "Toate firmele",
+      "url": "/firme/",
+      "description": "Caută firme locale"
+    }
+  ]
+}

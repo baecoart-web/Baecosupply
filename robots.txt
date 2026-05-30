@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://baecosupply.ro/sitemap-index.xml
+Sitemap: https://baecosupply.ro/sitemap-judete.xml
+Sitemap: https://baecosupply.ro/sitemap-firme.xml
+Sitemap: https://baecosupply.ro/sitemap-categorii.xml

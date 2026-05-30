@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | BaecoSupply</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0e0f11;--g2:#13141a;--g3:#1a1c22;--g4:#21232b;--o:#f05a1a;--ol:#ff6d2e;--w:#fff;--w7:rgba(255,255,255,.7);--w5:rgba(255,255,255,.5);--w1:rgba(255,255,255,.055);--m:#7e8494;--ml:#a0a6b8;--br:rgba(255,255,255,.07);--green:#3ecf6e;--red:#e74c3c;--yellow:#f39c12;--r:6px;--rl:10px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{background:var(--g);color:var(--w);font-family:'Barlow',sans-serif;min-height:100vh}
+a{text-decoration:none;color:inherit}button{font-family:'Barlow',sans-serif;cursor:pointer}
+.hdr{background:rgba(14,15,17,.97);border-bottom:1px solid var(--br);padding:0 1.2rem;position:sticky;top:0;z-index:100}
+.hdr-i{max-width:1400px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em}.logo span{color:var(--o)}
+.admin-badge{background:rgba(240,90,26,.15);border:1px solid rgba(240,90,26,.3);color:var(--o);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:20px}
+.logout-btn{background:var(--g3);border:1px solid var(--br);color:var(--w7);font-size:.75rem;font-weight:600;padding:.4rem .9rem;border-radius:var(--r);cursor:pointer;transition:all .2s}
+.logout-btn:hover{background:var(--g4);color:var(--w)}
+
+/* Login */
+.login-wrap{min-height:calc(100vh - 56px);display:flex;align-items:center;justify-content:center;padding:2rem}
+.login-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);padding:2.5rem;width:100%;max-width:380px;position:relative}
+.login-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--o),transparent);border-radius:var(--rl) var(--rl) 0 0}
+.login-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:.3rem}
+.login-sub{font-size:.8rem;color:var(--m);margin-bottom:1.8rem}
+.fl{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ml);margin-bottom:.32rem;display:block}
+.fi{width:100%;background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.65rem .9rem;color:var(--w);font-size:.86rem;outline:none;transition:border .2s;font-family:'Barlow',sans-serif;margin-bottom:.9rem}
+.fi:focus{border-color:rgba(240,90,26,.4);box-shadow:0 0 0 3px rgba(240,90,26,.08)}
+.fi::placeholder{color:var(--m)}
+.btn-primary{width:100%;background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.9rem;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn-primary:hover{background:var(--ol)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed}
+.err-msg{color:var(--red);font-size:.75rem;text-align:center;margin-top:.8rem;min-height:1em}
+
+/* Dashboard */
+#dashboard{display:none;max-width:1400px;margin:0 auto;padding:2rem 1.2rem}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.dash-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+.stat-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);padding:1.2rem}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;color:var(--o)}
+.stat-lbl{font-size:.72rem;color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* Tabs */
+.tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--br);padding-bottom:0}
+.tab{background:none;border:none;color:var(--m);font-size:.85rem;font-weight:600;padding:.7rem 1.2rem;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+.tab.active{color:var(--o);border-bottom-color:var(--o)}
+.tab:hover{color:var(--w)}
+
+/* Table */
+.tbl-wrap{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);overflow:hidden}
+.tbl-hdr{padding:1rem 1.3rem;border-bottom:1px solid var(--br);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.tbl-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em}
+.refresh-btn{background:var(--g3);border:1px solid var(--br);color:var(--w7);font-size:.72rem;font-weight:600;padding:.35rem .8rem;border-radius:var(--r);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.4rem}
+.refresh-btn:hover{background:var(--g4);color:var(--w)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{background:var(--g3);color:var(--m);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.7rem 1rem;text-align:left;white-space:nowrap}
+td{padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.04);color:var(--w7);vertical-align:middle}
+tr:hover td{background:rgba(255,255,255,.02)}
+.badge{display:inline-flex;align-items:center;padding:.25rem .65rem;border-radius:20px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.badge-pending{background:rgba(243,156,18,.12);color:var(--yellow);border:1px solid rgba(243,156,18,.25)}
+.badge-approved{background:rgba(62,207,110,.1);color:var(--green);border:1px solid rgba(62,207,110,.25)}
+.badge-rejected{background:rgba(231,76,60,.1);color:var(--red);border:1px solid rgba(231,76,60,.25)}
+.badge-resolved{background:rgba(62,207,110,.1);color:var(--green);border:1px solid rgba(62,207,110,.25)}
+.actions{display:flex;gap:.4rem;flex-wrap:wrap}
+.btn-sm{border:none;border-radius:var(--r);padding:.32rem .7rem;font-size:.7rem;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-approve{background:rgba(62,207,110,.15);color:var(--green);border:1px solid rgba(62,207,110,.3)}.btn-approve:hover{background:rgba(62,207,110,.25)}
+.btn-reject{background:rgba(231,76,60,.12);color:var(--red);border:1px solid rgba(231,76,60,.25)}.btn-reject:hover{background:rgba(231,76,60,.22)}
+.btn-edit{background:rgba(240,90,26,.12);color:var(--o);border:1px solid rgba(240,90,26,.25)}.btn-edit:hover{background:rgba(240,90,26,.22)}
+.btn-resolve{background:rgba(62,207,110,.15);color:var(--green);border:1px solid rgba(62,207,110,.3)}.btn-resolve:hover{background:rgba(62,207,110,.25)}
+.btn-view{background:var(--g3);color:var(--ml);border:1px solid var(--br)}.btn-view:hover{background:var(--g4);color:var(--w)}
+.empty-row td{text-align:center;color:var(--m);padding:2.5rem;font-size:.85rem}
+.loading-row td{text-align:center;color:var(--m);padding:2rem}
+.date-cell{font-size:.72rem;color:var(--m)}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-bg.open{display:flex}
+.modal{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);width:100%;max-width:580px;max-height:90vh;overflow-y:auto;position:relative}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--o),transparent);border-radius:var(--rl) var(--rl) 0 0}
+.modal-hdr{padding:1.2rem 1.5rem;border-bottom:1px solid var(--br);display:flex;align-items:center;justify-content:space-between}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em}
+.modal-close{background:var(--g3);border:1px solid var(--br);color:var(--w7);width:30px;height:30px;border-radius:var(--r);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;line-height:1;transition:all .2s}
+.modal-close:hover{background:var(--g4);color:var(--w)}
+.modal-body{padding:1.5rem}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 1.5rem}
+.detail-item{font-size:.83rem}
+.detail-lbl{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--m);margin-bottom:.2rem}
+.detail-val{color:var(--w)}
+.detail-full{grid-column:1/-1}
+.modal-actions{display:flex;gap:.6rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--br)}
+.edit-form .fg{margin-bottom:.9rem}
+.edit-form .fi{margin-bottom:0}
+.edit-form .fta{width:100%;background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.65rem .9rem;color:var(--w);font-size:.86rem;outline:none;resize:vertical;min-height:80px;font-family:'Barlow',sans-serif}
+.edit-form .fta:focus{border-color:rgba(240,90,26,.4);box-shadow:0 0 0 3px rgba(240,90,26,.08)}
+.save-btn{background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.7rem 1.4rem;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s}
+.save-btn:hover{background:var(--ol)}
+.cancel-btn{background:var(--g3);border:1px solid var(--br);color:var(--w7);border-radius:var(--r);padding:.7rem 1.2rem;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.cancel-btn:hover{background:var(--g4);color:var(--w)}
+
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--g2);border:1px solid var(--br);border-radius:var(--r);padding:.8rem 1.2rem;font-size:.82rem;color:var(--w);z-index:300;transform:translateY(100px);opacity:0;transition:all .3s;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{border-color:rgba(62,207,110,.4);background:rgba(62,207,110,.08)}
+.toast.error{border-color:rgba(231,76,60,.4);background:rgba(231,76,60,.08)}
+@media(max-width:768px){.stats-row{grid-template-columns:1fr 1fr}.detail-grid{grid-template-columns:1fr}table{display:block;overflow-x:auto}}
+@media(max-width:480px){.stats-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-i">
+    <div style="display:flex;align-items:center;gap:.8rem">
+      <a href="/index.html" class="logo">Baeco<span>Supply</span></a>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div id="hdrUser" style="display:none;align-items:center;gap:.8rem">
+      <span id="userEmail" style="font-size:.75rem;color:var(--m)"></span>
+      <button class="logout-btn" onclick="doLogout()">Deconectare</button>
+    </div>
+  </div>
+</header>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginSection">
+  <div class="login-card">
+    <div class="login-title">Admin Panel</div>
+    <div class="login-sub">Autentifică-te cu contul tău Supabase</div>
+    <label class="fl">Email</label>
+    <input type="email" class="fi" id="loginEmail" placeholder="admin@baecosupply.ro" autocomplete="username">
+    <label class="fl">Parolă</label>
+    <input type="password" class="fi" id="loginPass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="btn-primary" id="loginBtn" onclick="doLogin()">Intră în admin</button>
+    <div class="err-msg" id="loginErr"></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="dash-header">
+    <div class="dash-title">Dashboard Admin</div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num" id="statFirmePending">–</div>
+      <div class="stat-lbl">Firme în așteptare</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statFirmeApproved">–</div>
+      <div class="stat-lbl">Firme aprobate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statCereriPending">–</div>
+      <div class="stat-lbl">Cereri noi</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statCereriTotal">–</div>
+      <div class="stat-lbl">Total cereri</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('firme')">Înscrieri Firme</button>
+    <button class="tab" onclick="switchTab('cereri')">Cereri Ofertă</button>
+  </div>
+
+  <!-- Firme tab -->
+  <div id="tabFirme">
+    <div class="tbl-wrap">
+      <div class="tbl-hdr">
+        <div class="tbl-title">Înscrieri Firme</div>
+        <button class="refresh-btn" onclick="loadFirme()">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-6.51"/></svg>
+          Reîncarcă
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Firmă</th>
+            <th>CUI</th>
+            <th>Județ</th>
+            <th>Contact</th>
+            <th>Categorie</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Acțiuni</th>
+          </tr>
+        </thead>
+        <tbody id="firmeTbody">
+          <tr class="loading-row"><td colspan="8">Se încarcă...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Cereri tab -->
+  <div id="tabCereri" style="display:none">
+    <div class="tbl-wrap">
+      <div class="tbl-hdr">
+        <div class="tbl-title">Cereri Ofertă</div>
+        <button class="refresh-btn" onclick="loadCereri()">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-6.51"/></svg>
+          Reîncarcă
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tip</th>
+            <th>Ce caută</th>
+            <th>Județ / Localitate</th>
+            <th>Telefon</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Acțiuni</th>
+          </tr>
+        </thead>
+        <tbody id="cereriTbody">
+          <tr class="loading-row"><td colspan="7">Se încarcă...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DETALII / EDITARE -->
+<div class="modal-bg" id="modalBg" onclick="closeModalBg(event)">
+  <div class="modal" id="modal">
+    <div class="modal-hdr">
+      <div class="modal-title" id="modalTitle">Detalii</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Config ──────────────────────────────────────────────────
+var SURL = 'https://mgusrlvkdxozvpseafbx.supabase.co';
+var SKEY = 'sb_publishable_xmQtT4L2ybxKXJL0XGwElA_wIrLpo2I';
+var _token = null; // JWT token after login
+
+// ── Auth helpers ─────────────────────────────────────────────
+function authHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'apikey': SKEY,
+    'Authorization': 'Bearer ' + (_token || SKEY)
+  };
+}
+
+function supaFetch(path, opts) {
+  return fetch(SURL + path, Object.assign({ headers: authHeaders() }, opts));
+}
+
+// ── Login ────────────────────────────────────────────────────
+function doLogin() {
+  var email = document.getElementById('loginEmail').value.trim();
+  var pass  = document.getElementById('loginPass').value;
+  var btn   = document.getElementById('loginBtn');
+  var err   = document.getElementById('loginErr');
+  err.textContent = '';
+  if (!email || !pass) { err.textContent = 'Completează email și parola.'; return; }
+  btn.disabled = true; btn.textContent = 'Se verifică...';
+
+  // Verificare credentiale admin
+  var ADMIN_EMAIL = 'admin@baecosupply.ro';
+  var ADMIN_PASS  = 'Myvida.';
+  setTimeout(function() {
+    if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
+      _token = SKEY;
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      document.getElementById('hdrUser').style.display = 'flex';
+      document.getElementById('userEmail').textContent = email;
+      loadAll();
+    } else {
+      err.textContent = 'Email sau parolă incorectă.';
+      btn.disabled = false;
+      btn.textContent = 'Intră în admin';
+    }
+  }, 500);
+}
+
+function doLogout() {
+  _token = null;
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('hdrUser').style.display = 'none';
+  document.getElementById('loginSection').style.display = 'flex';
+  document.getElementById('loginPass').value = '';
+}
+
+// ── Tabs ─────────────────────────────────────────────────────
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(function(t,i){ t.classList.toggle('active', (i===0&&tab==='firme')||(i===1&&tab==='cereri')); });
+  document.getElementById('tabFirme').style.display  = tab==='firme'  ? 'block' : 'none';
+  document.getElementById('tabCereri').style.display = tab==='cereri' ? 'block' : 'none';
+}
+
+// ── Load all ─────────────────────────────────────────────────
+function loadAll() { loadFirme(); loadCereri(); loadStats(); }
+
+function loadStats() {
+  // Firme pending
+  supaFetch('/rest/v1/company_submissions?select=id&status=eq.pending')
+    .then(function(r){return r.json();}).then(function(d){ document.getElementById('statFirmePending').textContent = Array.isArray(d)?d.length:'?'; });
+  // Firme approved
+  supaFetch('/rest/v1/company_submissions?select=id&status=eq.approved')
+    .then(function(r){return r.json();}).then(function(d){ document.getElementById('statFirmeApproved').textContent = Array.isArray(d)?d.length:'?'; });
+  // Cereri pending
+  supaFetch('/rest/v1/quote_requests?select=id&status=eq.pending')
+    .then(function(r){return r.json();}).then(function(d){ document.getElementById('statCereriPending').textContent = Array.isArray(d)?d.length:'?'; });
+  // Cereri total
+  supaFetch('/rest/v1/quote_requests?select=id')
+    .then(function(r){return r.json();}).then(function(d){ document.getElementById('statCereriTotal').textContent = Array.isArray(d)?d.length:'?'; });
+}
+
+// ── Firme ────────────────────────────────────────────────────
+var _firme = [];
+function loadFirme() {
+  var tbody = document.getElementById('firmeTbody');
+  tbody.innerHTML = '<tr class="loading-row"><td colspan="8">Se încarcă...</td></tr>';
+  supaFetch('/rest/v1/company_submissions?select=*&order=created_at.desc')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      _firme = Array.isArray(data) ? data : [];
+      renderFirme();
+    })
+    .catch(function(){ tbody.innerHTML = '<tr class="empty-row"><td colspan="8">Eroare la încărcare.</td></tr>'; });
+}
+
+function renderFirme() {
+  var tbody = document.getElementById('firmeTbody');
+  if (!_firme.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="8">Nicio înscriere găsită.</td></tr>'; return; }
+  tbody.innerHTML = _firme.map(function(f) {
+    var date = f.created_at ? new Date(f.created_at).toLocaleDateString('ro-RO') : '–';
+    return '<tr>'
+      + '<td><strong>' + esc(f.nume_firma) + '</strong></td>'
+      + '<td>' + esc(f.cui) + '</td>'
+      + '<td>' + esc(f.judet) + '</td>'
+      + '<td>' + esc(f.contact_persoana) + '<br><span style="font-size:.7rem;color:var(--m)">' + esc(f.telefon) + '</span></td>'
+      + '<td>' + esc(f.categorie||'') + '</td>'
+      + '<td><span class="badge badge-' + f.status + '">' + statusLabelFirma(f.status) + '</span></td>'
+      + '<td class="date-cell">' + date + '</td>'
+      + '<td><div class="actions">'
+      + (f.status==='pending'   ? '<button class="btn-sm btn-approve" onclick="approveFirma('+f.id+')">Aprobă</button>' : '')
+      + (f.status!=='rejected' && f.status!=='approved' ? '<button class="btn-sm btn-reject" onclick="rejectFirma('+f.id+')">Respinge</button>' : '')
+      + '<button class="btn-sm btn-edit" onclick="editFirma('+f.id+')">Editează</button>'
+      + '</div></td>'
+      + '</tr>';
+  }).join('');
+}
+
+function approveFirma(id) {
+  var f = _firme.find(function(x){ return x.id === id; });
+  if (!f) { updateFirma(id, { status: 'approved' }, 'Firma aprobata'); return; }
+
+  // 1. Mark submission approved
+  supaFetch('/rest/v1/company_submissions?id=eq.'+id, {
+    method: 'PATCH',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' }),
+    body: JSON.stringify({ status: 'approved' })
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Update status esuat HTTP '+r.status);
+
+    // 2. Slug = normalized-name + '-' + submission-id
+    var slugBase = (f.nume_firma||'').toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    var slug = slugBase + '-' + id;
+
+    // 3. Map fields to firme_publice exact columns
+    var firmaData = {
+      slug:         slug,
+      nume:         f.nume_firma || '',
+      cui:          f.cui || null,
+      categorie:    f.categorie || f.tip || 'Servicii constructii',
+      subcategorie: f.specializari || f.tip || '',
+      judet:        f.judet || '',
+      localitate:   f.localitate || '',
+      telefon:      f.telefon || '',
+      email:        f.email || '',
+      website:      f.website || '',
+      descriere:    f.descriere || '',
+      status_activ: true,
+      sursa:        'admin'
+    };
+
+    // 4. Upsert into firme_publice — on_conflict as query param (correct PostgREST syntax)
+    return supaFetch('/rest/v1/firme_publice?on_conflict=slug', {
+      method: 'POST',
+      headers: Object.assign(authHeaders(), {
+        'Prefer': 'resolution=merge-duplicates,return=minimal'
+      }),
+      body: JSON.stringify(firmaData)
+    });
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Publicare esuat HTTP '+r.status);
+    showToast('Firma aprobata si publicata pe site', 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: ' + e.message, 'error'); });
+}
+function rejectFirma(id) {
+  if (!confirm('Respingi această firmă?')) return;
+  updateFirma(id, { status: 'rejected' }, 'Firmă respinsă.');
+}
+function updateFirma(id, patch, msg) {
+  supaFetch('/rest/v1/company_submissions?id=eq.'+id, {
+    method: 'PATCH',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' }),
+    body: JSON.stringify(patch)
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Update eșuat');
+    showToast(msg, 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: ' + e.message, 'error'); });
+}
+
+function editFirma(id) {
+  var f = _firme.find(function(x){ return x.id === id; });
+  if (!f) return;
+  document.getElementById('modalTitle').textContent = 'Editează — ' + f.nume_firma;
+  document.getElementById('modalBody').innerHTML =
+    '<div class="edit-form">'
+    + fld('Denumire firmă', 'ef_nume_firma', f.nume_firma)
+    + fld('CUI', 'ef_cui', f.cui)
+    + fld('Județ', 'ef_judet', f.judet)
+    + fld('Localitate', 'ef_localitate', f.localitate)
+    + fld('Contact persoană', 'ef_contact', f.contact_persoana)
+    + fld('Telefon', 'ef_tel', f.telefon)
+    + fld('Email', 'ef_email', f.email)
+    + fld('Website', 'ef_web', f.website||'')
+    + fldta('Descriere', 'ef_desc', f.descriere)
+    + '<div style="margin-top:.5rem"><label class="fl">Status</label>'
+    + '<select id="ef_status" class="fi" style="margin-bottom:0">'
+    + [{v:'pending',l:'În așteptare'},{v:'approved',l:'Aprobată'},{v:'rejected',l:'Respinsă'}].map(function(s){ return '<option value="'+s.v+'"'+(f.status===s.v?' selected':'')+'>'+s.l+'</option>'; }).join('')
+    + '</select></div>'
+    + '<div class="modal-actions">'
+    + '<button class="save-btn" onclick="saveFirma('+id+')">Salvează</button>'
+    + '<button class="cancel-btn" onclick="closeModal()">Anulează</button>'
+    + '</div>'
+    + '</div>';
+  openModal();
+}
+
+function saveFirma(id) {
+  var patch = {
+    nume_firma: gv('ef_nume_firma'), cui: gv('ef_cui'), judet: gv('ef_judet'),
+    localitate: gv('ef_localitate'), contact_persoana: gv('ef_contact'),
+    telefon: gv('ef_tel'), email: gv('ef_email'), website: gv('ef_web'),
+    descriere: gv('ef_desc'), status: gv('ef_status')
+  };
+  supaFetch('/rest/v1/company_submissions?id=eq.'+id, {
+    method: 'PATCH',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' }),
+    body: JSON.stringify(patch)
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Salvare eșuată');
+    closeModal();
+    showToast('Modificări salvate ✓', 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: ' + e.message, 'error'); });
+}
+
+// ── Cereri ───────────────────────────────────────────────────
+var _cereri = [];
+function loadCereri() {
+  var tbody = document.getElementById('cereriTbody');
+  tbody.innerHTML = '<tr class="loading-row"><td colspan="7">Se încarcă...</td></tr>';
+  supaFetch('/rest/v1/quote_requests?select=*&order=created_at.desc')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      _cereri = Array.isArray(data) ? data : [];
+      renderCereri();
+    })
+    .catch(function(){ tbody.innerHTML = '<tr class="empty-row"><td colspan="7">Eroare la încărcare.</td></tr>'; });
+}
+
+function renderCereri() {
+  var tbody = document.getElementById('cereriTbody');
+  if (!_cereri.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="7">Nicio cerere gasita.</td></tr>'; return; }
+  tbody.innerHTML = _cereri.map(function(c) {
+    var date = c.created_at ? new Date(c.created_at).toLocaleDateString('ro-RO') : '-';
+    return '<tr>'
+      + '<td><span class="badge" style="background:rgba(240,90,26,.1);color:var(--o);border:1px solid rgba(240,90,26,.2)">' + esc(c.tip||'') + '</span></td>'
+      + '<td>' + esc(c.titlul||'') + '</td>'
+      + '<td>' + esc(c.judet||'') + (c.localitate?' / <span style="color:var(--m)">'+esc(c.localitate)+'</span>':'') + '</td>'
+      + '<td>' + esc(c.telefon||'') + '</td>'
+      + '<td><span class="badge badge-' + c.status + '">' + statusLabelCerere(c.status) + '</span></td>'
+      + '<td class="date-cell">' + date + '</td>'
+      + '<td><div class="actions">'
+      + (c.status==='pending'  ? '<button class="btn-sm btn-approve" onclick="approveCerere('+c.id+')">Publica</button>' : '')
+      + (c.status==='approved' ? '<button class="btn-sm btn-resolve" onclick="resolveCerere('+c.id+')">Rezolvata</button>' : '')
+      + (c.status!=='rejected' && c.status!=='resolved' ? '<button class="btn-sm btn-reject" onclick="rejectCerere('+c.id+')">Respinge</button>' : '')
+      + '<button class="btn-sm btn-view" onclick="viewCerere('+c.id+')">Detalii</button>'
+      + '</div></td>'
+      + '</tr>';
+  }).join('');
+}
+function approveCerere(id) {
+  updateCerere(id, { status: 'approved' }, 'Cerere publicata pe /cereri/');
+}
+function resolveCerere(id) {
+  updateCerere(id, { status: 'resolved' }, 'Cerere marcată ca rezolvată ✓');
+}
+function rejectCerere(id) {
+  if (!confirm('Respingi această cerere?')) return;
+  updateCerere(id, { status: 'rejected' }, 'Cerere respinsă.');
+}
+function updateCerere(id, patch, msg) {
+  supaFetch('/rest/v1/quote_requests?id=eq.'+id, {
+    method: 'PATCH',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' }),
+    body: JSON.stringify(patch)
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Update eșuat');
+    showToast(msg, 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: ' + e.message, 'error'); });
+}
+
+function viewCerere(id) {
+  var c = _cereri.find(function(x){ return x.id === id; });
+  if (!c) return;
+  var date = c.created_at ? new Date(c.created_at).toLocaleString('ro-RO') : '–';
+  document.getElementById('modalTitle').textContent = 'Cerere #' + c.id;
+  document.getElementById('modalBody').innerHTML =
+    '<div class="detail-grid">'
+    + drow('Tip', c.tip) + drow('Status', statusLabelCerere(c.status))
+    + drow('Județ', c.judet) + drow('Localitate', c.localitate)
+    + drow('Telefon', c.telefon) + drow('Data', date)
+    + '<div class="detail-item detail-full">'+dlbl('Ce caută')+'<div class="detail-val">'+esc(c.titlul||'')+'</div></div>'
+    + (c.descriere ? '<div class="detail-item detail-full">'+dlbl('Detalii')+'<div class="detail-val" style="white-space:pre-line">'+esc(c.descriere)+'</div></div>' : '')
+    + '</div>'
+    + '<div class="modal-actions">'
+    + (c.status==='pending'  ? '<button class="save-btn" onclick="approveCerere('+c.id+');closeModal()">Publica pe /cereri/</button>' : '')
+    + (c.status==='approved' ? '<button class="save-btn" onclick="resolveCerere('+c.id+');closeModal()">Marcheaza rezolvata</button>' : '')
+    + '<button class="cancel-btn" onclick="closeModal()">Inchide</button>'
+    + '</div>';
+  openModal();
+}
+
+// ── Modal ────────────────────────────────────────────────────
+function openModal(){ document.getElementById('modalBg').classList.add('open'); }
+function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
+function closeModalBg(e){ if(e.target===document.getElementById('modalBg')) closeModal(); }
+
+// ── Toast ────────────────────────────────────────────────────
+var _toastTimer;
+function showToast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + (type||'');
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(function(){ t.className = 'toast'; }, 3500);
+}
+
+// ── Status labels ─────────────────────────────────────────────
+function statusLabelFirma(s) {
+  return {pending:'În așteptare', approved:'Aprobată', rejected:'Respinsă'}[s] || s;
+}
+function statusLabelCerere(s) {
+  return {pending:'In asteptare', approved:'Publicata', resolved:'Rezolvata', rejected:'Respinsa'}[s] || s;
+}
+
+// ── Helpers ──────────────────────────────────────────────────
+function esc(s){ var d=document.createElement('div');d.textContent=s||'';return d.innerHTML; }
+function gv(id){ return (document.getElementById(id)||{}).value||''; }
+function fld(lbl,id,val){ return '<div class="fg"><label class="fl">'+lbl+'</label><input type="text" class="fi" id="'+id+'" value="'+esc(val||'')+'"></div>'; }
+function fldta(lbl,id,val){ return '<div class="fg"><label class="fl">'+lbl+'</label><textarea class="fta" id="'+id+'">'+esc(val||'')+'</textarea></div>'; }
+function drow(lbl,val){ return '<div class="detail-item">'+dlbl(lbl)+'<div class="detail-val">'+esc(val||'–')+'</div></div>'; }
+function dlbl(lbl){ return '<div class="detail-lbl">'+lbl+'</div>'; }
+</script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Înscrie Firma | BaecoSupply</title>
+<meta name="description" content="Înscrie-ți firma de construcții pe BaecoSupply. Profil gratuit, primești cereri din zona ta, clienți noi fără intermediari.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://baecosupply.ro/inscrie/">
+<meta name="theme-color" content="#f05a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0e0f11;--g2:#13141a;--g3:#1a1c22;--g4:#21232b;--o:#f05a1a;--ol:#ff6d2e;--od:rgba(240,90,26,.10);--w:#fff;--w7:rgba(255,255,255,.7);--w5:rgba(255,255,255,.5);--w1:rgba(255,255,255,.055);--m:#7e8494;--ml:#a0a6b8;--br:rgba(255,255,255,.07);--bo:rgba(240,90,26,.3);--green:#3ecf6e;--r:6px;--rl:10px;--rx:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{background:var(--g);color:var(--w);font-family:'Barlow',sans-serif;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--g2)}::-webkit-scrollbar-thumb{background:var(--o);border-radius:2px}
+a{text-decoration:none;color:inherit}button{font-family:'Barlow',sans-serif;cursor:pointer}
+.hdr{background:rgba(14,15,17,.96);border-bottom:1px solid var(--br);padding:0 1.2rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.hdr-i{max-width:1200px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em}.logo span{color:var(--o)}
+.hn{display:flex;gap:.2rem;align-items:center}
+.ni{font-size:.7rem;color:var(--w5);font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .6rem;border-radius:var(--r);transition:all .2s}.ni:hover{color:var(--w);background:var(--w1)}
+.ni-ins{background:#D4AF37!important;color:#111827!important;border:1px solid #B8860B!important;font-weight:700;border-radius:var(--r);padding:.35rem .9rem!important}.ni-ins:hover{background:#B8860B!important;color:#fff!important}
+.np{background:var(--o);color:var(--w)!important;padding:.35rem .8rem;border-radius:var(--r)}.np:hover{background:var(--ol)}
+.hero{background:linear-gradient(135deg,rgba(20,10,5,.98),rgba(14,15,17,.98));border-bottom:1px solid var(--br);padding:2.8rem 1.2rem 2.2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-5%;width:340px;height:340px;background:radial-gradient(circle,rgba(240,90,26,.09) 0%,transparent 70%);pointer-events:none}
+.hi{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+.hlbl{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.hlbl::before{content:'';width:16px;height:2px;background:var(--o)}
+.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:.03em;line-height:.95;margin-bottom:.7rem}
+.htitle span{color:var(--o)}
+.hsub{font-size:.9rem;color:var(--m);max-width:520px;line-height:1.7}
+.hperks{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.perk{display:flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:600;color:var(--ml);background:var(--w1);border:1px solid var(--br);border-radius:20px;padding:.3rem .75rem}
+.perk svg{color:var(--green);flex-shrink:0}
+.main{max-width:1000px;margin:0 auto;padding:2.5rem 1.2rem}
+.layout{display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:start}
+.form-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;position:relative}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--o),transparent)}
+.fc-hd{padding:1.3rem 1.5rem;border-bottom:1px solid var(--br)}
+.fc-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;margin-bottom:.2rem}
+.fc-sub{font-size:.78rem;color:var(--m)}
+.fc-body{padding:1.5rem}
+.step-bar{display:flex;gap:.4rem;margin-bottom:1.5rem}
+.step{flex:1;height:3px;background:var(--g3);border-radius:2px;transition:background .3s}
+.step.active{background:var(--o)}.step.done{background:rgba(62,207,110,.5)}
+.sec-title{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--o);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--br);display:flex;align-items:center;gap:.5rem}
+.fg{margin-bottom:.9rem}
+.fl{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ml);margin-bottom:.32rem;display:block}
+.req{color:var(--o);margin-left:.2rem}
+.fi,.fs,.fta{width:100%;background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.65rem .9rem;color:var(--w);font-size:.86rem;outline:none;transition:border .2s,box-shadow .2s;font-family:'Barlow',sans-serif}
+.fi:focus,.fs:focus,.fta:focus{border-color:rgba(240,90,26,.4);box-shadow:0 0 0 3px rgba(240,90,26,.08)}
+.fi::placeholder,.fta::placeholder{color:var(--m)}
+.fs{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237e8494' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.5rem}
+.fs option{background:var(--g3)}.fs:disabled{opacity:.45;cursor:not-allowed}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.fta{resize:vertical;min-height:90px}
+.spec-wrap{display:none}
+.spec-wrap.show{display:block}
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem}
+.chk{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--w7);background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.5rem .75rem;cursor:pointer;transition:all .2s;user-select:none}
+.chk:hover{border-color:rgba(240,90,26,.3);color:var(--w)}
+.chk input{accent-color:var(--o);width:14px;height:14px;flex-shrink:0}
+.chk.sel{border-color:rgba(240,90,26,.4);background:var(--od);color:var(--w)}
+.ferr{font-size:.7rem;color:#e74c3c;margin-top:.35rem;display:none}
+.ferr.show{display:block}
+.fnote-sm{font-size:.7rem;color:var(--m);margin-top:.35rem;line-height:1.5}
+.fsub{width:100%;background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.9rem;font-size:.9rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem}
+.fsub:hover{background:var(--ol);transform:translateY(-1px);box-shadow:0 8px 24px rgba(240,90,26,.3)}
+.fsub:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.gdpr{font-size:.68rem;color:var(--m);text-align:center;margin-top:.75rem;line-height:1.6}
+.gdpr a{color:var(--ml);text-decoration:underline}
+.success{display:none;text-align:center;padding:2.5rem 1.5rem}
+.success-icon{width:64px;height:64px;background:rgba(62,207,110,.12);border:2px solid rgba(62,207,110,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem}
+.success-icon svg{color:var(--green)}
+.success h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;margin-bottom:.5rem}
+.success p{font-size:.85rem;color:var(--m);line-height:1.7;max-width:320px;margin:0 auto}
+.back-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.6rem 1.2rem;font-size:.8rem;font-weight:600;color:var(--w7);margin-top:1.5rem;transition:all .2s}
+.back-btn:hover{background:var(--g4);color:var(--w)}
+.sidebar{display:flex;flex-direction:column;gap:1rem}
+.info-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);padding:1.3rem}
+.info-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.info-title svg{color:var(--o)}
+.step-list{display:flex;flex-direction:column;gap:.85rem}
+.sl-item{display:flex;gap:.75rem;align-items:flex-start}
+.sl-num{width:24px;height:24px;background:var(--od);border:1px solid var(--bo);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:var(--o);flex-shrink:0;margin-top:.1rem}
+.sl-text{font-size:.8rem;color:var(--w7);line-height:1.5}
+.sl-text strong{color:var(--w);display:block;margin-bottom:.1rem}
+.feature-list{display:flex;flex-direction:column;gap:.6rem}
+.feat{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--w7)}
+.feat svg{color:var(--green);flex-shrink:0}
+.badge-free{background:rgba(62,207,110,.1);border:1px solid rgba(62,207,110,.25);color:var(--green);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border-radius:20px;display:inline-block;margin-bottom:.8rem}
+.warn-card{background:rgba(240,90,26,.06);border:1px solid rgba(240,90,26,.2);border-radius:var(--rl);padding:1rem 1.1rem;font-size:.78rem;color:var(--w7);line-height:1.6}
+.warn-card strong{color:var(--o);display:block;margin-bottom:.3rem}
+footer{background:var(--g2);border-top:1px solid var(--br);padding:1.5rem 1.2rem;margin-top:3rem}
+.fi2{max-width:1200px;margin:0 auto}
+.fc2{font-size:.68rem;color:var(--m);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem}
+.fc2 b{color:var(--o)}
+.fbd{margin-top:.4rem;font-size:.6rem;color:rgba(255,255,255,.15)}
+.fbd a{color:rgba(240,90,26,.38)}.fbd a:hover{color:var(--o)}
+@media(max-width:768px){
+  .layout{grid-template-columns:1fr}.sidebar{order:-1}
+  .frow{grid-template-columns:1fr}.checkbox-grid{grid-template-columns:1fr}
+  .hn .ni:not(.np):not(.ni-ins){display:none}
+}
+
+.digital-card{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.2);border-radius:var(--rl);padding:1rem 1.1rem}
+.dc-title{font-size:.8rem;font-weight:700;color:#D4AF37;margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem}
+.dc-sub{font-size:.76rem;color:var(--w5);line-height:1.55;margin-bottom:.7rem}
+.dc-btn{display:inline-flex;align-items:center;gap:.3rem;background:#D4AF37;color:#111827;font-size:.72rem;font-weight:700;padding:.35rem .8rem;border-radius:var(--r);text-decoration:none;transition:background .2s}
+.dc-btn:hover{background:#B8860B;color:#fff}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Înscrie Firma", "url": "https://baecosupply.ro/inscrie/", "isPartOf": {"@type": "WebSite", "name": "BaecoSupply", "url": "https://baecosupply.ro"}}</script>
+
+<meta property="og:title" content="Înscrie Firma | BaecoSupply">
+<meta property="og:url" content="https://baecosupply.ro/inscrie/">
+<meta property="og:site_name" content="BaecoSupply">
+<meta property="og:type" content="website">
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-i">
+    <a href="/index.html" class="logo">Baeco<span>Supply</span></a>
+    <nav class="hn">
+      <a href="/materiale/index.html" class="ni">Materiale</a>
+      <a href="/servicii/index.html" class="ni">Servicii</a>
+      <a href="/firme/index.html" class="ni">Firme</a>
+      <a href="/cereri/index.html" class="ni">Cereri</a>
+      <a href="/inscrie/index.html" class="ni ni-ins">Înscrie firmă</a>
+      <a href="/cereri/index.html" class="ni np">Cere ofertă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hi">
+    <div class="hlbl">Înregistrare firmă</div>
+    <h1 class="htitle">Înscrie-ți <span>firma</span><br>pe BaecoSupply</h1>
+    <p class="hsub">Profil gratuit în directorul de construcții din Moldova. Firmele verificate apar în fața clienților din zona lor.</p>
+    <div class="hperks">
+      <div class="perk"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 100% gratuit</div>
+      <div class="perk"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Verificat de echipa noastră</div>
+      <div class="perk"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Activ în 24h</div>
+      <div class="perk"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Clienți direct pe WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="layout">
+    <div class="form-card">
+      <div class="fc-hd">
+        <div class="fc-title">Formular înregistrare</div>
+        <div class="fc-sub">Completează datele firmei — te contactăm pentru verificare</div>
+      </div>
+      <div id="formWrap">
+        <div class="fc-body">
+          <div class="step-bar">
+            <div class="step active" id="s1"></div>
+            <div class="step" id="s2"></div>
+            <div class="step" id="s3"></div>
+          </div>
+          <form name="inscrie-firma" id="regForm" onsubmit="submitForm(event)">
+            <div class="sec-title"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Date firmă</div>
+            <div class="fg"><label class="fl">Denumire firmă <span class="req">*</span></label><input type="text" name="nume_firma" class="fi" placeholder="ex: Construct Expert SRL" required></div>
+            <div class="frow">
+              <div class="fg"><label class="fl">CUI / CIF <span class="req">*</span></label><input type="text" name="cui" id="cuiInput" class="fi" placeholder="ex: RO12345678" required oninput="resetCuiStatus()" onblur="verificaCUI()"><div id="cui-status" style="font-size:.72rem;margin-top:.3rem;min-height:1.2em"></div><div class="fnote-sm">Verificat automat în baza ANAF</div></div>
+              <div class="fg"><label class="fl">An înființare</label><input type="number" name="an_infiintare" class="fi" placeholder="ex: 2015" min="1990" max="2026"></div>
+            </div>
+            <div class="frow">
+              <div class="fg"><label class="fl">Județ <span class="req">*</span></label><select name="judet" class="fs" required><option value="">Selectează județul</option><option>Iași</option><option>Bacău</option><option>Suceava</option><option>Neamț</option><option>Vaslui</option><option>Botoșani</option><option>Vrancea</option><option>Galați</option><option>Altul</option></select></div>
+              <div class="fg"><label class="fl">Localitate <span class="req">*</span></label><input type="text" name="localitate" class="fi" placeholder="ex: Iași, Bacău..." required></div>
+            </div>
+
+            <div class="sec-title" style="margin-top:1.2rem"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>Date contact</div>
+            <div class="fg"><label class="fl">Persoană de contact <span class="req">*</span></label><input type="text" name="contact_persoana" class="fi" placeholder="Nume și prenume" required></div>
+            <div class="frow">
+              <div class="fg"><label class="fl">Telefon <span class="req">*</span></label><input type="tel" name="telefon" class="fi" placeholder="+40 7XX XXX XXX" required></div>
+              <div class="fg"><label class="fl">Email <span class="req">*</span></label><input type="email" name="email" class="fi" placeholder="firma@email.ro" required></div>
+            </div>
+            <div class="fg"><label class="fl">Website / Facebook (opțional)</label><input type="url" name="website" class="fi" placeholder="https://..."></div>
+
+            <div class="sec-title" style="margin-top:1.2rem"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Activitate firmă</div>
+
+            <div class="fg">
+              <label class="fl">Categorie principală <span class="req">*</span></label>
+              <select name="categorie" class="fs" id="selCat" onchange="onCatChange()" required>
+                <option value="">Alege categoria</option>
+                <option value="Furnizor materiale">Furnizor materiale</option>
+                <option value="Servicii construcții">Servicii construcții</option>
+                <option value="Utilaje și transport">Utilaje și transport</option>
+                <option value="Producător">Producător</option>
+              </select>
+            </div>
+
+            <div class="fg">
+              <label class="fl">Tip firmă <span class="req">*</span></label>
+              <select name="tip" class="fs" id="selTip" required disabled>
+                <option value="">Alege mai întâi categoria</option>
+              </select>
+              <div class="ferr" id="errTip">Alege un tip de firmă potrivit categoriei selectate.</div>
+            </div>
+
+            <div class="fg spec-wrap" id="specWrap">
+              <label class="fl">Specializări oferite <span class="req">*</span></label>
+              <div class="fnote-sm" style="margin-bottom:.5rem">Bifează tot ce se aplică</div>
+              <div class="checkbox-grid" id="specGrid"></div>
+              <div class="ferr" id="errSpec">Bifează cel puțin o specializare.</div>
+            </div>
+
+            <div class="fg"><label class="fl">Descriere scurtă a firmei <span class="req">*</span></label><textarea name="descriere" class="fta" placeholder="Ex: Furnizăm materiale de construcții la cel mai bun preț din Iași: BCA, ciment, fier beton, cherestea. Livrare rapidă în tot județul." required minlength="50"></textarea><div class="fnote-sm">Minim 50 caractere. Va apărea pe profilul firmei.</div></div>
+
+            <button type="submit" class="fsub" id="submitBtn">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Trimite cererea de înregistrare
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <div class="gdpr">Prin trimiterea formularului ești de acord cu <a href="/termeni.html">Termenii de utilizare</a> și <a href="/confidentialitate.html">Politica de confidențialitate</a>. Datele sunt folosite exclusiv pentru verificarea și publicarea profilului firmei.</div>
+          </form>
+        </div>
+      </div>
+      <div class="success" id="successMsg">
+        <div class="success-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Cerere trimisă!</h3>
+        <p>Echipa BaecoSupply va verifica datele firmei tale în maxim <strong style="color:var(--w)">24 de ore</strong>. Vei fi contactat pe numărul de telefon furnizat.</p>
+        <a href="/firme/index.html" class="back-btn"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Vezi toate firmele</a>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="info-card">
+        <div class="badge-free">100% Gratuit · fără abonament la înscriere</div>
+        <div class="info-title"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Cum funcționează</div>
+        <div class="step-list">
+          <div class="sl-item"><div class="sl-num">1</div><div class="sl-text"><strong>Completezi formularul</strong>Date firmă, contact și servicii oferite.</div></div>
+          <div class="sl-item"><div class="sl-num">2</div><div class="sl-text"><strong>Verificăm datele firmei</strong>Echipa noastră verifică informațiile în maxim 24h.</div></div>
+          <div class="sl-item"><div class="sl-num">3</div><div class="sl-text"><strong>Profilul devine activ</strong>Firma ta apare în director și în căutări pe județ și categorie.</div></div>
+          <div class="sl-item"><div class="sl-num">4</div><div class="sl-text"><strong>Primești clienți</strong>Clienții te contactează direct pe WhatsApp sau telefon.</div></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-title"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ce primești gratuit</div>
+        <div class="feature-list">
+          <div class="feat"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Profil web dedicat firmei tale</div>
+          <div class="feat"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Mini site optimizat pentru Google</div>
+          <div class="feat"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Buton WhatsApp direct pe profil</div>
+          <div class="feat"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Apariție în căutări pe județ și categorie</div>
+          <div class="feat"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Cereri de ofertă din zona ta</div>
+          <div class="feat"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Badge Profil verificat după validare</div>
+        </div>
+      </div>
+      <div class="warn-card"><strong>⚠️ Condiții de înregistrare</strong>Acceptăm doar firme reale din domeniul construcțiilor, materialelor, serviciilor și transportului conex construcțiilor. Profilurile false sau informațiile incorecte sunt eliminate imediat.</div>
+      <div class="digital-card">
+        <div class="dc-title"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Firma ta nu are website?</div>
+        <p class="dc-sub">BaecoDigital realizează site-uri profesionale pentru firme de construcții — optimizate pentru Google și clienți locali.</p>
+        <a href="https://baecodigital.ro" target="_blank" rel="noopener noreferrer" class="dc-btn"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>baecodigital.ro</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fi2">
+    <div class="fc2"><span>© 2026 <b>BaecoSupply</b> · Conectăm construcțiile României</span><a href="/index.html" style="color:var(--m)">Acasă</a></div>
+    <div class="fbd">Platformă realizată de <a href="https://baecodigital.ro" target="_blank" rel="noopener noreferrer">BaecoDigital</a> · Soluții digitale pentru construcții</div>
+  </div>
+</footer>
+
+<script>
+var CAT_DATA={
+  'Furnizor materiale':{
+    tipuri:['Depozit materiale construcții','Beton / stație betoane','Agregate / balast / nisip','Fier beton','Cherestea / lemn / OSB','Acoperișuri / tablă','Termopane / tâmplărie PVC','Pavele / borduri','Instalații sanitare / termice','Electrice construcții','Izolații','Vopsele / finisaje','Piatră decorativă','Prefabricate beton','Panouri sandwich'],
+    spec:['Beton','Agregate / balast','Cherestea / lemn','Fier beton','Termopane PVC','Acoperișuri / tablă','Instalații sanitare','Pavele / borduri','Electrice','Izolații','Vopsele / finisaje','Piatră decorativă','Prefabricate beton','Panouri sandwich']
+  },
+  'Servicii construcții':{
+    tipuri:['Construcții civile','Renovări / amenajări','Instalații sanitare / termice','Instalații electrice','Acoperișuri montaj','Hidroizolații','Gips carton','Zugrăveli / finisaje','Tâmplărie montaj','Construcții metalice','Garduri / porți','Fundații / zidărie'],
+    spec:['Construcții civile','Renovări','Amenajări interioare','Instalații sanitare','Instalații electrice','Acoperișuri montaj','Hidroizolații','Gips carton','Zugrăveli','Finisaje','Tâmplărie montaj','Construcții metalice','Fundații / zidărie']
+  },
+  'Utilaje și transport':{
+    tipuri:['Închirieri utilaje','Excavatoare','Excavatii','Transport materiale','Transport agregate','Pompe beton','Platforme / macarale','Demolări','Terasamente'],
+    spec:['Închirieri utilaje','Excavatoare','Excavatii','Transport materiale','Transport agregate','Pompe beton','Platforme','Macarale','Demolări','Terasamente']
+  },
+  'Producător':{
+    tipuri:['Producător pavele','Producător prefabricate beton','Producător tâmplărie PVC/aluminiu','Producător cherestea','Producător structuri metalice','Producător garduri / porți','Producător panouri sandwich','Producător materiale construcții'],
+    spec:['Pavele','Prefabricate beton','Tâmplărie PVC/aluminiu','Cherestea','Structuri metalice','Garduri / porți','Panouri sandwich','Materiale construcții']
+  }
+};
+
+function onCatChange(){
+  var cat=document.getElementById('selCat').value;
+  var selTip=document.getElementById('selTip');
+  var specWrap=document.getElementById('specWrap');
+  var specGrid=document.getElementById('specGrid');
+  selTip.innerHTML='<option value="">Selectează tipul firmei</option>';
+  selTip.disabled=!cat;
+  specGrid.innerHTML='';
+  specWrap.classList.toggle('show',!!cat);
+  document.getElementById('errTip').classList.remove('show');
+  document.getElementById('errSpec').classList.remove('show');
+  if(!cat)return;
+  var d=CAT_DATA[cat];
+  if(!d)return;
+  d.tipuri.forEach(function(t){var o=document.createElement('option');o.value=t;o.textContent=t;selTip.appendChild(o);});
+  d.spec.forEach(function(s){
+    var lbl=document.createElement('label');
+    lbl.className='chk';
+    var cb=document.createElement('input');
+    cb.type='checkbox';cb.name='spec[]';cb.value=s;
+    cb.addEventListener('change',function(){lbl.classList.toggle('sel',this.checked);});
+    lbl.appendChild(cb);
+    lbl.appendChild(document.createTextNode(' '+s));
+    specGrid.appendChild(lbl);
+  });
+}
+
+var cuiVerificat = false;
+
+function resetCuiStatus() {
+  cuiVerificat = false;
+  var s = document.getElementById('cui-status');
+  if (s) s.innerHTML = '';
+}
+
+function verificaCUI() {
+  var input = document.getElementById('cuiInput');
+  var statusEl = document.getElementById('cui-status');
+  if (!input || !statusEl) return;
+
+  var cui = input.value.replace(/[^0-9]/g, '').trim();
+  if (!cui || cui.length < 2) return;
+
+  statusEl.innerHTML = '<span style="color:#facc15">⏳ Se verifică CUI...</span>';
+
+  fetch('https://api.anaf.ro/prod/EINV/ws/tva?cui=' + cui)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.found && data.found.length > 0) {
+        var f = data.found[0];
+        cuiVerificat = true;
+
+        // Nume firma
+        var numeEl = document.querySelector('input[name="nume_firma"]');
+        if (numeEl && !numeEl.value) numeEl.value = f.denumire || '';
+
+        // Adresa — ANAF returneaza adresa in f.adresa
+        var adresa = f.adresa || '';
+
+        // Incearca sa extraga judetul din adresa
+        var judetEl = document.querySelector('select[name="judet"]');
+        if (judetEl && adresa) {
+          var judete = ['Iași','Bacău','Suceava','Neamț','Vaslui','Botoșani','Vrancea','Galați'];
+          for (var i = 0; i < judete.length; i++) {
+            var j = judete[i];
+            var jSimple = j.normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase();
+            if (adresa.toUpperCase().indexOf(jSimple) !== -1 || adresa.toUpperCase().indexOf(j.toUpperCase()) !== -1) {
+              for (var k = 0; k < judetEl.options.length; k++) {
+                var opt = judetEl.options[k].value;
+                var optSimple = opt.normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase();
+                if (optSimple === jSimple || opt.toUpperCase() === j.toUpperCase()) {
+                  judetEl.value = opt;
+                  break;
+                }
+              }
+              break;
+            }
+          }
+        }
+
+        // Localitate
+        var locEl = document.querySelector('input[name="localitate"]');
+        if (locEl && !locEl.value && f.adresa) {
+          // ANAF adresa format: "STR ... NR ... LOC XXXX JUD YYYY"
+          var locMatch = f.adresa.match(/LOC(?:ALITATE)?\s+([A-ZĂÂÎȘȚ ]+?)(?:\s+JUD|\s+SECTOR|$)/i);
+          if (locMatch) locEl.value = locMatch[1].trim();
+        }
+
+        // An infiintare din data_inregistrare
+        var anEl = document.querySelector('input[name="an_infiintare"]');
+        if (anEl && !anEl.value && f.data_inregistrare) {
+          var an = f.data_inregistrare.substring(0, 4);
+          if (an && parseInt(an) > 1990) anEl.value = an;
+        }
+
+        statusEl.innerHTML = '<span style="color:#3ecf6e">✅ ' + (f.denumire||'') + ' — CUI valid</span>';
+      } else {
+        cuiVerificat = false;
+        statusEl.innerHTML = '<span style="color:#f87171">❌ CUI negăsit în baza ANAF. Verifică numărul.</span>';
+      }
+    })
+    .catch(function() {
+      statusEl.innerHTML = '<span style="color:#facc15">⚠️ Nu s-a putut verifica acum — continuă oricum.</span>';
+      cuiVerificat = true;
+    });
+}
+
+var form=document.getElementById('regForm');
+form.addEventListener('input',function(){
+  var req=form.querySelectorAll('[required]');
+  var filled=0;
+  req.forEach(function(f){if(f.value&&f.value.trim())filled++;});
+  var pct=filled/req.length;
+  ['s1','s2','s3'].forEach(function(id,i){document.getElementById(id).className='step'+(pct>i*0.38?' active':'');});
+});
+
+function submitForm(e){
+  e.preventDefault();
+  var ok=true;
+  var cat=document.getElementById('selCat').value;
+  var tip=document.getElementById('selTip').value;
+  var errTip=document.getElementById('errTip');
+  var errSpec=document.getElementById('errSpec');
+  if(!cat||!tip){errTip.classList.add('show');ok=false;}
+  else{
+    var d=CAT_DATA[cat];
+    if(!d||d.tipuri.indexOf(tip)===-1){errTip.classList.add('show');ok=false;}
+    else{errTip.classList.remove('show');}
+  }
+  var specWrap=document.getElementById('specWrap');
+  if(specWrap.classList.contains('show')){
+    var specs=form.querySelectorAll('input[name="spec[]"]:checked');
+    if(specs.length===0){errSpec.classList.add('show');ok=false;}
+    else{errSpec.classList.remove('show');}
+  }
+  if(!ok)return;
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-opacity=".3"/><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur=".8s" repeatCount="indefinite"/></path></svg> Se trimite...';
+  var fd=new FormData(form);
+  var specs=[];
+  form.querySelectorAll('input[name="spec[]"]:checked').forEach(function(cb){specs.push(cb.value);});
+  fetch('https://mgusrlvkdxozvpseafbx.supabase.co/functions/v1/submit-public?table=company_submissions', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      nume_firma:fd.get('nume_firma')||'',
+      cui:fd.get('cui')||'',
+      an_infiintare:fd.get('an_infiintare') ? Number(fd.get('an_infiintare')) : null,
+      judet:fd.get('judet')||'',
+      localitate:fd.get('localitate')||'',
+      contact_persoana:fd.get('contact_persoana')||'',
+      telefon:fd.get('telefon')||'',
+      email:fd.get('email')||'',
+      website:fd.get('website')||'',
+      categorie:fd.get('categorie')||'',
+      tip:fd.get('tip')||'',
+      specializari:specs.join(', '),
+      descriere:fd.get('descriere')||'',
+      status:'pending'
+    })
+  })
+  .then(function(r){
+    if(!r.ok) return r.text().then(function(t){throw new Error(t);});
+    return r.text();
+  })
+  .then(function(){
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('successMsg').style.display='block';
+    ['s1','s2','s3'].forEach(function(id){document.getElementById(id).className='step done';});
+  })
+  .catch(function(err){
+    btn.disabled=false;
+    btn.style.background='#c0392b';
+    btn.innerHTML='Eroare — încearcă din nou';
+    setTimeout(function(){btn.style.background='';btn.innerHTML='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Trimite cererea de înregistrare';},3000);
+  });
+}
+</script>
+</body>
+</html>

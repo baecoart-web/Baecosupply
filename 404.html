@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pagina nu a fost găsită — BaecoSupply</title>
+<meta name="description" content="Pagina căutată nu există. Navighează spre firmele, materialele sau serviciile de construcții din Moldova.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://baecosupply.ro/404.html">
+<meta name="theme-color" content="#f05a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0b0c0f;--g2:#111318;--g3:#181b22;--o:#f05a1a;--ol:#ff6d2e;--od:rgba(240,90,26,.10);--ob:rgba(240,90,26,.30);--w:#fff;--w7:rgba(255,255,255,.70);--w5:rgba(255,255,255,.50);--w1:rgba(255,255,255,.055);--m:#7e8494;--ml:#a0a6b8;--br:rgba(255,255,255,.07);--r:6px;--rl:10px;--rx:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;height:100%}
+body{background:var(--g);color:var(--w);font-family:'Barlow',sans-serif;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--g2)}::-webkit-scrollbar-thumb{background:var(--o);border-radius:2px}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* Header */
+.hdr{background:rgba(11,12,15,.96);border-bottom:1px solid var(--br);padding:0 1.2rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.hdr-i{max-width:1200px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em}.logo span{color:var(--o)}
+
+/* Hero 404 */
+.hero{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1.4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#080a10 0%,#0b0c0f 45%,#0f0c09 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(240,90,26,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(240,90,26,.018) 1px,transparent 1px);background-size:55px 55px;pointer-events:none}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(240,90,26,.06) 0%,transparent 65%);pointer-events:none}
+.hi{position:relative;z-index:2;max-width:560px;animation:fu .6s both}
+
+/* Cifra 404 */
+.code{font-family:'Bebas Neue',sans-serif;font-size:clamp(6rem,20vw,11rem);line-height:.9;letter-spacing:.04em;margin-bottom:1rem;animation:float 4s ease-in-out infinite}
+.code .four{color:var(--o)}
+.code .zero{color:rgba(255,255,255,.12);text-shadow:0 0 60px rgba(240,90,26,.15)}
+
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(240,90,26,.1);border:1px solid rgba(240,90,26,.22);border-radius:3px;padding:.3rem .85rem;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--o);margin-bottom:1.2rem}
+.pulse-dot{width:6px;height:6px;background:var(--o);border-radius:50%;animation:pulse 1.8s infinite}
+
+/* Mesaj */
+.title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);letter-spacing:.03em;margin-bottom:.7rem}
+.sub{font-size:.9rem;color:var(--w5);margin-bottom:2.5rem;line-height:1.8}
+
+/* Butoane */
+.btns{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.3rem;border-radius:var(--r);font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:all .2s;border:1px solid}
+.btn-primary{background:var(--o);color:var(--w);border-color:var(--o)}.btn-primary:hover{background:var(--ol);transform:translateY(-1px);box-shadow:0 8px 32px rgba(240,90,26,.25)}
+.btn-sec{background:var(--w1);color:var(--w7);border-color:var(--br)}.btn-sec:hover{background:rgba(255,255,255,.09);color:var(--w);border-color:rgba(255,255,255,.15)}
+
+/* Separator */
+.sep{display:flex;align-items:center;gap:.7rem;margin:2rem auto;max-width:280px;color:var(--w5);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--br)}
+
+/* Sugestii */
+.sugg{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center}
+.sc{background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.38rem .8rem;font-size:.7rem;color:var(--ml);transition:all .2s}.sc:hover{border-color:var(--ob);color:var(--o);background:var(--od)}
+
+/* Footer */
+footer{background:var(--g2);border-top:1px solid var(--br);padding:1.2rem 1.4rem;text-align:center}
+.fc2{font-size:.68rem;color:var(--m)}.fc2 b{color:var(--o)}.fc2 a{color:var(--m)}.fc2 a:hover{color:var(--o)}
+
+@media(max-width:500px){.btns{flex-direction:column;align-items:center}.btn{width:100%;justify-content:center;max-width:260px}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-i">
+    <a href="/index.html" class="logo">Baeco<span>Supply</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hi">
+    <div class="badge"><span class="pulse-dot"></span> Eroare 404</div>
+    <div class="code">
+      <span class="four">4</span><span class="zero">0</span><span class="four">4</span>
+    </div>
+    <h1 class="title">Pagina nu a fost găsită</h1>
+    <p class="sub">Ne pare rău, dar pagina pe care o cauți nu există sau a fost mutată.<br>Încearcă una dintre opțiunile de mai jos.</p>
+    <div class="btns">
+      <a href="/index.html" class="btn btn-primary">🏠 Acasă</a>
+      <a href="/firme/index.html" class="btn btn-sec">🏗️ Toate firmele</a>
+      <a href="/judete/index.html" class="btn btn-sec">📍 Pe județe</a>
+      <a href="/contact.html" class="btn btn-sec">✉️ Contact</a>
+    </div>
+    <div class="sep">sau caută direct</div>
+    <div class="sugg">
+      <a href="/materiale/index.html" class="sc">Materiale construcții</a>
+      <a href="/servicii/index.html" class="sc">Servicii locale</a>
+      <a href="/cereri/index.html" class="sc">Cere ofertă</a>
+      <a href="/judete/iasi/" class="sc">Firme Iași</a>
+      <a href="/judete/bacau/" class="sc">Firme Bacău</a>
+      <a href="/judete/suceava/" class="sc">Firme Suceava</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fc2">
+    © 2026 <b>BaecoSupply</b> · 
+    <a href="/index.html">Acasă</a> · 
+    <a href="/sitemap.xml">Sitemap</a> · 
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
