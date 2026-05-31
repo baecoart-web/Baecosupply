@@ -142,7 +142,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="dash-title">Dashboard Admin</div>
   </div>
 
-  <div class="stats-row">
+  <div class="stats-row" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
     <div class="stat-card">
       <div class="stat-num" id="statFirmePending">–</div>
       <div class="stat-lbl">Firme în așteptare</div>
@@ -159,11 +159,20 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <div class="stat-num" id="statCereriTotal">–</div>
       <div class="stat-lbl">Total cereri</div>
     </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statAngajariPendingFirma">–</div>
+      <div class="stat-lbl">🏢 Firme în așteptare</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statAngajariPendingPersoana">–</div>
+      <div class="stat-lbl">👤 Persoane în așteptare</div>
+    </div>
   </div>
 
   <div class="tabs">
     <button class="tab active" onclick="switchTab('firme')">Înscrieri Firme</button>
     <button class="tab" onclick="switchTab('cereri')">Cereri Ofertă</button>
+    <button class="tab" onclick="switchTab('angajari')">Angajări</button>
   </div>
 
   <!-- Firme tab -->
@@ -190,6 +199,41 @@ tr:hover td{background:rgba(255,255,255,.02)}
           </tr>
         </thead>
         <tbody id="firmeTbody">
+          <tr class="loading-row"><td colspan="8">Se încarcă...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Angajari tab -->
+  <div id="tabAngajari" style="display:none">
+    <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap">
+      <button class="btn-sm btn-view active" id="angTypeAllBtn" onclick="setAngType('all',this)">Toate</button>
+      <button class="btn-sm btn-view" id="angTypeFirmaBtn" onclick="setAngType('firma_cauta',this)">🏢 Firme</button>
+      <button class="btn-sm btn-view" id="angTypePersoanaBtn" onclick="setAngType('persoana_cauta',this)">👤 Persoane</button>
+    </div>
+    <div class="tbl-wrap">
+      <div class="tbl-hdr">
+        <div class="tbl-title">Angajări</div>
+        <button class="refresh-btn" onclick="loadAngajari()">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-6.51"/></svg>
+          Reîncarcă
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tip</th>
+            <th>Titlu post</th>
+            <th>Firmă / Candidat</th>
+            <th>Județ</th>
+            <th>Categorie</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Acțiuni</th>
+          </tr>
+        </thead>
+        <tbody id="angajariTbody">
           <tr class="loading-row"><td colspan="8">Se încarcă...</td></tr>
         </tbody>
       </table>
@@ -312,13 +356,15 @@ function doLogout() {
 
 // ── Tabs ─────────────────────────────────────────────────────
 function switchTab(tab) {
-  document.querySelectorAll('.tab').forEach(function(t,i){ t.classList.toggle('active', (i===0&&tab==='firme')||(i===1&&tab==='cereri')); });
-  document.getElementById('tabFirme').style.display  = tab==='firme'  ? 'block' : 'none';
-  document.getElementById('tabCereri').style.display = tab==='cereri' ? 'block' : 'none';
+  var tabs=['firme','cereri','angajari'];
+  document.querySelectorAll('.tab').forEach(function(t,i){ t.classList.toggle('active', tabs[i]===tab); });
+  document.getElementById('tabFirme').style.display     = tab==='firme'     ? 'block' : 'none';
+  document.getElementById('tabCereri').style.display    = tab==='cereri'    ? 'block' : 'none';
+  document.getElementById('tabAngajari').style.display  = tab==='angajari'  ? 'block' : 'none';
 }
 
 // ── Load all ─────────────────────────────────────────────────
-function loadAll() { loadFirme(); loadCereri(); loadStats(); }
+function loadAll() { loadFirme(); loadCereri(); loadAngajari(); loadStats(); }
 
 function loadStats() {
   // Firme pending
@@ -333,6 +379,12 @@ function loadStats() {
   // Cereri total
   supaFetch('/rest/v1/quote_requests?select=id')
     .then(function(r){return r.json();}).then(function(d){ document.getElementById('statCereriTotal').textContent = Array.isArray(d)?d.length:'?'; });
+  // Angajări firme pending
+  supaFetch('/rest/v1/job_posts?select=id&status=eq.pending&post_type=eq.firma_cauta')
+    .then(function(r){return r.json();}).then(function(d){ document.getElementById('statAngajariPendingFirma').textContent = Array.isArray(d)?d.length:'?'; });
+  // Angajări persoane pending
+  supaFetch('/rest/v1/job_posts?select=id&status=eq.pending&post_type=eq.persoana_cauta')
+    .then(function(r){return r.json();}).then(function(d){ document.getElementById('statAngajariPendingPersoana').textContent = Array.isArray(d)?d.length:'?'; });
 }
 
 // ── Firme ────────────────────────────────────────────────────
@@ -487,6 +539,167 @@ function saveFirma(id) {
     loadAll();
   })
   .catch(function(e) { showToast('Eroare: ' + e.message, 'error'); });
+}
+
+// ── Angajări ─────────────────────────────────────────────────
+var _angajari = [];
+var _angType = 'all';
+
+function setAngType(type, btn) {
+  _angType = type;
+  document.querySelectorAll('#tabAngajari .btn-sm').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderAngajari();
+}
+
+function loadAngajari() {
+  var tbody = document.getElementById('angajariTbody');
+  tbody.innerHTML = '<tr class="loading-row"><td colspan="8">Se încarcă...</td></tr>';
+  supaFetch('/rest/v1/job_posts?select=*&order=created_at.desc')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      _angajari = Array.isArray(data) ? data : [];
+      renderAngajari();
+    })
+    .catch(function(){ tbody.innerHTML = '<tr class="empty-row"><td colspan="8">Eroare la încărcare.</td></tr>'; });
+}
+
+function renderAngajari() {
+  var tbody = document.getElementById('angajariTbody');
+  var list = _angType === 'all' ? _angajari : _angajari.filter(function(j){ return j.post_type === _angType; });
+  if (!list.length) { tbody.innerHTML = '<tr class="empty-row"><td colspan="8">Niciun anunț găsit.</td></tr>'; return; }
+  tbody.innerHTML = list.map(function(j) {
+    var isFirma = j.post_type === 'firma_cauta' || !j.post_type;
+    var date = j.created_at ? new Date(j.created_at).toLocaleDateString('ro-RO') : '–';
+    var statusBadge = {
+      pending: '<span class="badge badge-pending">În așteptare</span>',
+      approved: '<span class="badge badge-approved">Aprobat</span>',
+      rejected: '<span class="badge badge-rejected">Respins</span>',
+      expired: '<span class="badge" style="background:rgba(126,132,148,.1);color:var(--m);border:1px solid rgba(126,132,148,.2)">Expirat</span>'
+    }[j.status] || esc(j.status);
+    var typeBadge = isFirma
+      ? '<span style="font-size:.65rem;padding:.15rem .4rem;border-radius:3px;background:rgba(240,90,26,.1);color:var(--o);border:1px solid rgba(240,90,26,.2)">🏢</span>'
+      : '<span style="font-size:.65rem;padding:.15rem .4rem;border-radius:3px;background:rgba(77,184,232,.1);color:#4db8e8;border:1px solid rgba(77,184,232,.25)">👤</span>';
+    var entityCol = isFirma
+      ? esc(j.company_name||'–') + (j.phone?'<br><span style="font-size:.7rem;color:var(--m)">'+esc(j.phone)+'</span>':'')
+      : (j.experience_years?j.experience_years+' ani exp.<br>':'') + '<span style="font-size:.7rem;color:var(--m)">'+(j.phone?esc(j.phone):'')+'</span>';
+    return '<tr>'
+      + '<td>' + typeBadge + '</td>'
+      + '<td><strong>' + esc(j.title) + '</strong><br><span style="font-size:.7rem;color:var(--m)">' + esc(j.slug||'') + '</span></td>'
+      + '<td>' + entityCol + '</td>'
+      + '<td>' + esc(j.county) + (j.city?'<br><span style="font-size:.7rem;color:var(--m)">'+esc(j.city)+'</span>':'') + '</td>'
+      + '<td>' + esc(j.category||'') + (j.contract_type?'<br><span style="font-size:.7rem;color:var(--m)">'+esc(j.contract_type)+'</span>':'') + '</td>'
+      + '<td>' + statusBadge + '</td>'
+      + '<td class="date-cell">' + date + '</td>'
+      + '<td><div class="actions">'
+      + (j.status==='pending' ? '<button class="btn-sm btn-approve" onclick="approveAngajare('+j.id+')">Aprobă</button>' : '')
+      + (j.status==='pending' ? '<button class="btn-sm btn-reject" onclick="rejectAngajare('+j.id+')">Respinge</button>' : '')
+      + (j.status==='approved' ? '<button class="btn-sm btn-reject" onclick="expireAngajare('+j.id+')">Expiră</button>' : '')
+      + '<button class="btn-sm btn-edit" onclick="editAngajare('+j.id+')">Editează</button>'
+      + '<button class="btn-sm btn-reject" onclick="deleteAngajare('+j.id+')" style="background:rgba(231,76,60,.08)">Șterge</button>'
+      + '</div></td>'
+      + '</tr>';
+  }).join('');
+}
+
+function approveAngajare(id) {
+  updateAngajare(id, { status: 'approved', published_at: new Date().toISOString() }, 'Anunț aprobat și publicat ✓');
+}
+function rejectAngajare(id) {
+  if (!confirm('Respingi acest anunț?')) return;
+  updateAngajare(id, { status: 'rejected' }, 'Anunț respins.');
+}
+function expireAngajare(id) {
+  if (!confirm('Marchezi anunțul ca expirat?')) return;
+  updateAngajare(id, { status: 'expired' }, 'Anunț marcat expirat.');
+}
+function deleteAngajare(id) {
+  if (!confirm('Ștergi definitiv acest anunț?')) return;
+  supaFetch('/rest/v1/job_posts?id=eq.'+id, {
+    method: 'DELETE',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' })
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Ștergere eșuată HTTP '+r.status);
+    showToast('Anunț șters ✓', 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: '+e.message, 'error'); });
+}
+function updateAngajare(id, patch, msg) {
+  supaFetch('/rest/v1/job_posts?id=eq.'+id, {
+    method: 'PATCH',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' }),
+    body: JSON.stringify(patch)
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Update eșuat');
+    showToast(msg, 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: '+e.message, 'error'); });
+}
+
+function editAngajare(id) {
+  var j = _angajari.find(function(x){ return x.id === id; });
+  if (!j) return;
+  document.getElementById('modalTitle').textContent = 'Editează — ' + j.title;
+  var statuses = [{v:'pending',l:'În așteptare'},{v:'approved',l:'Aprobat'},{v:'rejected',l:'Respins'},{v:'expired',l:'Expirat'}];
+  var cats = ['Constructori','Electricieni','Instalatori','Dulgheri','Fierari beton','Zugravi','Faianțari','Acoperișuri','Șoferi utilaje','Operatori utilaje','Ingineri construcții','Diriginți de șantier','Amenajări interioare','Amenajări exterioare','Muncitori necalificați'];
+  var judete = ['Bacău','Iași','Suceava','Vaslui','Galați','Vrancea','Neamț','Botoșani'];
+  document.getElementById('modalBody').innerHTML =
+    '<div class="edit-form">'
+    + fld('Titlu post', 'ea_title', j.title)
+    + fld('Firmă', 'ea_company', j.company_name)
+    + fld('Telefon', 'ea_phone', j.phone||'')
+    + fld('Email', 'ea_email', j.email||'')
+    + '<div class="fg"><label class="fl">Județ</label><select id="ea_county" class="fi">'
+    + judete.map(function(jud){ return '<option'+(j.county===jud?' selected':'')+'>'+jud+'</option>'; }).join('')
+    + '</select></div>'
+    + fld('Localitate', 'ea_city', j.city||'')
+    + '<div class="fg"><label class="fl">Categorie</label><select id="ea_category" class="fi">'
+    + cats.map(function(c){ return '<option'+(j.category===c?' selected':'')+'>'+c+'</option>'; }).join('')
+    + '</select></div>'
+    + fld('Salariu', 'ea_salary', j.salary||'')
+    + fld('Scurtă descriere', 'ea_short_desc', j.short_description||'')
+    + fldta('Descriere completă', 'ea_description', j.description||'')
+    + fldta('Cerințe', 'ea_requirements', j.requirements||'')
+    + fldta('Beneficii', 'ea_benefits', j.benefits||'')
+    + '<div class="fg"><label class="fl">Status</label><select id="ea_status" class="fi">'
+    + statuses.map(function(s){ return '<option value="'+s.v+'"'+(j.status===s.v?' selected':'')+'>'+s.l+'</option>'; }).join('')
+    + '</select></div>'
+    + '<div class="modal-actions">'
+    + '<button class="save-btn" onclick="saveAngajare('+id+')">Salvează</button>'
+    + '<button class="cancel-btn" onclick="closeModal()">Anulează</button>'
+    + '</div>'
+    + '</div>';
+  openModal();
+}
+
+function saveAngajare(id) {
+  var patch = {
+    title: gv('ea_title'), company_name: gv('ea_company'),
+    phone: gv('ea_phone'), email: gv('ea_email'),
+    county: gv('ea_county'), city: gv('ea_city'),
+    category: gv('ea_category'), salary: gv('ea_salary'),
+    short_description: gv('ea_short_desc'),
+    description: gv('ea_description'),
+    requirements: gv('ea_requirements'),
+    benefits: gv('ea_benefits'),
+    status: gv('ea_status')
+  };
+  supaFetch('/rest/v1/job_posts?id=eq.'+id, {
+    method: 'PATCH',
+    headers: Object.assign(authHeaders(), { 'Prefer': 'return=minimal' }),
+    body: JSON.stringify(patch)
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('Salvare eșuată');
+    closeModal();
+    showToast('Modificări salvate ✓', 'success');
+    loadAll();
+  })
+  .catch(function(e) { showToast('Eroare: '+e.message, 'error'); });
 }
 
 // ── Cereri ───────────────────────────────────────────────────

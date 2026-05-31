@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Locuri de muncă în construcții Neamț — BaecoSupply</title>
+<meta name="description" content="Locuri de muncă în construcții din județul Neamț. Anunțuri verificate de la firme locale. Constructori, electricieni, instalatori și altele.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://baecosupply.ro/angajari/neamt/">
+<meta name="theme-color" content="#f05a1a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Angajări în construcții Neamț — BaecoSupply">
+<meta property="og:description" content="Locuri de muncă în construcții din județul Neamț. Firme verificate, salarii reale.">
+<meta property="og:url" content="https://baecosupply.ro/angajari/neamt/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Angajări construcții Neamț","url":"https://baecosupply.ro/angajari/neamt/","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BaecoSupply","item":"https://baecosupply.ro"},{"@type":"ListItem","position":2,"name":"Angajări","item":"https://baecosupply.ro/angajari/"},{"@type":"ListItem","position":3,"name":"Neamț","item":"https://baecosupply.ro/angajari/neamt/"}]}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/global.css">
+<style>
+.job-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);padding:1.2rem;transition:all .25s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:.7rem}
+.job-card:hover{border-color:var(--ob);transform:translateY(-2px);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.job-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--o);transition:width .3s}
+.job-card:hover::after{width:100%}
+.job-card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:.7rem}
+.job-title{font-weight:700;font-size:.92rem;margin-bottom:.2rem;line-height:1.3}
+.job-company{font-size:.74rem;color:var(--m)}
+.job-meta{display:flex;gap:.55rem;flex-wrap:wrap;font-size:.72rem;color:var(--ml)}
+.job-desc{font-size:.8rem;color:var(--w5);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.job-foot{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;margin-top:.3rem}
+.job-date{font-size:.67rem;color:var(--m)}
+.job-actions{display:flex;gap:.4rem;flex-wrap:wrap}
+.btn-sm-job{display:inline-flex;align-items:center;gap:.25rem;padding:.35rem .75rem;border-radius:var(--r);font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+.btn-tel{background:var(--w1);border:1px solid var(--br);color:var(--w7)}.btn-tel:hover{background:rgba(255,255,255,.1);color:var(--w)}
+.btn-more{background:var(--od);border:1px solid var(--ob);color:var(--o)}.btn-more:hover{background:rgba(240,90,26,.18)}
+.badge-contract{background:rgba(77,184,232,.1);border:1px solid rgba(77,184,232,.25);color:#4db8e8;font-size:.63rem;font-weight:700;padding:.2rem .55rem;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.ang-filters{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);padding:1.2rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1.5rem}
+.ang-filter-group{display:flex;flex-direction:column;gap:.35rem;flex:1;min-width:150px}
+.ang-filter-label{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ml)}
+.ang-input{background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.55rem .8rem;color:var(--w);font-size:.83rem;outline:none;transition:border .2s;font-family:'Barlow',sans-serif;width:100%}
+.ang-input:focus{border-color:var(--ob);box-shadow:0 0 0 3px var(--os)}
+.ang-input option{background:var(--g3)}
+.ang-btn-filter{background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.55rem 1.2rem;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;align-self:flex-end}
+.ang-btn-filter:hover{background:var(--ol)}
+.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:.85rem}
+@media(max-width:600px){.jobs-grid{grid-template-columns:1fr}.ang-filters{flex-direction:column}}
+.ang-type-tabs{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.ang-type-tab{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);padding:.65rem 1.1rem;font-size:.82rem;font-weight:700;color:var(--m);cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:.5rem}
+.ang-type-tab.active{background:var(--od);border-color:var(--ob);color:var(--o)}
+.ang-type-tab:hover:not(.active){border-color:rgba(255,255,255,.15);color:var(--w)}
+.ang-type-count{background:var(--w1);border:1px solid var(--br);border-radius:20px;padding:.1rem .5rem;font-size:.67rem;font-weight:700;color:var(--m)}
+.ang-type-tab.active .ang-type-count{background:var(--od);border-color:var(--ob);color:var(--o)}
+.job-card-firma{border-left:3px solid rgba(240,90,26,.4)}.job-card-firma:hover{border-left-color:var(--o)}
+.job-card-persoana{border-left:3px solid rgba(77,184,232,.35)}.job-card-persoana:hover{border-left-color:var(--blue)}
+.job-card-persoana::after{background:var(--blue)!important}
+.job-type-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .55rem;border-radius:3px;margin-bottom:.5rem;background:rgba(240,90,26,.1);border:1px solid rgba(240,90,26,.2);color:var(--o)}
+.job-type-badge-persoana{background:rgba(77,184,232,.1);border-color:rgba(77,184,232,.25);color:var(--blue)}
+.btn-tel-blue{background:rgba(77,184,232,.1);border:1px solid rgba(77,184,232,.25);color:var(--blue)}.btn-tel-blue:hover{background:rgba(77,184,232,.2)}
+.btn-more-blue{background:rgba(77,184,232,.1);border:1px solid rgba(77,184,232,.25);color:var(--blue)}.btn-more-blue:hover{background:rgba(77,184,232,.2)}
+.badge-avail{background:rgba(62,207,110,.1);border:1px solid rgba(62,207,110,.25);color:var(--green)}
+@media(max-width:600px){.ang-type-tabs{flex-direction:column}}
+.jobs-empty{text-align:center;padding:4rem 2rem;color:var(--m);font-size:.9rem}
+.ang-hero{background:var(--g2);padding:5rem 1.4rem 3rem;border-bottom:1px solid var(--br)}
+.ang-hero-i{max-width:1400px;margin:0 auto}
+.ang-hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);letter-spacing:.02em;line-height:1;margin-bottom:.6rem}
+.ang-hero-sub{font-size:.9rem;color:var(--m);max-width:520px;line-height:1.8}
+.ang-breadcrumb{font-size:.72rem;color:var(--m);margin-bottom:1rem}
+.ang-breadcrumb a{color:var(--ml);text-decoration:none}.ang-breadcrumb a:hover{color:var(--o)}
+.ang-content{max-width:1400px;margin:0 auto;padding:2rem 1.4rem}
+.ang-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.ang-count{font-size:.78rem;color:var(--m)}
+.ang-add-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--od);border:1px solid var(--ob);color:var(--o);border-radius:var(--r);padding:.5rem 1rem;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .2s}
+.ang-add-btn:hover{background:rgba(240,90,26,.18)}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="hdr-i">
+    <a href="/" class="logo"><div class="logo-text">Baeco<span>Supply</span></div></a>
+    <div class="hdr-search">
+      <div class="hdr-search-wrap">
+        <svg class="hdr-search-ic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Caută firmă, material, serviciu...">
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="/materiale/" class="nav-link">Materiale</a>
+      <a href="/servicii/" class="nav-link">Servicii</a>
+      <a href="/firme/" class="nav-link">Firme</a>
+      <a href="/angajari/" class="nav-link" style="color:var(--o)">Angajări</a>
+      <a href="/judete/" class="nav-link">Județe</a>
+      <a href="/cereri/" class="nav-link">Cereri</a>
+      <a href="/inscrie/" class="nav-link nav-ins">Înscrie firmă</a>
+      <a href="/cereri/" class="nav-link nav-cta">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Cere ofertă
+      </a>
+    </nav>
+    <button class="nav-mob-btn" aria-label="Meniu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mob-nav">
+  <div class="mob-nav-hd">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+    <button class="mob-close"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mob-nav-body">
+    <a href="/materiale/" class="mob-nav-link">Materiale <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/servicii/" class="mob-nav-link">Servicii <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/firme/" class="mob-nav-link">Firme <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/angajari/" class="mob-nav-link" style="color:var(--o)">Angajări <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/judete/" class="mob-nav-link">Județe <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/cereri/" class="mob-nav-link">Cereri</a>
+  </div>
+  <div class="mob-nav-foot">
+    <a href="/cereri/" class="mob-cta mob-cta-primary">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Cere ofertă
+    </a>
+    <a href="/inscrie/" class="mob-cta mob-cta-secondary">Înscrie firma ta</a>
+  </div>
+</nav>
+
+<section class="ang-hero">
+  <div class="ang-hero-i">
+    <div class="ang-breadcrumb"><a href="/">Acasă</a> › <a href="/angajari/">Angajări</a> › Neamț</div>
+    <div class="label">Locuri de muncă verificate</div>
+    <h1 class="ang-hero-title">Locuri de muncă în construcții<br><span style="color:var(--o)">Neamț</span></h1>
+    <p class="ang-hero-sub">Anunțuri de angajare de la firme de construcții din județul Neamț. Verificate, actualizate constant.</p>
+  </div>
+</section>
+
+<div class="ang-content">
+  <div class="ang-type-tabs">
+    <button class="ang-type-tab active" id="tabFirmaBtn" onclick="setType('firma_cauta',this)">
+      🏢 Firma caută angajați <span class="ang-type-count" id="countFirma">—</span>
+    </button>
+    <button class="ang-type-tab" id="tabPersoanaBtn" onclick="setType('persoana_cauta',this)">
+      👤 Persoană caută job <span class="ang-type-count" id="countPersoana">—</span>
+    </button>
+  </div>
+  <div class="ang-filters">
+    <div class="ang-filter-group" style="min-width:200px;flex:2">
+      <label class="ang-filter-label">Caută</label>
+      <input type="text" id="fSearch" class="ang-input" placeholder="Titlu post, firmă...">
+    </div>
+    <div class="ang-filter-group">
+      <label class="ang-filter-label">Localitate</label>
+      <input type="text" id="fCity" class="ang-input" placeholder="ex: Neamț...">
+    </div>
+    <div class="ang-filter-group">
+      <label class="ang-filter-label">Categorie</label>
+      <select id="fCategory" class="ang-input">
+        <option value="">Toate categoriile</option>
+        <option>Constructori</option>
+        <option>Electricieni</option>
+        <option>Instalatori</option>
+        <option>Dulgheri</option>
+        <option>Fierari beton</option>
+        <option>Zugravi</option>
+        <option>Faianțari</option>
+        <option>Acoperișuri</option>
+        <option>Șoferi utilaje</option>
+        <option>Operatori utilaje</option>
+        <option>Ingineri construcții</option>
+        <option>Diriginți de șantier</option>
+        <option>Amenajări interioare</option>
+        <option>Amenajări exterioare</option>
+        <option>Muncitori necalificați</option>
+      </select>
+    </div>
+    <div class="ang-filter-group">
+      <label class="ang-filter-label">Tip contract</label>
+      <select id="fContract" class="ang-input">
+        <option value="">Toate tipurile</option>
+        <option>Timp întreg</option>
+        <option>Timp parțial</option>
+        <option>Sezon</option>
+        <option>Colaborare</option>
+      </select>
+    </div>
+    <button class="ang-btn-filter" onclick="applyFilters()">Filtrează</button>
+  </div>
+
+  <div class="ang-top">
+    <div class="ang-count" id="jobsCount">Se încarcă...</div>
+    <a href="/adauga-angajare/" class="ang-add-btn">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Adaugă anunț
+    </a>
+  </div>
+
+  <div class="jobs-grid" id="jobsGrid">
+    <div style="text-align:center;padding:3rem;color:var(--m);grid-column:1/-1">Se încarcă anunțurile...</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+        <p>Conectăm construcțiile României. Platformă digitală pentru firme, materiale și servicii de construcții.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Angajări</div>
+        <a href="/angajari/">Toate angajările</a>
+        <a href="/angajari/iasi/">Angajări Iași</a>
+        <a href="/angajari/bacau/">Angajări Bacău</a>
+        <a href="/angajari/suceava/">Angajări Suceava</a>
+        <a href="/adauga-angajare/">Adaugă anunț</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platformă</div>
+        <a href="/cereri/">Cereri active</a>
+        <a href="/inscrie/">Înscrie firma</a>
+        <a href="/firme/">Toate firmele</a>
+        <a href="/judete/">Județe</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <b>BaecoSupply</b> · Conectăm construcțiile României</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/global.js"></script>
+<script>
+var SURL='https://mgusrlvkdxozvpseafbx.supabase.co';
+var SKEY='sb_publishable_xmQtT4L2ybxKXJL0XGwElA_wIrLpo2I';
+var COUNTY='Neamț';
+var _allFirma=[];
+var _allPersoana=[];
+var _currentType='firma_cauta';
+
+function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+function fmtDate(d){if(!d)return '';return new Date(d).toLocaleDateString('ro-RO',{day:'numeric',month:'short',year:'numeric'});}
+
+function setType(type,btn){
+  _currentType=type;
+  document.querySelectorAll('.ang-type-tab').forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function renderCardFirma(j){
+  return '<div class="job-card job-card-firma">'
+    +'<div class="job-type-badge">🏢 Angajare</div>'
+    +'<div class="job-card-hd"><div><div class="job-title">'+esc(j.title)+'</div><div class="job-company">🏗️ '+esc(j.company_name||'')+'</div></div>'
+    +(j.contract_type?'<span class="badge-contract">'+esc(j.contract_type)+'</span>':'')+'</div>'
+    +'<div class="job-meta"><span>📍 '+esc(j.county)+(j.city?', '+esc(j.city):'')+'</span><span>🔧 '+esc(j.category)+'</span>'+(j.salary?'<span>💰 '+esc(j.salary)+'</span>':'')+'</div>'
+    +(j.short_description?'<div class="job-desc">'+esc(j.short_description)+'</div>':'')
+    +'<div class="job-foot"><div class="job-date">'+fmtDate(j.created_at)+'</div><div class="job-actions">'
+    +(j.phone?'<a href="tel:'+esc(j.phone)+'" class="btn-sm-job btn-tel">📞 Sună firma</a>':'')
+    +'<a href="/angajari/detaliu/?slug='+esc(j.slug)+'" class="btn-sm-job btn-more">Vezi detalii →</a>'
+    +'</div></div>'
+    +'</div>';
+}
+
+function renderCardPersoana(j){
+  return '<div class="job-card job-card-persoana">'
+    +'<div class="job-type-badge job-type-badge-persoana">👤 Disponibil</div>'
+    +'<div class="job-card-hd"><div><div class="job-title">'+esc(j.title)+'</div><div class="job-company" style="color:var(--blue)">👤 '+(j.experience_years?j.experience_years+' ani exp.':'Disponibil')+'</div></div>'
+    +(j.availability?'<span class="badge-contract" style="background:rgba(62,207,110,.1);border-color:rgba(62,207,110,.25);color:var(--green)">'+esc(j.availability)+'</span>':(j.contract_type?'<span class="badge-contract">'+esc(j.contract_type)+'</span>':''))+'</div>'
+    +'<div class="job-meta"><span>📍 '+esc(j.county)+(j.city?', '+esc(j.city):'')+'</span><span>🔧 '+esc(j.category)+'</span>'+(j.salary?'<span>💰 '+esc(j.salary)+'</span>':'')+'</div>'
+    +(j.short_description?'<div class="job-desc">'+esc(j.short_description)+'</div>':'')
+    +'<div class="job-foot"><div class="job-date">'+fmtDate(j.created_at)+'</div><div class="job-actions">'
+    +(j.phone?'<a href="tel:'+esc(j.phone)+'" class="btn-sm-job btn-tel-blue">📞 Contactează</a>':'')
+    +'<a href="/angajari/detaliu/?slug='+esc(j.slug)+'" class="btn-sm-job btn-more-blue">Vezi profil →</a>'
+    +'</div></div>'
+    +'</div>';
+}
+
+function loadJobs(){
+  var url=SURL+'/rest/v1/job_posts?select=post_type,title,slug,company_name,person_name,county,city,category,contract_type,salary,short_description,phone,created_at,experience_years,availability&status=eq.approved&county=eq.'+encodeURIComponent(COUNTY)+'&order=created_at.desc&limit=200';
+  fetch(url,{headers:{'apikey':SKEY}})
+  .then(function(r){return r.json();})
+  .then(function(data){
+    var arr=Array.isArray(data)?data:[];
+    _allFirma=arr.filter(function(j){return j.post_type==='firma_cauta';});
+    _allPersoana=arr.filter(function(j){return j.post_type==='persoana_cauta';});
+    document.getElementById('countFirma').textContent=_allFirma.length;
+    document.getElementById('countPersoana').textContent=_allPersoana.length;
+    applyFilters();
+  })
+  .catch(function(){
+    document.getElementById('jobsGrid').innerHTML='<div class="jobs-empty" style="grid-column:1/-1">Eroare la încărcare.</div>';
+    document.getElementById('jobsCount').textContent='';
+  });
+}
+
+function applyFilters(){
+  var q=(document.getElementById('fSearch').value||'').toLowerCase().trim();
+  var city=(document.getElementById('fCity').value||'').toLowerCase().trim();
+  var cat=(document.getElementById('fCategory').value||'').toLowerCase();
+  var contract=(document.getElementById('fContract').value||'').toLowerCase();
+  var pool=_currentType==='firma_cauta'?_allFirma:_allPersoana;
+  var filtered=pool.filter(function(j){
+    if(q&&!(j.title&&j.title.toLowerCase().includes(q))&&!(j.company_name&&j.company_name.toLowerCase().includes(q)))return false;
+    if(city&&!(j.city&&j.city.toLowerCase().includes(city)))return false;
+    if(cat&&!(j.category&&j.category.toLowerCase()===cat))return false;
+    if(contract&&!(j.contract_type&&j.contract_type.toLowerCase()===contract))return false;
+    return true;
+  });
+  var grid=document.getElementById('jobsGrid');
+  var cnt=document.getElementById('jobsCount');
+  cnt.textContent=filtered.length+' anunț'+(filtered.length!==1?'uri':'')+(filtered.length!==1?' găsite':' găsit')+' în '+COUNTY;
+  if(!filtered.length){
+    grid.innerHTML='<div class="jobs-empty" style="grid-column:1/-1">Nu am găsit anunțuri în '+COUNTY+' pentru filtrele selectate.</div>';
+    return;
+  }
+  var renderer=_currentType==='firma_cauta'?renderCardFirma:renderCardPersoana;
+  grid.innerHTML=filtered.map(renderer).join('');
+}
+
+['fSearch','fCity'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener('keydown',function(e){if(e.key==='Enter')applyFilters();});
+});
+
+loadJobs();
+</script>
+</body>
+</html>

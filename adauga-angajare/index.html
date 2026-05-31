@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Adaugă anunț de angajare — BaecoSupply</title>
+<meta name="description" content="Postează gratuit un anunț de angajare sau publică-ți profilul de candidat. Ajunge la sute de recrutori și candidați din Moldova.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://baecosupply.ro/adauga-angajare/">
+<meta name="theme-color" content="#f05a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/global.css">
+<style>
+/* Type tabs */
+.ang-type-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.ang-type-tab{background:var(--g2);border:1px solid var(--br);border-radius:var(--rl);padding:.8rem 1.4rem;font-size:.85rem;font-weight:700;color:var(--m);cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:.6rem;flex-direction:column;align-items:flex-start;flex:1;min-width:200px}
+.ang-type-tab.active{background:var(--od);border-color:var(--ob);color:var(--o)}
+.ang-type-tab:hover:not(.active){border-color:rgba(255,255,255,.15);color:var(--w)}
+/* Form card */
+.ang-form-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden;position:relative}
+.ang-form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--o),transparent);border-radius:var(--rx) var(--rx) 0 0}
+.ang-form-card-blue::before{background:linear-gradient(90deg,var(--blue),transparent)}
+.form-header{padding:1.8rem 2rem 1.2rem;border-bottom:1px solid var(--br)}
+.form-body{padding:2rem}
+.form-section-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.05em;color:var(--o);margin-bottom:1.2rem;padding-bottom:.4rem;border-bottom:1px solid var(--br)}
+.form-section-title-blue{color:var(--blue)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.ang-type-tabs{flex-direction:column}}
+.form-group{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.2rem}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ml)}
+.form-label span{color:var(--o)}
+.form-input{background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.65rem .9rem;color:var(--w);font-size:.88rem;outline:none;transition:border .2s;font-family:'Barlow',sans-serif;width:100%}
+.form-input:focus{border-color:var(--ob);box-shadow:0 0 0 3px var(--os)}
+.form-input::placeholder{color:var(--m)}
+.form-input option{background:var(--g3)}
+.form-textarea{background:var(--g3);border:1px solid var(--br);border-radius:var(--r);padding:.65rem .9rem;color:var(--w);font-size:.88rem;outline:none;transition:border .2s;font-family:'Barlow',sans-serif;width:100%;resize:vertical;min-height:110px;line-height:1.7}
+.form-textarea:focus{border-color:var(--ob);box-shadow:0 0 0 3px var(--os)}
+.form-textarea::placeholder{color:var(--m)}
+.form-footer{padding:1.5rem 2rem;border-top:1px solid var(--br);display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--g3)}
+.form-submit{background:var(--o);color:var(--w);border:none;border-radius:var(--r);padding:.8rem 2rem;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Barlow',sans-serif;display:inline-flex;align-items:center;gap:.5rem}
+.form-submit:hover{background:var(--ol)}
+.form-submit:disabled{opacity:.6;cursor:not-allowed}
+.form-submit-blue{background:var(--blue)}.form-submit-blue:hover{background:#3da8d4}
+.fnote{font-size:.73rem;color:var(--m);line-height:1.6}
+.form-sep{height:1.5rem}
+.form-err{padding:.3rem 0;color:#e74c3c;font-size:.78rem;min-height:1.4rem}
+/* Type badge inline */
+.job-type-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .55rem;border-radius:3px;margin-bottom:.5rem;background:rgba(240,90,26,.1);border:1px solid rgba(240,90,26,.2);color:var(--o)}
+.job-type-badge-persoana{background:rgba(77,184,232,.1);border-color:rgba(77,184,232,.25);color:var(--blue)}
+/* Success */
+.success-box{text-align:center;padding:3rem 2rem}
+.success-icon{width:64px;height:64px;background:rgba(62,207,110,.1);border:1px solid rgba(62,207,110,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem}
+.success-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:.5rem}
+.success-text{font-size:.88rem;color:var(--m);line-height:1.8;max-width:460px;margin:0 auto 1.5rem}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="hdr-i">
+    <a href="/" class="logo"><div class="logo-text">Baeco<span>Supply</span></div></a>
+    <div class="hdr-search">
+      <div class="hdr-search-wrap">
+        <svg class="hdr-search-ic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Caută firmă, material, serviciu...">
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="/materiale/" class="nav-link">Materiale</a>
+      <a href="/servicii/" class="nav-link">Servicii</a>
+      <a href="/firme/" class="nav-link">Firme</a>
+      <a href="/angajari/" class="nav-link" style="color:var(--o)">Angajări</a>
+      <a href="/judete/" class="nav-link">Județe</a>
+      <a href="/cereri/" class="nav-link">Cereri</a>
+      <a href="/inscrie/" class="nav-link nav-ins">Înscrie firmă</a>
+      <a href="/cereri/" class="nav-link nav-cta">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Cere ofertă
+      </a>
+    </nav>
+    <button class="nav-mob-btn" aria-label="Meniu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mob-nav">
+  <div class="mob-nav-hd">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+    <button class="mob-close"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mob-nav-body">
+    <a href="/materiale/" class="mob-nav-link">Materiale <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/servicii/" class="mob-nav-link">Servicii <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/firme/" class="mob-nav-link">Firme <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/angajari/" class="mob-nav-link" style="color:var(--o)">Angajări <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/judete/" class="mob-nav-link">Județe <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/cereri/" class="mob-nav-link">Cereri</a>
+  </div>
+  <div class="mob-nav-foot">
+    <a href="/cereri/" class="mob-cta mob-cta-primary">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Cere ofertă
+    </a>
+    <a href="/inscrie/" class="mob-cta mob-cta-secondary">Înscrie firma ta</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section style="background:var(--g2);padding:3rem 1.4rem;border-bottom:1px solid var(--br)">
+  <div style="max-width:700px;margin:0 auto">
+    <div class="label">Publică anunț gratuit</div>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.02em;line-height:1;margin:.5rem 0">Adaugă anunț<br><span style="color:var(--o)">Angajări</span></h1>
+    <p style="font-size:.88rem;color:var(--m);line-height:1.8">Anunțul va fi verificat de echipa noastră înainte de publicare. De obicei durează sub 24 ore.</p>
+  </div>
+</section>
+
+<!-- Forms -->
+<section style="background:var(--g);padding:2.5rem 1.4rem">
+  <div style="max-width:700px;margin:0 auto">
+
+    <!-- Selector tip -->
+    <div class="ang-type-tabs">
+      <button class="ang-type-tab active" onclick="setFormType('firma',this)" id="tabFirmaBtn">
+        🏢 Firma caută angajați
+        <span style="font-size:.72rem;font-weight:400;color:var(--m)">Publică un loc de muncă</span>
+      </button>
+      <button class="ang-type-tab" onclick="setFormType('persoana',this)" id="tabPersoanaBtn">
+        👤 Persoană caută job
+        <span style="font-size:.72rem;font-weight:400;color:var(--m)">Publică profilul tău</span>
+      </button>
+    </div>
+
+    <!-- Success message (hidden) -->
+    <div id="successMsg" style="display:none">
+      <div class="ang-form-card">
+        <div class="success-box">
+          <div class="success-icon">✓</div>
+          <div class="success-title">Anunț trimis cu succes!</div>
+          <p class="success-text" id="successText">Anunțul tău a fost primit și va fi verificat.</p>
+          <a href="/angajari/" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--o);color:var(--w);padding:.75rem 1.8rem;border-radius:var(--r);font-weight:700;text-decoration:none;font-size:.88rem">← Vezi angajările</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM A: Firma caută angajați -->
+    <div id="formFirma" class="ang-form-card">
+      <div class="form-header">
+        <span class="job-type-badge">🏢 Firma caută angajați</span>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.03em;margin:.4rem 0 .3rem">Publică loc de muncă</h2>
+        <p style="font-size:.82rem;color:var(--m)">Anunțul tău va fi vizibil persoanelor care caută job în construcții.</p>
+      </div>
+      <form onsubmit="submitFirma(event)" novalidate>
+        <div class="form-body">
+          <div class="form-section-title">Informații post</div>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Titlu post <span>*</span></label>
+              <input type="text" id="fTitle" class="form-input" placeholder="ex: Angajăm electrician autorizat" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Categorie <span>*</span></label>
+              <select id="fCategory" class="form-input" required>
+                <option value="">Selectează categoria</option>
+                <option>Constructori</option><option>Electricieni</option><option>Instalatori</option>
+                <option>Dulgheri</option><option>Fierari beton</option><option>Zugravi</option>
+                <option>Faianțari</option><option>Acoperișuri</option><option>Șoferi utilaje</option>
+                <option>Operatori utilaje</option><option>Ingineri construcții</option>
+                <option>Diriginți de șantier</option><option>Amenajări interioare</option>
+                <option>Amenajări exterioare</option><option>Muncitori necalificați</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tip contract <span>*</span></label>
+              <select id="fContract" class="form-input" required>
+                <option value="">Selectează tipul</option>
+                <option>Timp întreg</option><option>Timp parțial</option>
+                <option>Sezon</option><option>Colaborare</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Salariu oferit (opțional)</label>
+              <input type="text" id="fSalary" class="form-input" placeholder="ex: 4500-6000 RON, negociabil...">
+            </div>
+          </div>
+          <div class="form-sep"></div>
+          <div class="form-section-title">Despre firmă</div>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Nume firmă <span>*</span></label>
+              <input type="text" id="fCompany" class="form-input" placeholder="ex: Construct Pro SRL" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefon firmă <span>*</span></label>
+              <input type="tel" id="fPhone" class="form-input" placeholder="07xxxxxxxx" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email firmă (opțional)</label>
+              <input type="email" id="fEmail" class="form-input" placeholder="hr@firma.ro">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Județ <span>*</span></label>
+              <select id="fCounty" class="form-input" required>
+                <option value="">Selectează județul</option>
+                <option>Bacău</option><option>Iași</option><option>Suceava</option>
+                <option>Vaslui</option><option>Galați</option><option>Vrancea</option>
+                <option>Neamț</option><option>Botoșani</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Localitate <span>*</span></label>
+              <input type="text" id="fCity" class="form-input" placeholder="ex: Bacău, Roman..." required>
+            </div>
+          </div>
+          <div class="form-sep"></div>
+          <div class="form-section-title">Detalii anunț</div>
+          <div class="form-group" style="margin-bottom:.9rem">
+            <label class="form-label">Descriere scurtă (max 200 caractere) <span>*</span></label>
+            <input type="text" id="fShortDesc" class="form-input" maxlength="200" placeholder="1-2 propoziții despre post" required>
+          </div>
+          <div class="form-group" style="margin-bottom:.9rem">
+            <label class="form-label">Descriere completă</label>
+            <textarea id="fDesc" class="form-textarea" placeholder="Descriere detaliată: ce implică postul, unde se lucrează, program etc."></textarea>
+          </div>
+          <div class="form-group" style="margin-bottom:.9rem">
+            <label class="form-label">Cerințe</label>
+            <textarea id="fReq" class="form-textarea" placeholder="Experiență minimă, calificări, permise, autorizații necesare..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Beneficii</label>
+            <textarea id="fBenefits" class="form-textarea" placeholder="Salariu, bonusuri, cazare, masă, mașină de serviciu..."></textarea>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="form-submit" id="fSubmitBtn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Publică loc de muncă
+          </button>
+          <p class="fnote">Anunțul intră în așteptare și va fi aprobat în 24h.</p>
+        </div>
+        <div class="form-err" id="fErr" style="padding:.3rem 2rem"></div>
+      </form>
+    </div>
+
+    <!-- FORM B: Persoană caută job -->
+    <div id="formPersoana" class="ang-form-card ang-form-card-blue" style="display:none">
+      <div class="form-header" style="border-top:3px solid var(--blue);border-radius:var(--rx) var(--rx) 0 0">
+        <span class="job-type-badge job-type-badge-persoana">👤 Persoană caută job</span>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.03em;margin:.4rem 0 .3rem">Publică profilul tău</h2>
+        <p style="font-size:.82rem;color:var(--m)">Firmele care recrutează îți vor vedea profilul și te pot contacta direct.</p>
+      </div>
+      <form onsubmit="submitPersoana(event)" novalidate>
+        <div class="form-body">
+          <div class="form-section-title form-section-title-blue">Profilul meu</div>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Titlu profil <span>*</span></label>
+              <input type="text" id="pTitle" class="form-input" placeholder="ex: Electrician disponibil pentru angajare" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Specialitate / Categorie <span>*</span></label>
+              <select id="pCategory" class="form-input" required>
+                <option value="">Selectează categoria</option>
+                <option>Constructori</option><option>Electricieni</option><option>Instalatori</option>
+                <option>Dulgheri</option><option>Fierari beton</option><option>Zugravi</option>
+                <option>Faianțari</option><option>Acoperișuri</option><option>Șoferi utilaje</option>
+                <option>Operatori utilaje</option><option>Ingineri construcții</option>
+                <option>Diriginți de șantier</option><option>Amenajări interioare</option>
+                <option>Amenajări exterioare</option><option>Muncitori necalificați</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ani de experiență</label>
+              <input type="number" id="pExp" class="form-input" min="0" max="50" placeholder="ex: 5">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Disponibilitate <span>*</span></label>
+              <select id="pAvail" class="form-input" required>
+                <option value="">Selectează</option>
+                <option value="imediat">Imediat</option>
+                <option value="2 saptamani">În 2 săptămâni</option>
+                <option value="1 luna">În 1 lună</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tip contract preferat</label>
+              <select id="pContract" class="form-input">
+                <option value="">Indiferent</option>
+                <option>Timp întreg</option><option>Timp parțial</option>
+                <option>Sezon</option><option>Colaborare</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Salariu dorit (opțional)</label>
+              <input type="text" id="pSalary" class="form-input" placeholder="ex: 4000-5500 RON, negociabil...">
+            </div>
+          </div>
+          <div class="form-sep"></div>
+          <div class="form-section-title form-section-title-blue">Contact și locație</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Telefon contact <span>*</span></label>
+              <input type="tel" id="pPhone" class="form-input" placeholder="07xxxxxxxx" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email contact (opțional)</label>
+              <input type="email" id="pEmail" class="form-input" placeholder="email@exemplu.ro">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Județ <span>*</span></label>
+              <select id="pCounty" class="form-input" required>
+                <option value="">Selectează județul</option>
+                <option>Bacău</option><option>Iași</option><option>Suceava</option>
+                <option>Vaslui</option><option>Galați</option><option>Vrancea</option>
+                <option>Neamț</option><option>Botoșani</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Localitate <span>*</span></label>
+              <input type="text" id="pCity" class="form-input" placeholder="ex: Iași, Bacău..." required>
+            </div>
+          </div>
+          <div class="form-sep"></div>
+          <div class="form-section-title form-section-title-blue">Prezentare</div>
+          <div class="form-group" style="margin-bottom:.9rem">
+            <label class="form-label">Despre tine <span>*</span></label>
+            <textarea id="pAbout" class="form-textarea" placeholder="Scurtă descriere, experiență, proiecte importante..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Specializări / abilități</label>
+            <textarea id="pSkills" class="form-textarea" placeholder="ex: Instalații electrice rezidențiale, autorizat ANRE, termice..."></textarea>
+          </div>
+        </div>
+        <div class="form-footer" style="border-top-color:rgba(77,184,232,.2)">
+          <button type="submit" class="form-submit form-submit-blue" id="pSubmitBtn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Publică profilul meu
+          </button>
+          <p class="fnote">Profilul intră în așteptare și va fi aprobat în 24h.</p>
+        </div>
+        <div class="form-err" id="pErr" style="padding:.3rem 2rem"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+        <p>Conectăm construcțiile României. Platformă digitală pentru firme, materiale și servicii de construcții.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Angajări</div>
+        <a href="/angajari/">Toate angajările</a>
+        <a href="/angajari/iasi/">Angajări Iași</a>
+        <a href="/angajari/bacau/">Angajări Bacău</a>
+        <a href="/angajari/suceava/">Angajări Suceava</a>
+        <a href="/adauga-angajare/">Adaugă anunț</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platformă</div>
+        <a href="/cereri/">Cereri active</a>
+        <a href="/inscrie/">Înscrie firma</a>
+        <a href="/firme/">Toate firmele</a>
+        <a href="/judete/">Județe</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <b>BaecoSupply</b> · Conectăm construcțiile României</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/global.js"></script>
+<script>
+var SURL='https://mgusrlvkdxozvpseafbx.supabase.co';
+var SKEY='sb_publishable_xmQtT4L2ybxKXJL0XGwElA_wIrLpo2I';
+
+function gv(id){return (document.getElementById(id)||{}).value||'';}
+
+function makeSlug(str){
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .replace(/[șş]/g,'s').replace(/[țţ]/g,'t').replace(/[ăâ]/g,'a').replace(/î/g,'i')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')
+    +'-'+Date.now();
+}
+
+window.onload=function(){
+  var params=new URLSearchParams(window.location.search);
+  var tip=params.get('tip');
+  if(tip==='persoana'){
+    setFormType('persoana',document.getElementById('tabPersoanaBtn'));
+  }
+};
+
+function setFormType(type,btn){
+  document.getElementById('formFirma').style.display=type==='firma'?'block':'none';
+  document.getElementById('formPersoana').style.display=type==='persoana'?'block':'none';
+  document.getElementById('successMsg').style.display='none';
+  document.querySelectorAll('.ang-type-tab').forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active');
+}
+
+function submitFirma(e){
+  e.preventDefault();
+  var errEl=document.getElementById('fErr');
+  errEl.textContent='';
+  var title=gv('fTitle').trim();
+  var company=gv('fCompany').trim();
+  var phone=gv('fPhone').trim();
+  var county=gv('fCounty');
+  var city=gv('fCity').trim();
+  var category=gv('fCategory');
+  var contract=gv('fContract');
+  var shortDesc=gv('fShortDesc').trim();
+  if(!title){errEl.textContent='Completează titlul postului.';document.getElementById('fTitle').focus();return;}
+  if(!company){errEl.textContent='Completează numele firmei.';document.getElementById('fCompany').focus();return;}
+  if(!phone){errEl.textContent='Completează numărul de telefon.';document.getElementById('fPhone').focus();return;}
+  if(!county){errEl.textContent='Selectează județul.';document.getElementById('fCounty').focus();return;}
+  if(!city){errEl.textContent='Completează localitatea.';document.getElementById('fCity').focus();return;}
+  if(!category){errEl.textContent='Selectează categoria.';document.getElementById('fCategory').focus();return;}
+  if(!contract){errEl.textContent='Selectează tipul de contract.';document.getElementById('fContract').focus();return;}
+  if(!shortDesc){errEl.textContent='Completează descrierea scurtă.';document.getElementById('fShortDesc').focus();return;}
+
+  var btn=document.getElementById('fSubmitBtn');
+  btn.disabled=true;btn.textContent='Se trimite...';
+
+  var data={
+    post_type:'firma_cauta',
+    title:title,slug:makeSlug(title),
+    company_name:company,phone:phone,email:gv('fEmail').trim()||null,
+    county:county,city:city,category:category,
+    salary:gv('fSalary').trim()||null,contract_type:contract,
+    short_description:shortDesc,
+    description:gv('fDesc').trim()||null,
+    requirements:gv('fReq').trim()||null,
+    benefits:gv('fBenefits').trim()||null,
+    status:'pending'
+  };
+
+  fetch(SURL+'/rest/v1/job_posts',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':SKEY,'Prefer':'return=minimal'},
+    body:JSON.stringify(data)
+  })
+  .then(function(r){
+    if(r.ok||r.status===201){showSuccess('firma');}
+    else throw new Error('HTTP '+r.status);
+  })
+  .catch(function(err){
+    btn.disabled=false;btn.textContent='Publică loc de muncă';
+    errEl.textContent='Eroare la trimitere: '+err.message+'. Încearcă din nou.';
+  });
+}
+
+function submitPersoana(e){
+  e.preventDefault();
+  var errEl=document.getElementById('pErr');
+  errEl.textContent='';
+  var title=gv('pTitle').trim();
+  var phone=gv('pPhone').trim();
+  var county=gv('pCounty');
+  var city=gv('pCity').trim();
+  var category=gv('pCategory');
+  var avail=gv('pAvail');
+  var about=gv('pAbout').trim();
+  if(!title){errEl.textContent='Completează titlul profilului.';document.getElementById('pTitle').focus();return;}
+  if(!phone){errEl.textContent='Completează numărul de telefon.';document.getElementById('pPhone').focus();return;}
+  if(!county){errEl.textContent='Selectează județul.';document.getElementById('pCounty').focus();return;}
+  if(!city){errEl.textContent='Completează localitatea.';document.getElementById('pCity').focus();return;}
+  if(!category){errEl.textContent='Selectează categoria.';document.getElementById('pCategory').focus();return;}
+  if(!avail){errEl.textContent='Selectează disponibilitatea.';document.getElementById('pAvail').focus();return;}
+  if(!about){errEl.textContent='Completează câmpul Despre tine.';document.getElementById('pAbout').focus();return;}
+
+  var btn=document.getElementById('pSubmitBtn');
+  btn.disabled=true;btn.textContent='Se trimite...';
+
+  var data={
+    post_type:'persoana_cauta',
+    title:title,slug:makeSlug(title),
+    phone:phone,email:gv('pEmail').trim()||null,
+    county:county,city:city,category:category,
+    salary:gv('pSalary').trim()||null,contract_type:gv('pContract')||null,
+    short_description:about.substring(0,200),
+    description:about,
+    requirements:gv('pSkills').trim()||null,
+    experience_years:parseInt(gv('pExp'))||0,
+    availability:avail,
+    status:'pending'
+  };
+
+  fetch(SURL+'/rest/v1/job_posts',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':SKEY,'Prefer':'return=minimal'},
+    body:JSON.stringify(data)
+  })
+  .then(function(r){
+    if(r.ok||r.status===201){showSuccess('persoana');}
+    else throw new Error('HTTP '+r.status);
+  })
+  .catch(function(err){
+    btn.disabled=false;btn.textContent='Publică profilul meu';
+    errEl.textContent='Eroare la trimitere: '+err.message+'. Încearcă din nou.';
+  });
+}
+
+function showSuccess(type){
+  document.getElementById('formFirma').style.display='none';
+  document.getElementById('formPersoana').style.display='none';
+  document.getElementById('successMsg').style.display='block';
+  document.getElementById('successText').textContent=type==='firma'
+    ?'Anunțul tău a fost trimis și va fi aprobat în 24h.'
+    :'Profilul tău a fost trimis și va fi aprobat în 24h.';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Detalii anunț — BaecoSupply Angajări</title>
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f05a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/global.css">
+<style>
+.det-wrap{max-width:900px;margin:0 auto;padding:2.5rem 1.4rem}
+.det-back{display:inline-flex;align-items:center;gap:.35rem;color:var(--m);font-size:.78rem;text-decoration:none;margin-bottom:1.8rem;transition:color .2s}
+.det-back:hover{color:var(--w)}
+.det-card{background:var(--g2);border:1px solid var(--br);border-radius:var(--rx);overflow:hidden}
+.det-top{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--br);position:relative}
+.det-top::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--o),transparent)}
+.det-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:.02em;line-height:1.1;margin-bottom:.4rem}
+.det-company{font-size:.9rem;color:var(--ml);margin-bottom:1rem}
+.det-meta-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.det-badge{display:inline-flex;align-items:center;gap:.3rem;background:var(--g3);border:1px solid var(--br);border-radius:3px;padding:.25rem .65rem;font-size:.7rem;color:var(--ml)}
+.det-badge-o{background:var(--od);border-color:var(--ob);color:var(--o)}
+.det-badge-blue{background:rgba(77,184,232,.1);border-color:rgba(77,184,232,.25);color:#4db8e8}
+.det-badge-green{background:rgba(62,207,110,.1);border-color:rgba(62,207,110,.25);color:#3ecf6e}
+.det-body{padding:2rem}
+.det-section{margin-bottom:1.8rem}
+.det-section-title{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m);margin-bottom:.7rem}
+.det-text{font-size:.88rem;color:var(--w7);line-height:1.85;white-space:pre-line}
+.det-actions{display:flex;gap:.8rem;flex-wrap:wrap;padding:1.5rem 2rem;border-top:1px solid var(--br);background:var(--g3)}
+.det-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.6rem;border-radius:var(--r);font-size:.85rem;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Barlow',sans-serif}
+.det-btn-primary{background:var(--o);color:var(--w)}.det-btn-primary:hover{background:var(--ol);box-shadow:var(--sho)}
+.det-btn-tel{background:var(--w1);border:1px solid var(--br);color:var(--w7)}.det-btn-tel:hover{background:rgba(255,255,255,.1);color:var(--w)}
+.det-btn-mail{background:rgba(77,184,232,.1);border:1px solid rgba(77,184,232,.25);color:#4db8e8}.det-btn-mail:hover{background:rgba(77,184,232,.2)}
+.det-loading{text-align:center;padding:5rem 2rem;color:var(--m)}
+.det-not-found{text-align:center;padding:5rem 2rem}
+.det-not-found h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:.5rem}
+.det-not-found p{color:var(--m);font-size:.88rem;margin-bottom:1.5rem}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="hdr-i">
+    <a href="/" class="logo"><div class="logo-text">Baeco<span>Supply</span></div></a>
+    <div class="hdr-search">
+      <div class="hdr-search-wrap">
+        <svg class="hdr-search-ic" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Caută firmă, material, serviciu...">
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="/materiale/" class="nav-link">Materiale</a>
+      <a href="/servicii/" class="nav-link">Servicii</a>
+      <a href="/firme/" class="nav-link">Firme</a>
+      <a href="/angajari/" class="nav-link" style="color:var(--o)">Angajări</a>
+      <a href="/judete/" class="nav-link">Județe</a>
+      <a href="/cereri/" class="nav-link">Cereri</a>
+      <a href="/inscrie/" class="nav-link nav-ins">Înscrie firmă</a>
+      <a href="/cereri/" class="nav-link nav-cta">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Cere ofertă
+      </a>
+    </nav>
+    <button class="nav-mob-btn" aria-label="Meniu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mob-nav">
+  <div class="mob-nav-hd">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+    <button class="mob-close"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mob-nav-body">
+    <a href="/materiale/" class="mob-nav-link">Materiale <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/servicii/" class="mob-nav-link">Servicii <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/firme/" class="mob-nav-link">Firme <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/angajari/" class="mob-nav-link" style="color:var(--o)">Angajări <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/judete/" class="mob-nav-link">Județe <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="/cereri/" class="mob-nav-link">Cereri</a>
+  </div>
+  <div class="mob-nav-foot">
+    <a href="/cereri/" class="mob-cta mob-cta-primary">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Cere ofertă
+    </a>
+    <a href="/inscrie/" class="mob-cta mob-cta-secondary">Înscrie firma ta</a>
+  </div>
+</nav>
+
+<div class="det-wrap" id="detWrap">
+  <div class="det-loading">Se încarcă anunțul...</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.08em">Baeco<span style="color:var(--o)">Supply</span></div>
+        <p>Conectăm construcțiile României. Platformă digitală pentru firme, materiale și servicii de construcții.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Angajări</div>
+        <a href="/angajari/">Toate angajările</a>
+        <a href="/angajari/iasi/">Angajări Iași</a>
+        <a href="/angajari/bacau/">Angajări Bacău</a>
+        <a href="/angajari/suceava/">Angajări Suceava</a>
+        <a href="/adauga-angajare/">Adaugă anunț</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Platformă</div>
+        <a href="/cereri/">Cereri active</a>
+        <a href="/inscrie/">Înscrie firma</a>
+        <a href="/firme/">Toate firmele</a>
+        <a href="/judete/">Județe</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <b>BaecoSupply</b> · Conectăm construcțiile României</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/global.js"></script>
+<script>
+var SURL='https://mgusrlvkdxozvpseafbx.supabase.co';
+var SKEY='sb_publishable_xmQtT4L2ybxKXJL0XGwElA_wIrLpo2I';
+
+function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+function fmtDate(d){if(!d)return '';return new Date(d).toLocaleDateString('ro-RO',{day:'numeric',month:'long',year:'numeric'});}
+
+function getSlug(){
+  var p=new URLSearchParams(window.location.search);
+  return p.get('slug')||'';
+}
+
+function renderJob(j){
+  var isFirma=j.post_type==='firma_cauta'||!j.post_type;
+  // Update page title and meta
+  var entityName=isFirma?(j.company_name||''):(j.experience_years?j.experience_years+' ani exp.':'Candidat');
+  document.title=esc(j.title)+(isFirma&&j.company_name?' — '+esc(j.company_name):'')+'| BaecoSupply Angajări';
+  var desc=(isFirma?'Angajare: ':'Candidat: ')+j.title+(isFirma&&j.company_name?' la '+j.company_name:'')+', '+j.county+'. '+(j.short_description||'');
+  var metaDesc=document.querySelector('meta[name="description"]');
+  if(!metaDesc){metaDesc=document.createElement('meta');metaDesc.name='description';document.head.appendChild(metaDesc);}
+  metaDesc.content=desc;
+
+  var typeBadge='<span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .55rem;border-radius:3px;margin-bottom:.8rem;'
+    +(isFirma?'background:rgba(240,90,26,.1);border:1px solid rgba(240,90,26,.2);color:var(--o)':'background:rgba(77,184,232,.1);border:1px solid rgba(77,184,232,.25);color:var(--blue)')
+    +'">'+(isFirma?'🏢 Angajare':'👤 Persoană disponibilă')+'</span>';
+
+  var entityLine=isFirma
+    ?'<div class="det-company">🏗️ '+esc(j.company_name||'')+'</div>'
+    :'<div class="det-company" style="color:var(--blue)">👤 '+(j.experience_years?j.experience_years+' ani experiență':'Disponibil')+(j.availability?' · '+esc(j.availability):'')+'</div>';
+
+  var actionBtns='';
+  if(isFirma){
+    if(j.phone)actionBtns+='<a href="tel:'+esc(j.phone)+'" class="det-btn det-btn-tel">📞 Sună firma</a>';
+    if(j.email)actionBtns+='<a href="mailto:'+esc(j.email)+'?subject=Candidatură+'+encodeURIComponent(j.title)+'" class="det-btn det-btn-primary"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Aplică acum</a>';
+  } else {
+    if(j.phone)actionBtns+='<a href="tel:'+esc(j.phone)+'" class="det-btn det-btn-mail">📞 Contactează persoana</a>';
+    if(j.email)actionBtns+='<a href="mailto:'+esc(j.email)+'" class="det-btn det-btn-primary">✉️ Trimite email</a>';
+  }
+  actionBtns+='<a href="/angajari/" class="det-btn" style="background:var(--w1);border:1px solid var(--br);color:var(--w7)">← Toate anunțurile</a>';
+
+  // Extra fields for persoana
+  var extraSection='';
+  if(!isFirma&&(j.experience_years||j.availability)){
+    extraSection='<div class="det-section"><div class="det-section-title">Detalii candidat</div>'
+      +(j.experience_years?'<p style="font-size:.88rem;color:var(--w7);margin-bottom:.3rem">🗓️ Experiență: <strong>'+j.experience_years+' ani</strong></p>':'')
+      +(j.availability?'<p style="font-size:.88rem;color:var(--w7)">✅ Disponibilitate: <strong>'+esc(j.availability)+'</strong></p>':'')
+      +'</div>';
+  }
+
+  var html='<a href="/angajari/" class="det-back">'
+    +'<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>'
+    +'Înapoi la angajări</a>'
+    +'<div class="det-card">'
+    +'<div class="det-top">'
+    +typeBadge
+    +'<h1 class="det-title">'+esc(j.title)+'</h1>'
+    +entityLine
+    +'<div class="det-meta-row">'
+    +'<span class="det-badge">📍 '+esc(j.county)+(j.city?', '+esc(j.city):'')+'</span>'
+    +'<span class="det-badge">🔧 '+esc(j.category)+'</span>'
+    +(j.contract_type?'<span class="det-badge det-badge-blue">'+esc(j.contract_type)+'</span>':'')
+    +(j.salary?'<span class="det-badge det-badge-green">💰 '+esc(j.salary)+'</span>':'')
+    +'<span class="det-badge" style="margin-left:auto;font-size:.63rem">'+fmtDate(j.published_at||j.created_at)+'</span>'
+    +'</div>'
+    +'</div>'
+    +'<div class="det-body">'
+    +extraSection
+    +(j.short_description?'<div class="det-section"><div class="det-section-title">'+(isFirma?'Despre post':'Despre candidat')+'</div><div class="det-text">'+esc(j.short_description)+'</div></div>':'')
+    +(j.description?'<div class="det-section"><div class="det-section-title">Descriere completă</div><div class="det-text">'+esc(j.description)+'</div></div>':'')
+    +(j.requirements?'<div class="det-section"><div class="det-section-title">'+(isFirma?'Cerințe':'Specializări / abilități')+'</div><div class="det-text">'+esc(j.requirements)+'</div></div>':'')
+    +(isFirma&&j.benefits?'<div class="det-section"><div class="det-section-title">Beneficii</div><div class="det-text">'+esc(j.benefits)+'</div></div>':'')
+    +'<div class="det-section"><div class="det-section-title">Contact</div>'
+    +(j.phone?'<p style="font-size:.88rem;color:var(--w7);margin-bottom:.35rem">📞 <a href="tel:'+esc(j.phone)+'" style="color:var(--o)">'+esc(j.phone)+'</a></p>':'')
+    +(j.email?'<p style="font-size:.88rem;color:var(--w7)">✉️ <a href="mailto:'+esc(j.email)+'" style="color:var(--o)">'+esc(j.email)+'</a></p>':'')
+    +'</div>'
+    +'</div>'
+    +'<div class="det-actions">'+actionBtns+'</div>'
+    +'</div>';
+
+  document.getElementById('detWrap').innerHTML=html;
+}
+
+function loadJob(){
+  var slug=getSlug();
+  if(!slug){
+    document.getElementById('detWrap').innerHTML='<div class="det-not-found"><h2>Anunț negăsit</h2><p>Parametrul slug lipsește din URL.</p><a href="/angajari/" class="det-btn det-btn-primary" style="display:inline-flex">← Angajări</a></div>';
+    return;
+  }
+  fetch(SURL+'/rest/v1/job_posts?select=*&slug=eq.'+encodeURIComponent(slug)+'&status=eq.approved&limit=1',{headers:{'apikey':SKEY}})
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(!data||!data.length){
+      document.getElementById('detWrap').innerHTML='<a href="/angajari/" class="det-back"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Înapoi la angajări</a><div class="det-not-found"><h2>Anunț indisponibil</h2><p>Anunțul nu mai este disponibil sau a expirat.</p><a href="/angajari/" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--od);border:1px solid var(--ob);color:var(--o);padding:.65rem 1.3rem;border-radius:var(--r);font-weight:700;text-decoration:none">← Toate angajările</a></div>';
+      return;
+    }
+    renderJob(data[0]);
+  })
+  .catch(function(){
+    document.getElementById('detWrap').innerHTML='<div class="det-not-found"><h2>Eroare</h2><p>Nu s-a putut încărca anunțul. Încearcă din nou.</p></div>';
+  });
+}
+
+loadJob();
+</script>
+</body>
+</html>
